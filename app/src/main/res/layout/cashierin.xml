@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_sale"
+    android:orientation="horizontal"
+    tools:ignore="DisableBaselineAlignment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+        <!--android:id="@+id/textView2"-->
+        <!--style="@style/pospiLogo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="6"-->
+        <!--android:gravity="center|bottom"-->
+        <!--android:textSize="65sp"-->
+        <!--tools:ignore="NestedWeights" />-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/textView2"-->
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="300dp"-->
+        <!--android:layout_weight="6"-->
+        <!--android:src="@drawable/zqlogo"-->
+        <!--android:layout_marginTop="100dp"/>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"
+            android:orientation="vertical">
+
+            <TextView
+            android:id="@+id/textView2"
+            style="@style/pospiLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:textSize="65sp"
+            tools:ignore="NestedWeights" />
+            <!--<ImageView-->
+                <!--android:id="@+id/textView2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="65dp"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:src="@drawable/fuji" />-->
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center|bottom"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center|right"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/user"
+                        tools:ignore="ContentDescription" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_choose_cashier"
+                    style="@style/sale_small_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="@string/select_cashier"
+                    android:textSize="26sp"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:src="@drawable/line_login"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:background="@color/blue_sale"
+                android:id="@+id/ll_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center|right"
+                    android:background="@color/blue_sale"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/passwrrd"
+                        tools:ignore="ContentDescription" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    style="@style/sale_small_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center|left"
+                    android:inputType="numberPassword"
+                    android:textSize="26sp"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/blue_sale"
+        android:gravity="center">
+
+        <ListView
+            android:id="@+id/listView22"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:background="@color/blue_lv_light"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/liner_number"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_7" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_8" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_9" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_4" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_5" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_1" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_2" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_cancle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/iv_cancle"
+                    tools:ignore="ContentDescription,NestedWeights" />
+
+                <Button
+                    style="@style/cashier_in"
+                    android:text="@string/_0" />
+
+
+                <ImageView
+                    android:id="@+id/iv_sure"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/iv_sure"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="15dp"
+            android:src="@drawable/back_lock"
+            android:visibility="invisible" />
+
+        <!--<com.daimajia.numberprogressbar.NumberProgressBar-->
+        <!--android:id="@+id/number_progress_bar"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+
+
+        <!--custom:progress_reached_bar_height="1.5dp"-->
+        <!--custom:progress_reached_color="@color/orange"-->
+
+        <!--custom:progress_text_color="@color/red"-->
+        <!--custom:progress_text_offset="1dp"-->
+        <!--custom:progress_text_size="10sp"-->
+        <!--custom:progress_text_visibility="visible"-->
+
+        <!--custom:progress_unreached_bar_height="0.75dp"-->
+        <!--custom:progress_unreached_color="#CCCCCC"-->
+
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_marginBottom="30dp"-->
+        <!--android:visibility="invisible"/>-->
+    </LinearLayout>
+
+</LinearLayout>

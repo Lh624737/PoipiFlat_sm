@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.pospi.fragment.BlankFragment">
+
+    <GridView
+        android:layout_margin="@dimen/dp_10"
+        android:id="@+id/gv_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:cacheColorHint="#00000000"
+        android:horizontalSpacing="15dp"
+        android:numColumns="6"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
+    <!--android:drawSelectorOnTop="false"-->
+    <!--android:fadingEdge="none"-->
+    <!--android:listSelector="#00000000"-->
+    <!--android:fadingEdgeLength="10dip"-->
+    <!--android:stackFromBottom="true"-->
+    <!--android:transcriptMode="alwaysScroll"-->
+    <!--android:fadeScrollbars="true"-->
+    <!--android:fastScrollEnabled="true"-->
+    <!--android:scrollbars="none"-->
+
+</FrameLayout>

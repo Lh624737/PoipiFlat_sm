@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/detail_item_serial"
+        style="@style/setting_detail"
+        android:text="序号" />
+    <TextView
+        android:id="@+id/detail_item_name"
+        style="@style/setting_detail"
+        android:text="品名" />
+
+    <TextView
+        android:id="@+id/detail_item_price"
+        style="@style/setting_detail"
+        android:text="售价" />
+
+    <TextView
+        android:id="@+id/detail_item_deal_price"
+        style="@style/setting_detail"
+        android:text="成交价" />
+
+    <TextView
+        android:id="@+id/detail_item_num"
+        style="@style/setting_detail"
+        android:text="数量" />
+    <TextView
+        android:id="@+id/detail_item_money"
+        style="@style/setting_detail"
+        android:text="成交金额" />
+
+    <TextView
+        android:id="@+id/detail_item_discount"
+        style="@style/setting_detail"
+        android:text="单品折扣" />
+
+    <TextView
+        android:id="@+id/detail_item_cashier"
+        style="@style/setting_detail"
+        android:text="营业员/服务员" />
+</LinearLayout>

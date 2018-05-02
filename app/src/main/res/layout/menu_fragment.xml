@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_sale"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:id="@+id/return_good"
+        style="@style/menu_layout">
+
+        <ImageView
+            style="@style/menu_img"
+            android:src="@drawable/icon_tuihuo" />
+
+        <TextView
+            style="@style/menu_text"
+            android:text="退货" />
+    </LinearLayout>
+
+    <!--<include layout="@layout/view_line2" />-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/demand_note"-->
+    <!--style="@style/menu_layout">-->
+
+    <!--<ImageView-->
+    <!--style="@style/menu_img"-->
+    <!--android:src="@mipmap/no_image" />-->
+
+    <!--<TextView-->
+    <!--style="@style/menu_text"-->
+    <!--android:text="缴款单" />-->
+    <!--</LinearLayout>-->
+
+    <include layout="@layout/view_line2" />
+
+    <LinearLayout
+        android:id="@+id/money_box"
+        style="@style/menu_layout">
+
+        <ImageView
+            style="@style/menu_img"
+            android:src="@drawable/icon_qx" />
+
+        <TextView
+            style="@style/menu_text"
+            android:text="开钱箱" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line2" />
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/update_pwd"-->
+    <!--style="@style/menu_layout">-->
+
+    <!--<ImageView-->
+    <!--style="@style/menu_img"-->
+    <!--android:src="@drawable/passwrrd" />-->
+
+    <!--<TextView-->
+    <!--style="@style/menu_text"-->
+    <!--android:text="修改密码" />-->
+    <!--</LinearLayout>-->
+
+    <!--<include layout="@layout/view_line2" />-->
+
+    <LinearLayout
+        android:id="@+id/screen_lock"
+        style="@style/menu_layout">
+
+        <ImageView
+            style="@style/menu_img"
+            android:src="@drawable/icon_sp" />
+
+        <TextView
+            style="@style/menu_text"
+            android:text="锁屏离开" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line2" />
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/sign_in"-->
+    <!--style="@style/menu_layout">-->
+
+    <!--<ImageView-->
+    <!--style="@style/menu_img"-->
+    <!--android:src="@drawable/sign_in" />-->
+
+    <!--<TextView-->
+    <!--style="@style/menu_text"-->
+    <!--android:text="签到" />-->
+    <!--</LinearLayout>-->
+
+    <!--<include layout="@layout/view_line2" />-->
+
+    <LinearLayout
+        android:id="@+id/back_menu"
+        style="@style/menu_layout">
+
+        <ImageView
+            style="@style/menu_img"
+            android:src="@drawable/icon_zjm" />
+
+        <TextView
+            style="@style/menu_text"
+            android:text="返回主菜单" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cancel_order"
+        style="@style/menu_more_text"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/grey_light"
+        android:text="整单取消" />
+
+    <TextView
+        android:id="@+id/discount"
+        style="@style/menu_more_text"
+        android:background="@color/green"
+        android:text="整单折扣" />
+
+    <TextView
+        android:id="@+id/guaDan"
+        style="@style/menu_more_text"
+        android:background="@color/orange"
+        android:text="挂单" />
+
+    <TextView
+        android:id="@+id/luodan"
+        style="@style/menu_more_text"
+        android:background="@color/ccc"
+        android:text="发送订单" />
+
+</LinearLayout>

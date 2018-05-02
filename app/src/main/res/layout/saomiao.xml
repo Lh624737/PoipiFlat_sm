@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containeer"
+    android:layout_width="450dp"
+    android:layout_height="500dp"
+    android:background="@drawable/scan_carmar_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="请将二维码/条形码放入矩形框内，即可自动扫描"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+
+    <RelativeLayout
+        android:id="@+id/capture_crop_view"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:gravity="center_horizontal">
+
+        <SurfaceView
+            android:id="@+id/surfaceview"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/pick_bg" />
+
+        <ImageView
+            android:id="@+id/scan_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/bg_scanning"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/scan_button_bg"
+        android:text="ngreurhg" />
+
+
+</LinearLayout>

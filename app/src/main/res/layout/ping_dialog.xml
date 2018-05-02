@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ping_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/settingdialog_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/settingdialog_title_bg">
+
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/pay_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/_ping" />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/back"
+            android:textColor="@color/blue_sale"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/gray_light"
+        android:gravity="center"
+        android:text="@string/router"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/setting_about"
+        style="@style/setting_layout"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_router"
+            style="@style/setting_detail" />
+
+        <TextView
+            android:id="@+id/tv_router_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/gray_light"
+        android:gravity="center"
+        android:text="@string/server"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:text="POSPi服务器" />
+
+            <TextView
+                android:id="@+id/server_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line"
+            android:layout_marginLeft="8dp"/>
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:text="@string/collect_server" />
+
+            <TextView
+                android:id="@+id/run_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="@string/connect_well" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/view_line" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.2" />
+
+</LinearLayout>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".table.FindTableActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue_theme">
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_add_table"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginEnd="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:padding="10dp"-->
+        <!--android:text="添加桌台"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="18sp" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_add_area"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toLeftOf="@id/tv_add_table"-->
+        <!--android:layout_toStartOf="@id/tv_add_table"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginEnd="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:padding="10dp"-->
+        <!--android:text="添加区域"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="18sp" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="8dp"
+            android:text="桌台"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/table_tab"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        tl:tl_divider_color="@color/gray_transparent"
+        tl:tl_divider_width="1dp"
+        tl:tl_indicator_style="BLOCK"
+        tl:tl_tab_padding="25dp"
+        tl:tl_textSelectColor="@color/blue"
+        tl:tl_textUnselectColor="@color/grey_light"
+        tl:tl_textsize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/table_vp"-->
+        <!--style="@style/style_vp" />-->
+        <GridView
+            android:id="@+id/gridView"
+            style="@style/style_vp"
+            android:padding="10dp"
+            android:columnWidth="200dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="8dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_transparent" />
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/set_table_number"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="center"
+                android:text="未选餐桌"
+                android:textColor="@color/red"
+                android:textSize="50sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_transparent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="就餐人数"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/dp_5"
+                android:gravity="center_vertical">
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_subtract"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:paddingEnd="-20dp"-->
+                    <!--android:paddingRight="-20dp"-->
+                    <!--android:src="@drawable/subtract" />-->
+                <EditText
+                    android:id="@+id/et_person_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/et_shape_white"
+                    android:focusable="true"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center" />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_add"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:paddingLeft="-20dp"-->
+                    <!--android:src="@drawable/add" />-->
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="客户姓名"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/dp_5"
+                android:gravity="center_vertical">
+
+                <!--<ImageView-->
+                <!--android:id="@+id/iv_subtract"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:paddingEnd="-20dp"-->
+                <!--android:paddingRight="-20dp"-->
+                <!--android:src="@drawable/subtract" />-->
+                <EditText
+                    android:id="@+id/et_person_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/et_shape_white"
+                    android:focusable="true"
+                    android:textColor="@color/black"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center" />
+
+                <!--<ImageView-->
+                <!--android:id="@+id/iv_add"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:paddingLeft="-20dp"-->
+                <!--android:src="@drawable/add" />-->
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_transparent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/table_state_text"
+                android:text="空闲:" />
+
+            <TextView
+                android:id="@+id/num_unused"
+                style="@style/table_state_text2"
+                android:text="4" />
+
+            <View
+                style="@style/table_state_view"
+                android:background="@color/gray_light" />
+
+            <TextView
+                style="@style/table_state_text"
+                android:text="在用:" />
+
+            <TextView
+                android:id="@+id/num_used"
+                style="@style/table_state_text2"
+                android:text="4" />
+
+            <View
+                style="@style/table_state_view"
+                android:background="@color/blue_theme" />
+
+            <TextView
+                style="@style/table_state_text"
+                android:text="预定:" />
+
+            <TextView
+                android:id="@+id/num_reserved"
+                style="@style/table_state_text2"
+                android:text="4" />
+
+            <View
+                style="@style/table_state_view"
+                android:background="@color/list_bg" />
+
+            <TextView
+                style="@style/table_state_text"
+                android:text="清洁:" />
+
+            <TextView
+                android:id="@+id/num_cleaning"
+                style="@style/table_state_text2"
+                android:text="4" />
+
+            <View
+                style="@style/table_state_view"
+                android:background="@color/green_light" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/table_more"
+                style="@style/sale_small_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/blue_theme"
+                android:text="更多" />
+
+            <Button
+                android:id="@+id/table_sure"
+                style="@style/sale_small_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/pay_bg"
+                android:text="确定" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue_theme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="扫码收款"
+            android:textColor="@color/white"
+            android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="46dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:padding="5dp"
+            android:src="@drawable/icon_cd" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.214"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center_vertical"
+                    android:text="NO" />
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center"
+                    android:text="商品名称" />
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center|right"
+                    android:text="单价(¥)" />
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center|right"
+                    android:text="数量" />
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center|right"
+                    android:text="折扣额(¥)" />
+
+                <TextView
+                    style="@style/pay_title_text"
+                    android:gravity="center|right"
+                    android:text="合计(¥)" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_light" />
+
+
+            <com.pospi.view.swipemenulistview.SwipeMenuListView
+                android:id="@+id/lv_scan"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/griditem">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_syy" />
+
+                    <TextView
+                        android:id="@+id/cashier_name"
+                        style="@style/pay_title_text"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="管理员" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/vip_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sale_main_hy" />
+
+                    <TextView
+                        android:id="@+id/vip_name"
+                        style="@style/pay_title_text"
+                        android:layout_weight="1"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <LinearLayout
+                    android:id="@+id/ll_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/table_iv"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_table" />
+
+                    <TextView
+                        android:id="@+id/table_name"
+                        style="@style/pay_title_text"
+                        android:layout_weight="1"
+                        android:gravity="center" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/pay_title_text"
+                        android:gravity="center|right"
+                        android:text="总计:" />
+
+                    <TextView
+                        android:id="@+id/tv_num"
+                        style="@style/pay_red_text"
+                        android:gravity="center"
+                        android:text="0"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        style="@style/pay_title_text"
+                        android:gravity="center|left"
+                        android:text="件" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/pay_title_text"
+                        android:layout_weight="1"
+                        android:gravity="center|right"
+                        android:text="折扣:" />
+
+                    <TextView
+                        android:id="@+id/tv_discount"
+                        style="@style/pay_red_text"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="0.00"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/pay_title_text"
+                        android:layout_weight="1"
+                        android:gravity="center|right"
+                        android:text="应收:" />
+
+                    <TextView
+                        android:id="@+id/tv_money"
+                        style="@style/pay_red_text"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="0.00"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_light2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <EditText
+                    android:id="@+id/et_led"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@null"
+                    android:gravity="center_vertical|end"
+                    android:lines="1"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    tools:ignore="TextFields" />
+
+                <ImageView
+                    android:id="@+id/scan_iv"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/icon_sys_bg" />
+
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="numberClick"
+                    android:text="1" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="2" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="3" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="5" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="6" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="7" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="numberClick"
+                    android:text="8" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="numberClick"
+                    android:text="9" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/scan_qc"
+                    style="@style/scan_calu"
+                    android:text="清除"
+                    android:textSize="36sp" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    android:id="@+id/zero"
+                    style="@style/scan_calu"
+                    android:onClick="numberClick"
+                    android:text="0" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    android:id="@+id/scan_sure"
+                    style="@style/scan_calu"
+                    android:text="确定"
+                    android:textSize="36sp" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/more_payway"
+                    style="@style/sale_small_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:background="@color/blue_theme"
+                    android:text="更多" />
+
+                <Button
+                    android:id="@+id/pay"
+                    style="@style/sale_small_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/pay_bg"
+                    android:focusable="false"
+                    android:text="付款" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

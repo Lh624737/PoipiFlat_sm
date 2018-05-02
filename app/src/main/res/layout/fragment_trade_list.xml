@@ -1,0 +1,218 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tradlist_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/_2016_05_24"
+            android:textColor="@color/blue_sale"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/sale_et"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1.8"
+            android:background="@drawable/main_home_search_shape"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_ss"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:hint="搜索小票号"
+            android:inputType="number"
+            android:textColorHint="@color/gray_light2"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.4"
+            android:background="@drawable/shape_blue"
+            android:text="搜索"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/blue_sale" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="10"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="小票号" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="交易类型" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <!--<TextView-->
+                <!--style="@style/today_sale_lv_title"-->
+                <!--android:gravity="center"-->
+                <!--android:text="桌台" />-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:background="@color/grey" />-->
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:gravity="center"
+                android:layout_weight="1.2"
+                android:text="件数" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="应收" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="实收" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="找零" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="7"
+                android:gravity="center"
+
+                android:text="结账时间" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="是否上传" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/grey" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="ERP" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/tradlistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+    </LinearLayout>
+</LinearLayout>

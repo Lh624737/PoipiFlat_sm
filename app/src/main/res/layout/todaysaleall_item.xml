@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/today_sale_all_item_cashier"
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/today_sale_all_item_num"
+        style="@style/today_sale_lv_item"
+
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/today_sale_all_item_sale"
+
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/today_sale_all_item_discount"
+
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/today_sale_all_item_shouru"
+
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+    <TextView
+        android:id="@+id/today_sale_all_item_upload"
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/today_sale_all_item_gap"
+        style="@style/today_sale_lv_item"
+        android:text="1" />
+
+</LinearLayout>

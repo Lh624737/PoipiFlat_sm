@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/noimageshow" />
+
+    <LinearLayout style="@style/category_layout">
+
+        <TextView
+            style="@style/category_text"
+            android:text="条码" />
+
+        <EditText
+            android:id="@+id/et_category_code"
+            style="@style/category_edit"
+            android:inputType="number"
+            android:text="1234567891234"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/category_layout">
+
+        <TextView
+            style="@style/category_text"
+            android:text="名称" />
+
+        <EditText
+            android:id="@+id/et_category_name"
+            style="@style/category_edit"
+            android:text="TEST"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/category_layout">
+
+        <TextView
+            style="@style/category_text"
+            android:text="价格" />
+
+        <EditText
+            android:id="@+id/et_category_price"
+            style="@style/category_edit"
+            android:digits="1234567890."
+            android:text="0.01"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/category_layout">
+
+        <TextView
+            style="@style/category_text"
+            android:text="分类" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            style="@style/category_text_right"
+            android:gravity="center"
+            android:textColor="@color/blue_theme"
+            android:text="饼干"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!--<LinearLayout style="@style/category_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/category_text"-->
+    <!--android:text="做法" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_practice"-->
+    <!--style="@style/category_text_right" />-->
+    <!--</LinearLayout>-->
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="40dp"
+        android:background="@drawable/shape_btn_red"
+        android:text="删除"
+        android:textColor="@drawable/white_text_color_click"
+        android:textSize="20sp" />
+</LinearLayout>

@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin:'org.greenrobot.greendao'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    useLibrary 'org.apache.http.legacy'
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    defaultConfig {
+        applicationId "com.pospi.pai.pospiflat"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "v.1.0"
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']  // <-- Set your folder here!
+        }
+    }
+    greendao{
+        schemaVersion 1
+        daoPackage 'com.pospi.greendao'
+        targetGenDir 'src/main/java'
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile project(':android-async-http-1.4.5')
+    //    compile files('libs/json-lib-2.4-jdk15.jar')
+    compile files('libs/jcc-bate-0.7.3.jar')
+    compile files('libs/gprintersdkv22.jar')
+    compile files('libs/androidprintsdk.jar')
+    compile files('libs/gson-2.3.1.jar')
+    compile files('libs/ZQPrinterSDK.jar')
+    compile files('libs/commons-lang-2.6.jar')
+    compile files('libs/xUtils-2.6.14.jar')
+    compile files('libs/Commonlib_pro_20160504.jar')
+    compile files('libs/ksoap2-android-assembly-2.6.5-jar-with-dependencies.jar')
+    compile files('libs/BaseLib_V1.00.00_20161205.jar')
+    compile files('libs/PosApi_V1.01_20170111.jar')
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+//    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+//    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.6@aar'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.kyleduo.switchbutton:library:1.4.1'
+    compile 'com.daimajia.numberprogressbar:library:1.2@aar'
+    compile files('libs/android-toolbox-5.0.0.jar')
+    compile 'com.orhanobut:logger:1.15'
+    compile files('libs/jna-4.2.1.jar')
+    compile files('libs/jsums-mpos-SDK-1.1.0.jar')
+    compile files('libs/regoPrintLibV3.0.05（729）.jar')
+    //    compile files('libs/cashbox.jar')
+    compile files('libs/miyajavapos.jar')
+    compile files('libs/commons-net-3.6.jar')
+    compile files('libs/PaxGLPage_V1.00.04_20170420.jar')
+    compile files('libs/NeptuneLiteApi_V2.02.00_20171220.jar')
+    compile 'org.greenrobot:greendao:3.1.0'
+    compile 'org.greenrobot:greendao-generator:3.1.0'
+    compile ('com.tsy:myokhttp:1.1.3') {
+        exclude group: 'com.google.code.gson' }
+}

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".wifi_printer.PrintActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/blue_theme"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:text="功能区"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/title_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7.5"
+            android:gravity="center"
+            android:text="设置分类"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!--<View-->
+        <!--android:layout_width="0.5dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/gray_light2" />-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/tv_add"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="+"
+                android:textColor="@drawable/white_text_color_click"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/title_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="新增分类"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_save_add"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingRight="20dp"
+                android:text="添加"
+                android:textColor="@drawable/white_text_color_click"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/grey_light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/grey_light_bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:text="商品分类" />
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:id="@+id/tv_add_category"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/textclick2"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="添加分类"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/grey_light_bg" />
+
+            <TextView
+
+                android:id="@+id/tv_add_menu"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/textclick2"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="添加商品"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="bottom"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:text="打印机设置" />
+
+            <include layout="@layout/view_line" />
+
+
+            <TextView
+
+                android:id="@+id/tv_add_printer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/textclick2"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="打印机设置"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <include layout="@layout/view_line" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/area_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7.5"
+            android:background="@color/gray" />
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="7.5"-->
+        <!--android:background="@color/white"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ListView-->
+        <!--android:id="@+id/print_type"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/white" />-->
+
+        <!--<ListView-->
+        <!--android:id="@+id/print_list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/dp_10"-->
+        <!--android:background="@color/white_light" />-->
+        <!--</LinearLayout>-->
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_light" />
+
+        <!--<LinearLayout-->
+
+        <!--android:id="@+id/print_detail"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="2"-->
+        <!--android:background="@color/gray_little"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:visibility="gone">-->
+
+        <!--<TextView-->
+        <!--style="@style/printer_setting"-->
+        <!--android:text="开启系统打印机" />-->
+
+        <!--<com.kyleduo.switchbutton.SwitchButton-->
+        <!--android:id="@+id/openPrinter"-->
+        <!--style="@style/switch_button"-->
+        <!--android:checked="true" />-->
+        <!--</LinearLayout>-->
+
+
+        <FrameLayout
+            android:id="@+id/area_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:background="@color/grey_light_bg" />
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/wifi_printer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="7"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="visible">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:background="@color/gray_little"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+        <!--style="@style/printer_setting"-->
+        <!--android:gravity="center"-->
+        <!--android:text="名称：" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/et_name"-->
+        <!--style="@style/printer_setting"-->
+        <!--android:layout_marginLeft="@dimen/dp_10"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_weight="3"-->
+        <!--android:background="@drawable/frame" />-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:background="@color/gray_little"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+        <!--style="@style/printer_setting"-->
+        <!--android:gravity="center"-->
+        <!--android:text="IP地址：" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/et_ip"-->
+        <!--style="@style/printer_setting"-->
+        <!--android:layout_marginLeft="@dimen/dp_10"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_weight="3"-->
+        <!--android:background="@drawable/frame" />-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:background="@color/gray_little"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+        <!--style="@style/printer_setting"-->
+        <!--android:gravity="center"-->
+        <!--android:text="端口：" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/et_dk"-->
+        <!--style="@style/printer_setting"-->
+        <!--android:layout_marginLeft="@dimen/dp_10"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_weight="3"-->
+        <!--android:background="@drawable/frame"-->
+        <!--android:inputType="number" />-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+        <!--android:id="@+id/connect"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginRight="@dimen/dp_10"-->
+        <!--android:background="@color/red"-->
+        <!--android:text="保存"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="20sp" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/printer_test"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="@dimen/dp_10"-->
+        <!--android:background="@color/blue_theme"-->
+        <!--android:text="打印测试"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="20sp" />-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<Button-->
+        <!--android:id="@+id/delete"-->
+        <!--android:layout_width="500dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:background="@color/green"-->
+        <!--android:text="删除"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="20sp"-->
+        <!--android:visibility="gone" />-->
+        <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+</LinearLayout>

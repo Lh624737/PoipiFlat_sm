@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.pospi.pai.pospiflat.table.FindTableActivity">
+    <!--<RelativeLayout style="@style/title">-->
+
+    <!--<TextView-->
+    <!--style="@style/sale_big_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="桌台" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1">-->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/today_sale_statis"
+            style="@style/style_tongji"
+            android:text="全部" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+        <TextView
+            android:id="@+id/cashier_today"
+            style="@style/style_tongji"
+            android:text="两人" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+        <TextView
+            android:id="@+id/today_sale_all"
+            style="@style/style_tongji"
+            android:text="四人" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+        <TextView
+            android:id="@+id/today_time_statis"
+            style="@style/style_tongji"
+            android:text="大包" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+        <TextView
+            android:id="@+id/trade_list"
+            style="@style/style_tongji"
+            android:text="小包" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+
+        <TextView
+            style="@style/style_tongji"
+            android:text="其他" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/gray_light" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0.1dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:background="@color/gray_light" />
+
+    <LinearLayout
+        android:id="@+id/today_sale_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="vertical" />
+    <!--</LinearLayout>-->
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <TextView
+        android:id="@+id/num"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center_vertical" />
+
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center" />
+
+
+    <TextView
+        android:id="@+id/price"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center|right" />
+
+    <TextView
+        android:id="@+id/goods_num"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center|right" />
+
+    <TextView
+        android:id="@+id/goods_discount"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center|right" />
+
+    <TextView
+        android:id="@+id/total"
+        style="@style/add_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:gravity="center|right" />
+
+</LinearLayout>

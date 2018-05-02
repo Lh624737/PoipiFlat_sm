@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/title">
+
+        <TextView
+            style="@style/sale_big_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="交易详情" />
+
+        <ImageView
+            android:id="@+id/tuikuan"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/detail_print"
+            android:layout_marginEnd="49dp"
+            android:layout_marginRight="49dp"
+            android:layout_marginTop="-10dp"
+            android:layout_toLeftOf="@+id/detail_print"
+            android:layout_toStartOf="@+id/detail_print"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/icon_tk" />
+
+        <ImageView
+            android:id="@+id/detail_print"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:src="@drawable/icon_dyj" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/today_sale_tv"
+                    android:text="单号:" />
+
+                <TextView
+                    android:id="@+id/detail_no"
+                    style="@style/today_sale_num"
+                    android:text="@string/_0" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/today_sale_tv"
+                    android:text="结账时间：" />
+
+                <TextView
+                    android:id="@+id/detail_time"
+                    style="@style/today_sale_num"
+                    android:text="@string/zero" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/today_sale_tv"
+                    android:text="交易类型:" />
+
+                <TextView
+                    android:id="@+id/detail_type"
+                    style="@style/today_sale_num"
+                    android:text="@string/_0" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!--<TextView-->
+                <!--style="@style/today_sale_tv"-->
+                <!--android:text="MiYa交易号：" />-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/miYa_number"-->
+                <!--style="@style/today_sale_num"-->
+                <!--android:text="无" />-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="12"
+            android:background="@color/gray"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/cashier_today_style_title"
+                    android:text="收款合计" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/blue_sale" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="序号" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="品名" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="售价" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="成交价" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="数量" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="成交金额" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="单品折扣" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="营业员/服务员" />
+
+                </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/detail_in_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/cashier_today_style_title"
+                    android:text="付款合计" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/blue_sale" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="@string/payment" />
+
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="@string/yingshou_money" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="实收金额" />
+
+                    <TextView
+                        style="@style/today_sale_lv_title"
+                        android:text="找零金额" />
+
+                </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/detail_pay_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

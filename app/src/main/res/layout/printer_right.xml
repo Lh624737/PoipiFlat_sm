@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/gray_little"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/printer_setting"
+            android:gravity="center|right"
+            android:text="型号：" />
+
+        <Button
+            android:id="@+id/btn_model"
+            style="@style/printer_setting"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="20dp"
+            android:layout_weight="3"
+            android:background="@color/paleturquoise"
+            android:gravity="center"
+            android:text="WIFI打印机"
+            android:textColor="@color/blue_theme" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/gray_little"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/printer_setting"
+            android:gravity="center|right"
+            android:text="名称：" />
+
+        <EditText
+            android:id="@+id/et_name"
+            style="@style/printer_setting"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="20dp"
+            android:layout_weight="3"
+            android:background="@drawable/et_shape_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/gray_little"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/printer_setting"
+            android:gravity="center|right"
+            android:text="IP地址：" />
+
+        <EditText
+            android:id="@+id/et_ip"
+            style="@style/printer_setting"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="20dp"
+            android:layout_weight="3"
+            android:background="@drawable/et_shape_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/gray_little"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/printer_setting"
+            android:gravity="center|right"
+            android:text="端口：" />
+
+        <EditText
+            android:id="@+id/et_dk"
+            style="@style/printer_setting"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="20dp"
+            android:layout_weight="3"
+            android:background="@drawable/et_shape_gray"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/gray_little"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/printer_setting"
+            android:gravity="center|right"
+            android:text="打印机类型：" />
+
+        <Button
+            android:id="@+id/btn_use_way"
+            style="@style/printer_setting"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="20dp"
+            android:layout_weight="3"
+            android:background="@color/paleturquoise"
+            android:gravity="center"
+            android:text="请选择"
+            android:textColor="@color/blue_theme" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_btn_red"
+        android:text="打印测试"
+        android:textColor="@drawable/white_text_color_click"
+        android:textSize="20sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_btn_red"
+        android:text="删除"
+        android:textColor="@drawable/white_text_color_click"
+        android:textSize="20sp"
+        android:visibility="visible" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

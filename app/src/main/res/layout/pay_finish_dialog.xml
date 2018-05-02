@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/finish_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/finish_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_xiaolian" />
+
+        <TextView
+            android:id="@+id/finish_tv"
+            style="@style/pay_detail"
+            android:layout_alignEnd="@+id/finish_iv"
+            android:layout_alignRight="@+id/finish_iv"
+            android:layout_below="@+id/finish_iv"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:text="支付成功" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/finish_zhifuway"
+            style="@style/pay_finish"
+            android:layout_weight="1"
+            android:text="现金支付" />
+
+        <TextView
+            android:id="@+id/finish_payway_money"
+            style="@style/pay_finish"
+            android:text="￥100" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/pay_finish"
+            android:layout_weight="1"
+            android:text="找零" />
+
+        <TextView
+            style="@style/pay_finish"
+            android:layout_gravity="right"
+            android:text="￥0.00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/pay_finish"
+            android:layout_weight="1"
+            android:text="找零" />
+
+        <TextView
+            android:id="@+id/pay_finish_zl"
+            style="@style/pay_finish"
+            android:layout_gravity="right"
+            android:text="￥0.00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal" />
+
+    <Button
+        android:id="@+id/pay_finish_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/red_btn_check"
+        android:text="返回收银台"
+        android:textColor="@color/white"
+        android:textSize="36sp" />
+</LinearLayout>

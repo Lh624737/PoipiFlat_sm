@@ -1,0 +1,180 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pospi.fragment.TodaySaleFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/today_sale_data"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/_2016_05_24"
+            android:gravity="center_vertical"
+            android:textColor="@color/blue_sale"
+            android:textSize="22sp" />
+
+
+        <TextView
+            android:id="@+id/today_print"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="日结打印"
+            android:gravity="center_vertical|right"
+            android:paddingRight="20dp"
+            android:textColor="@drawable/blue_text_color_click"
+            android:textSize="26sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/today_sale_tv"
+                android:text="@string/all_sale_num" />
+
+            <TextView
+                android:id="@+id/today_sale_total_num"
+                style="@style/today_sale_num"
+                android:text="@string/_0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/today_sale_tv"
+                android:text="@string/sale_total" />
+
+            <TextView
+                android:id="@+id/today_sale_total_sale"
+                style="@style/today_sale_num"
+                android:text="@string/zero" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/today_sale_tv"
+                android:text="@string/discount_total" />
+
+            <TextView
+                android:id="@+id/today_sale_total_discount"
+                style="@style/today_sale_num"
+                android:text="@string/zero" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/today_sale_tv"
+                android:text="@string/in_total" />
+
+            <TextView
+                android:id="@+id/today_sale_total_shouru"
+                style="@style/today_sale_num"
+                android:text="@string/zero" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/blue_sale" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:text="@string/good_name" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:text="@string/sale_num" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:text="@string/sale_money" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:text="@string/discount_money" />
+
+            <TextView
+                style="@style/today_sale_lv_title"
+                android:text="@string/sale_in"
+                android:id="@+id/textView6" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/today_sale_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@null" />
+    </LinearLayout>
+</LinearLayout>

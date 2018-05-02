@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/pay_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/setting" />
+
+        <TextView
+            android:id="@+id/setting_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/close"
+            android:textColor="@color/blue_sale"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/printer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            android:id="@+id/printer_text"
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="打印机连接" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line_leftmargin" />
+
+    <LinearLayout
+        android:id="@+id/receipt_setting"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="设置" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/setting_about"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@color/white"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="8dp">-->
+
+        <!--<TextView-->
+            <!--style="@style/setting_detail"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/about_pospi" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:src="@drawable/setting_iv_in" />-->
+    <!--</LinearLayout>-->
+
+    <include layout="@layout/view_line_leftmargin" />
+
+    <!--<include layout="@layout/view_line_leftmargin" />-->
+
+    <LinearLayout
+        android:id="@+id/setting_account"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="@string/acount_info" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+
+
+    <include layout="@layout/view_line_leftmargin" />
+
+    <LinearLayout
+        android:id="@+id/setting_check"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="@string/ping" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line_leftmargin" />
+
+    <LinearLayout
+        android:id="@+id/huanban"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="换班" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+    <include layout="@layout/view_line_leftmargin" />
+    <LinearLayout
+        android:id="@+id/wutu_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="无图模式" />
+
+        <Switch
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/wutu_switch" />
+    </LinearLayout>
+
+
+    <include layout="@layout/view_line_leftmargin" />
+
+    <LinearLayout
+        android:id="@+id/erp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp">
+
+        <TextView
+            style="@style/setting_detail"
+            android:layout_weight="1"
+            android:text="第三方ERP系统数据上传设置" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="10"
+            android:src="@drawable/setting_iv_in" />
+    </LinearLayout>
+
+    <include layout="@layout/view_line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/view" />
+
+    <include layout="@layout/view_line" />
+
+    <Button
+        android:id="@+id/setting_exit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="@color/white"
+        android:text="@string/exit_current"
+        android:textColor="@drawable/red_test_change"
+        android:textSize="20sp" />
+
+    <include layout="@layout/view_line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+</LinearLayout>

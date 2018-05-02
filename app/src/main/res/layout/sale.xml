@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="DisableBaselineAlignment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#1b3c88"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/menu"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_caidan" />
+
+            <ImageView
+                android:id="@+id/cashier"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/menu"
+                android:layout_gravity="center"
+                android:layout_marginLeft="47dp"
+                android:layout_marginStart="47dp"
+                android:layout_toEndOf="@+id/menu"
+                android:layout_toRightOf="@+id/menu"
+                android:src="@drawable/cashier" />
+
+            <TextView
+                android:id="@+id/sale_cashier_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/cashier"
+                android:layout_toRightOf="@+id/cashier"
+                android:gravity="center"
+                android:text="0000"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/iv_huiyuan"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/menu"
+                android:layout_gravity="center"
+                android:layout_marginLeft="170dp"
+                android:layout_marginStart="170dp"
+                android:layout_toEndOf="@+id/menu"
+                android:layout_toRightOf="@+id/menu"
+                android:src="@drawable/huiyuan_click_updown" />
+
+            <TextView
+                android:id="@+id/sale_hy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/iv_huiyuan"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/iv_huiyuan"
+                android:layout_toRightOf="@+id/iv_huiyuan"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="1"
+            android:background="@color/blue_sale"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights">
+
+
+            <TextView
+                android:id="@+id/tv_sale"
+                style="@style/text_26"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:text="@string/sale" />
+
+            <ImageView
+                android:id="@+id/iv_sale"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="0.2"
+                android:gravity="start"
+                android:src="@drawable/xiaoshou"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/sale_tv_money"
+                style="@style/text_26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="@string/zero"
+                tools:ignore="NestedWeights,RtlHardcoded" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="1"
+            android:background="@color/blue_sale"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sale_tv_No"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/sale_tv_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:text="@string/jian_0"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="0.6"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <TextView
+                style="@style/sale_list_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/no"
+                tools:ignore="NestedWeights" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/sale_lv_splite"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/sale_list_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="@string/good_name" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/sale_lv_splite"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/sale_list_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/num_price" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/sale_lv_splite"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/sale_list_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:gravity="center"
+                android:text="@string/money" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/sale_lv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_weight="9"
+            android:background="@drawable/bg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5625"
+            tools:ignore="NestedWeights">
+
+            <Button
+                android:id="@+id/btn_cancle"
+                style="@style/sale_big_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/dd"
+                android:focusable="false"
+                android:text="@string/all_cancel" />
+
+            <Button
+                android:id="@+id/btn_rest"
+                style="@style/sale_big_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/green"
+                android:focusable="false"
+                android:text="挂单" />
+
+            <Button
+                android:id="@+id/btn_pay"
+                style="@style/sale_big_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/pay_sale"
+                android:focusable="false"
+                android:text="@string/pay_for" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/sale_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dp_5"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:focusable="true"
+                android:gravity="end"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                tools:ignore="TextFields" />
+
+            <ImageView
+                android:id="@+id/scan_code_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_weight="6"
+                android:src="@drawable/barcode"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/seve"
+                style="@style/pay_money"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_weight="1"
+                android:text="@string/_7" />
+
+            <TextView
+                android:id="@+id/eigh"
+                style="@style/pay_money"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_weight="1"
+                android:text="@string/_8" />
+
+            <TextView
+                android:id="@+id/nin"
+                style="@style/pay_money"
+                android:layout_weight="1"
+                android:text="@string/_9" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fou"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/_4" />
+
+            <TextView
+                android:id="@+id/fiv"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/_5" />
+
+            <TextView
+                android:id="@+id/si"
+                style="@style/pay_money"
+                android:layout_weight="1"
+                android:text="@string/_6" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/on"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/_1" />
+
+            <TextView
+                android:id="@+id/tw"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/_2" />
+
+            <TextView
+                android:id="@+id/thre"
+                style="@style/pay_money"
+                android:layout_weight="1"
+                android:text="@string/_3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/qc"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/clear" />
+
+            <TextView
+                android:id="@+id/zer"
+                style="@style/pay_money"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/_0" />
+
+            <TextView
+                android:id="@+id/sure"
+                style="@style/pay_money"
+                android:layout_weight="1"
+                android:text="@string/sure" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

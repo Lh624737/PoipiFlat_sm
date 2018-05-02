@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aa"
+    android:orientation="vertical"
+    tools:context=".login.UserLoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/pospiLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center" />
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/fuji" />-->
+
+        <!--<ImageView-->
+        <!--android:layout_width="400dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/icon_logo2" />-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/userlogin_uesr"
+            style="@style/AppTheme."
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:imeOptions="actionNext"
+            android:imeActionLabel="@string/next"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/userpw"
+            android:gravity="center"
+            android:text="llllll"
+            android:hint="@string/hint_account"
+            android:lines="1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/userlogin_pwd"
+            style="@style/AppTheme."
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:imeOptions="actionGo"
+            android:imeActionLabel="@string/login"
+            android:text="asdf1234"
+            android:background="@drawable/userpw"
+            android:digits="0123456789abcdefghijgklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.!@#$?+-*/%"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <Button
+            android:id="@+id/userlogin_btn_login"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btnclick"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/userlogin_pro"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:visibility="gone" />
+
+</LinearLayout>

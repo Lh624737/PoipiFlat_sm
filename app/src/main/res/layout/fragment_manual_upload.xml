@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_manual_upload"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/shape_blue"
+            android:text="手动上传订单"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_ftp_upload"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/shape_blue"
+            android:text="上传到ftp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_manual_erp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/shape_blue"
+            android:text="手动上传ERP"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_upload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/pb_upload"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/text_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pb_upload"
+            android:layout_centerHorizontal="true"
+            android:text="正在上传..."
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

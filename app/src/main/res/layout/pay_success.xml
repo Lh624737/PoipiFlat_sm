@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon_xiaolian" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="结账成功"
+            android:textColor="@color/blue_theme"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1.1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/pay_success_layout">
+
+            <TextView
+                android:id="@+id/tv_payment"
+                style="@style/pay_success_left"
+                android:text="现金支付" />
+
+            <TextView
+                android:id="@+id/tv_pay_money"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <LinearLayout style="@style/pay_success_layout">
+
+            <TextView
+                android:id="@+id/order_type"
+                style="@style/pay_success_left"
+                android:text="实收" />
+
+            <TextView
+                android:id="@+id/tv_ss"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_zl"
+            style="@style/pay_success_layout">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="找零" />
+
+            <TextView
+                android:id="@+id/tv_change"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_card_id"
+            style="@style/pay_success_layout"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="储值卡卡号" />
+
+            <TextView
+                android:id="@+id/tv_card_id"
+                style="@style/pay_success_right" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ll_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/colorBackground"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_card_balance"
+            style="@style/pay_success_layout"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="卡内余额" />
+
+            <TextView
+                android:id="@+id/tv_card_balance"
+                style="@style/pay_success_right"
+                android:text="666.00" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <LinearLayout style="@style/pay_success_layout">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="单号" />
+
+            <TextView
+                android:id="@+id/tv_order_id"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <LinearLayout style="@style/pay_success_layout">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="门店" />
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <LinearLayout style="@style/pay_success_layout">
+
+            <TextView
+                style="@style/pay_success_left"
+                android:text="操作员" />
+
+            <TextView
+                android:id="@+id/tv_cashier"
+                style="@style/pay_success_right" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/btn_back_style"
+            android:layout_weight="3"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="返回收银台" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/btn_back_style"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:text="重打小票"
+            android:background="@drawable/blue_btn_check"
+            android:onClick="printPaper"
+            android:id="@+id/btn_print"/>
+    </LinearLayout>
+
+
+</LinearLayout>

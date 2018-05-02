@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/today_sale_item_name"
+        style="@style/today_sale_lv_item" />
+
+    <TextView
+        android:id="@+id/today_sale_item_num"
+        style="@style/today_sale_lv_item" />
+
+    <TextView
+        android:id="@+id/today_sale_item_sale"
+        style="@style/today_sale_lv_item" />
+
+    <TextView
+        android:id="@+id/today_sale_item_discount"
+        style="@style/today_sale_lv_item" />
+
+    <TextView
+        android:id="@+id/today_sale_item_shouru"
+        style="@style/today_sale_lv_item" />
+</LinearLayout>

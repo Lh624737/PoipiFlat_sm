@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".util.ChuZhiKaDialogActivity">
+
+    <LinearLayout
+        android:id="@+id/card_pay_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_10"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/cardPay_text"
+                android:gravity="center_vertical"
+                android:text="卡号："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_no"
+                style="@style/cardPay_text"
+                android:gravity="center|right"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/cardPay_text"
+                android:gravity="center_vertical"
+                android:text="余额："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_pay_ye"
+                style="@style/cardPay_text"
+                android:gravity="center|right"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/order_type"
+                style="@style/cardPay_text"
+                android:gravity="center_vertical"
+                android:text="消费："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_pay_sf"
+                style="@style/cardPay_text"
+                android:gravity="center|right"
+                android:textColor="@color/red" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_card_discount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/cardPay_text"
+                android:gravity="center_vertical"
+                android:text="折扣："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_discount"
+                style="@style/cardPay_text"
+                android:gravity="center|right"
+                android:textColor="@color/red" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/cardPay_text"
+                android:gravity="center_vertical"
+                android:text="结余："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/card_pay_jy"
+                style="@style/cardPay_text"
+                android:gravity="center|right"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/card_pay_btn_pay"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_btn_check"
+            android:text="确定付款"
+            android:textColor="@drawable/white_text_color_click"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/card_pay_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_kt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="请刷卡"
+            android:textColor="#eab8ad"
+            android:textSize="36sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/account_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/settingdialog_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/settingdialog_title_bg">
+
+        <TextView
+            style="@style/pay_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/acount_info" />
+
+        <TextView
+            android:id="@+id/set_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="@string/back"
+            android:textColor="@color/blue_sale"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/view_line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8" />
+
+    <include layout="@layout/view_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:layout_weight="1"
+                android:text="@string/account" />
+
+            <TextView
+                android:id="@+id/account"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line_leftmargin" />
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:layout_weight="1"
+                android:text="@string/shop_id" />
+
+            <TextView
+                android:id="@+id/shop_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line_leftmargin" />
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:layout_weight="1"
+                android:text="@string/cashier_id" />
+
+            <TextView
+                android:id="@+id/cashier_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line_leftmargin" />
+
+        <LinearLayout
+            style="@style/setting_layout"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/setting_detail"
+                android:layout_weight="1"
+                android:text="@string/cash_register_id" />
+
+            <TextView
+                android:id="@+id/cash_register_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+</LinearLayout>

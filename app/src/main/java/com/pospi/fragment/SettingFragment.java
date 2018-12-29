@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 /**
  * Created by Qiyan on 2016/7/1.

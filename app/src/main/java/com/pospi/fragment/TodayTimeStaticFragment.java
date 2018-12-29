@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.pospi.dao.OrderDao;
 import com.pospi.dto.GoodsDto;
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.DoubleSave;
 import com.pospi.util.GetData;
 import com.pospi.util.MyChartItem;

@@ -141,7 +141,7 @@ public class PaxPrint implements MyPrinter{
         double discounts = 0.00;
         for (GoodsDto goodsDto : goodsDtos) {
             double price = goodsDto.getPrice();//单价
-            int num = goodsDto.getNum();
+            double num = goodsDto.getNum();
             double discount = goodsDto.getDiscount();
             discounts += discount;
             nums += num;
@@ -366,7 +366,7 @@ public class PaxPrint implements MyPrinter{
             double discounts = 0.00;
             for (GoodsDto goodsDto : goodsDtos) {
                 double price = goodsDto.getPrice();//单价
-                int num = goodsDto.getNum();
+                double num = goodsDto.getNum();
                 double discount = goodsDto.getDiscount();
                 discounts += discount;
                 nums += num;
@@ -506,12 +506,7 @@ public class PaxPrint implements MyPrinter{
     }
 
     @Override
-    public void starPrint(String goods, String payMoney, Bitmap qrCode, boolean isSale ,ValueCardDto valueCardDto ,String sid,String tableId) {
-        if (payway.equals(String.valueOf(PayWay.MIANZHI_CARD))) {
-            print(goods, payMoney, valueCardDto,sid);
-        } else {
-            print(goods ,payMoney ,sid);
-        }
+    public void starPrint() {
 
     }
 }

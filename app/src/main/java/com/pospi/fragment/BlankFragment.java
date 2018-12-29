@@ -24,8 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.lany.sp.SPHelper;
 import com.pospi.dto.GoodsDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.login.Constant;
 import com.pospi.util.constant.URL;
 import com.pospi.view.swipemenulistview.AutoAdjustSizeTextView;
 
@@ -114,6 +116,7 @@ public class BlankFragment extends Fragment {
         private List<GoodsDto> goodsBeens;
         //无图设置
         private boolean wutu;
+
         MyAdapter(Context context, List<GoodsDto> goodsBeens) {
             this.context = context;
             this.goodsBeens = goodsBeens;
@@ -138,62 +141,44 @@ public class BlankFragment extends Fragment {
         //创建View方法
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            wutu = getWuTu();
             ViewHolder holder;
             if (convertView == null) {
                 holder = new ViewHolder();
-                if (wutu) {
-                    convertView = LayoutInflater.from(context).inflate(R.layout.goods_item, null);
-                    holder.tv_good_name_wutu = (TextView) convertView.findViewById(R.id.tv_goodName);
-                } else {
-                    convertView = LayoutInflater.from(context).inflate(R.layout.gv_goods_item, null);
-                    holder.good_image = (ImageView) convertView.findViewById(R.id.img_good);
-                    holder.tv_good_name = (AutoAdjustSizeTextView) convertView.findViewById(R.id.tv_goodName);
-                    holder.layout_bottom = (LinearLayout) convertView.findViewById(R.id.layout_bottom);
-                }
-                holder.tv_good_price = (TextView) convertView.findViewById(R.id.tv_goodPrice);
-//                holder.good_name = (TextView) convertView.findViewById(R.id.goodName);
-//                holder.good_price = (TextView) convertView.findViewById(R.id.goodPrice);
-//                holder.layout_center = (LinearLayout) convertView.findViewById(R.id.layout_center);
-
+                convertView = LayoutInflater.from(context).inflate(R.layout.gv_goods_item, null);
+                holder.good_image = (ImageView) convertView.findViewById(R.id.img_good);
+                holder.tv_good_name = (TextView) convertView.findViewById(R.id.tv_goodName);
+                holder.tv_code = (TextView) convertView.findViewById(R.id.tv_code);
+                holder.tv_name = convertView.findViewById(R.id.tv_name);
+                holder.tv_goodPrice = convertView.findViewById(R.id.tv_goodPrice);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            //判断图片url是否为空，为空就设置iv背景色
-//            Log.i("image_url", "image_url: "+new URL().host() + goodsBeens.get(position)
-//                    .getImage());
-//            if (goodsBeens.get(position).getImage() != null) {
-
             if (!wutu) {
                 Glide.with(context).load(new URL().host() + goodsBeens.get(position)
-                        .getImage()).placeholder(R.drawable.noimageshow).dontAnimate().into(holder.good_image);
-                holder.tv_good_name.setText(goodsBeens.get(position).getName());
+                        .getImage()).placeholder(R.drawable.image_none).dontAnimate().into(holder.good_image);
+                holder.good_image.setVisibility(View.VISIBLE);
+                holder.tv_name.setVisibility(View.GONE);
             } else {
-                holder.tv_good_name_wutu.setText(goodsBeens.get(position).getName());
+                holder.good_image.setVisibility(View.GONE);
+                holder.tv_name.setVisibility(View.VISIBLE);
+                holder.tv_name.setText(goodsBeens.get(position).getName());
             }
-           // holder.tv_good_name.setText("面包店分设定夫人地方");
-           // holder.tv_good_price.setText("￥100.0");
-            holder.tv_good_price.setText(String.format("￥%s", String.valueOf(goodsBeens.get(position).getPrice())));
-//            } else {
-//                holder.layout_center.setVisibility(View.VISIBLE);
-//                holder.layout_bottom.setVisibility(View.GONE);
-//                holder.good_name.setText(goodsBeens.get(position).getName());
-//                holder.good_price.setText(String.format("￥%s", String.valueOf(goodsBeens.get(position).getPrice())));
-//                holder.good_image.setBackgroundColor(Color.parseColor(goodsBeens.get(position).getColorCodeShow()));
-//            }
+            holder.tv_code.setText(goodsBeens.get(position).getCode());
+            holder.tv_good_name.setText(goodsBeens.get(position).getName());
+            holder.tv_goodPrice.setText(String.format("￥%s",
+                    String.valueOf(goodsBeens.get(position).getPrice())) + "/" + goodsBeens.get(position).getUnit());
             return convertView;
         }
 
         class ViewHolder {
             ImageView good_image;
-            AutoAdjustSizeTextView tv_good_name;
-            TextView tv_good_name_wutu;
-            TextView tv_good_price;
-            TextView good_name;
-            TextView good_price;
-            LinearLayout layout_center;
-            LinearLayout layout_bottom;
+            TextView tv_good_name;
+            TextView tv_goodPrice;
+            TextView tv_name;
+            TextView tv_code;
         }
     }
 
@@ -202,9 +187,9 @@ public class BlankFragment extends Fragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
     //获取无图模式设置
     private boolean getWuTu() {
-        SharedPreferences sp = context.getSharedPreferences("wutu", Context.MODE_PRIVATE);
-        return sp.getBoolean("wutuModle", false);
+        return SPHelper.getInstance().getBoolean(Constant.MODE_IMG);
     }
 }

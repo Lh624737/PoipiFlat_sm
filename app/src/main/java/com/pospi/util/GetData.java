@@ -2,7 +2,9 @@ package com.pospi.util;
 
 import android.util.Log;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -49,6 +51,10 @@ public class GetData {
         SimpleDateFormat sdf=new SimpleDateFormat("yyMMdd");
         return sdf.format(new Date());
     }
+    public static String getYYMMDDhhmmss(){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
+        return sdf.format(new Date());
+    }
     //通过SimpleDateFormat获取24小时制时间
     /**
      * 随机生成一个长度为length的字符串
@@ -92,5 +98,37 @@ public class GetData {
         String time = getYYMMDD();
         Log.i("number", time + val);
         return time+val;
+    }
+
+    public static String getAnyTime(int t) {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -t);
+        String time = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
+        return time;
+    }
+    //获取当月一号
+    public static String getFirstDate() {
+        //当月一号
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar1=Calendar.getInstance();
+        calendar1.set(Calendar.DAY_OF_MONTH, 1);
+        return sdf.format(calendar1.getTime());
+    }
+
+    //获取时间差是否大于指定长度
+    public static boolean compareTime(String nowTime, String targetTime,String t) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            long nt = sdf.parse(nowTime).getTime();
+            long tt = sdf.parse(targetTime).getTime();
+            double time = (double) (nt - tt)/1000/60;
+
+            if (time > Double.parseDouble(t)) {
+                return true;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

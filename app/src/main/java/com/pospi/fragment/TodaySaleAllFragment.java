@@ -13,13 +13,16 @@ import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.pospi.adapter.TodaySaleAllAdapter;
 import com.pospi.adapter.TodaysaleAllPayAdapter;
 import com.pospi.dao.OrderDao;
 import com.pospi.dto.CashierCashDto;
 import com.pospi.dto.GoodsDto;
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.dto.OrderPaytype;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.DoubleSave;
 import com.pospi.util.GetData;
 import com.pospi.util.Sava_list_To_Json;
@@ -27,7 +30,11 @@ import com.pospi.util.constant.PayWay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -153,29 +160,38 @@ public class TodaySaleAllFragment extends Fragment {
          * 把所有的支付方式相同的订单累加在一起
          */
         Log.i("size", dtos.size() + "");
+        List<OrderPaytype> orderPaytypes = new ArrayList<>();
         for (int i = 0; i < dtos.size(); i++) {
             OrderDto good1 = dtos.get(i);
-            String good_name1 = good1.getPayway();
-            for (int j = dtos.size() - 1; j > i; j--) {
-                OrderDto good2 = dtos.get(j);
-                String good_name2 = good2.getPayway();
-                if (good_name1.equals(good_name2)) {
-                    good1.setYs_money(String.valueOf(Double.parseDouble(good1.getYs_money()) + Double.parseDouble(good2.getYs_money())));
-                    good1.setSs_money(String.valueOf(Double.parseDouble(good1.getSs_money()) + Double.parseDouble(good2.getSs_money())));
-                    if (good1.getZl_money().equals("")) {
-                        good1.setZl_money(String.valueOf("0.0"));
-                    } else {
-                        good1.setZl_money(String.valueOf(Double.parseDouble(good1.getZl_money()) + Double.parseDouble(good2.getZl_money())));
-                    }
-
-                    dtos.remove(good2);
-                }
-            }
+            List<OrderPaytype> list =  new Gson().fromJson(good1.getPayway(), new TypeToken<List<OrderPaytype>>() {
+            }.getType());
+            orderPaytypes.addAll(list);
         }
 
-        payAdapter = new TodaysaleAllPayAdapter(context, dtos);
+
+
+        payAdapter = new TodaysaleAllPayAdapter(context, setGoods(orderPaytypes));
         outLv.setAdapter(payAdapter);
 
+    }
+    //合并相同商品
+    public List<OrderPaytype> setGoods(List<OrderPaytype> dtos) {
+        Log.i("data", dtos.size() + "----");
+        OrderPaytype tempDto = null;
+        Map<String, OrderPaytype> dtoMap = new HashMap<>();//合并后的数据
+        for (OrderPaytype gd : dtos) {
+            tempDto = dtoMap.get(gd.getPayName());
+            if (tempDto != null) {
+                tempDto.setSs(DoubleSave.doubleSaveTwo(Double.parseDouble(tempDto.getSs()) + Double.parseDouble((gd.getSs())))+"");
+            } else {
+                dtoMap.put(gd.getPayName(), gd);
+            }
+        }
+        List<OrderPaytype> dtos1 = new ArrayList<>();
+        for (Map.Entry<String, OrderPaytype> entry : dtoMap.entrySet()) {
+            dtos1.add(entry.getValue());
+        }
+        return dtos1;
     }
 
 

@@ -214,13 +214,8 @@
 
                 <TextView
                     style="@style/today_sale_lv_title"
-                    android:text="@string/yingshou_money" />
-                <TextView
-                    style="@style/today_sale_lv_title"
                     android:text="实收金额" />
-                <TextView
-                    style="@style/today_sale_lv_title"
-                    android:text="找零金额" />
+
 
             </LinearLayout>
 

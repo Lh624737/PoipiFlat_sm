@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pospi.dto.GoodsDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.DoubleSave;
 
 import java.util.List;

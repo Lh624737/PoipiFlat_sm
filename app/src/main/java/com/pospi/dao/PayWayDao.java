@@ -26,7 +26,7 @@ public class PayWayDao {
     private ContentValues values;
 
     public PayWayDao(Context context) {
-        goodsDB = new DB(context);//实例化数据库
+        goodsDB = DB.getInstance(context);
         shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
     }
 

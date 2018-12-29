@@ -83,49 +83,49 @@ public class OnLinePay extends Ipay {
             }
         };
 
-        client.post(context, URLAddress, headerArr, params, null, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers,
-                                  byte[] responseBody) {
-                LoginReturnDto returnDto = new LoginReturnDto();
+//        client.post(context, URLAddress, headerArr, params, null, new AsyncHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers,
+//                                  byte[] responseBody) {
+//                LoginReturnDto returnDto = new LoginReturnDto();
+//
+//                if (statusCode == 200) {
+////                    Log.i("responseBody", new String(responseBody));
+//                    try {
+//                        String returnResult = new String(responseBody);
+//                        JSONObject object = new JSONObject(returnResult);
+//                        returnDto.setResult(object.getInt("Result"));
+//                        returnDto.setMessage(object.getString("Message"));
+//                        returnDto.setValue(String.valueOf(object.getInt("Value")));
+//
+//
+//                        SharedPreferences.Editor editor = context.getSharedPreferences("payReturn", context.MODE_PRIVATE).edit();
+//                        editor.putInt("result", object.getInt("Result"));
+//                        editor.putString("message", object.getString("Message"));
+//                        editor.commit();
+//
+//                        Message msg=Message.obtain();
+//                        if (object.getInt("Result") == 1) {
+//                            result.paySuccessBlock(object.getString("Message"));
+//                        } else if (object.getInt("Result") == 0) {
+//
+//                            result.payFaiullBlock(object.getString("Message"));
+//                        }
+//
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
 
-                if (statusCode == 200) {
-//                    Log.i("responseBody", new String(responseBody));
-                    try {
-                        String returnResult = new String(responseBody);
-                        JSONObject object = new JSONObject(returnResult);
-                        returnDto.setResult(object.getInt("Result"));
-                        returnDto.setMessage(object.getString("Message"));
-                        returnDto.setValue(String.valueOf(object.getInt("Value")));
-
-
-                        SharedPreferences.Editor editor = context.getSharedPreferences("payReturn", context.MODE_PRIVATE).edit();
-                        editor.putInt("result", object.getInt("Result"));
-                        editor.putString("message", object.getString("Message"));
-                        editor.commit();
-
-                        Message msg=Message.obtain();
-                        if (object.getInt("Result") == 1) {
-                            result.paySuccessBlock(object.getString("Message"));
-                        } else if (object.getInt("Result") == 0) {
-
-                            result.payFaiullBlock(object.getString("Message"));
-                        }
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-
-            @Override
-            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                throwable.printStackTrace();// 把错误信息打印出轨迹来
-
-            }
-        });
+//
+//            @Override
+//            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+//                throwable.printStackTrace();// 把错误信息打印出轨迹来
+//
+//            }
+//        });
 
     }
 

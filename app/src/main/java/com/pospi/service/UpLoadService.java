@@ -13,6 +13,8 @@ import com.pospi.dao.PayWayDao;
 import com.pospi.dto.OrderDto;
 import com.pospi.dto.PayWayDto;
 import com.pospi.http.UpLoadToServel;
+import com.pospi.pai.yunpos.been.LogBeen;
+import com.pospi.pai.yunpos.util.LogUtil;
 import com.pospi.util.App;
 import com.pospi.util.UpdateOrder;
 import com.pospi.util.constant.URL;
@@ -58,6 +60,11 @@ public class UpLoadService extends IntentService {
         PayWayDto payWayDto = null;
         List<OrderDto> orderDtos = new OrderDao(App.getContext()).findNOUpLoad();
         List<PayWayDto> payWayDtos = new PayWayDao(App.getContext()).findAllPayWay();
+        List<LogBeen> logBeens = new LogUtil().searchNoUp();
+        if (logBeens != null && logBeens.size() > 0) {
+            new LogUtil().upData(App.getContext(), logBeens);
+        }
+
         Log.i("order", "UpLoadService,大小为：" + orderDtos.size());
         for (OrderDto orderDto : orderDtos) {
 //            Log.i(TAG, "order_time：" + orderDto.getCheckoutTime());

@@ -9,7 +9,7 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.ArrayList;
 

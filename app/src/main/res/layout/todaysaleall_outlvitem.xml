@@ -10,17 +10,8 @@
         android:text="1" />
 
     <TextView
-        android:id="@+id/today_sale_all_item_ys"
-
-        style="@style/today_sale_lv_item"
-        android:text="1" />
-    <TextView
         android:id="@+id/today_sale_all_item_ss"
         style="@style/today_sale_lv_item"
         android:text="1" />
 
-    <TextView
-        android:id="@+id/today_sale_all_item_zl"
-        style="@style/today_sale_lv_item"
-        android:text="1" />
 </LinearLayout>

@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.pospi.pai.pospiflat.login.SpalishActivity;
+import com.pospi.pai.yunpos.login.SpalishActivity;
 
 public class BootReceiver extends BroadcastReceiver {
     public BootReceiver() {

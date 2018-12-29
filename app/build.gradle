@@ -12,11 +12,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.pospi.pai.pospiflat"
+        applicationId "com.pospi.pai.yunpos"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "v.1.0"
+        versionCode 3
+        versionName "v.2.0"
         multiDexEnabled true
 
     }
@@ -29,12 +29,20 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']  // <-- Set your folder here!
+
         }
     }
     greendao{
         schemaVersion 1
         daoPackage 'com.pospi.greendao'
         targetGenDir 'src/main/java'
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+        jumboMode=true
+        preDexLibraries=true
+        threadCount=8
     }
 
 }
@@ -57,8 +65,10 @@ dependencies {
     compile files('libs/PosApi_V1.01_20170111.jar')
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
-//    compile 'com.squareup.okhttp3:okhttp:3.4.2'
-//    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    compile 'com.android.support:multidex:1.0.0'
+    //    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+
+    //    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
@@ -79,6 +89,22 @@ dependencies {
     compile files('libs/NeptuneLiteApi_V2.02.00_20171220.jar')
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'org.greenrobot:greendao-generator:3.1.0'
-    compile ('com.tsy:myokhttp:1.1.3') {
-        exclude group: 'com.google.code.gson' }
+    compile('com.tsy:myokhttp:1.1.3') {
+        exclude group: 'com.google.code.gson'
+    }
+    compile 'com.lany:SharedPreferences:1.0.4'
+    compile 'com.github.maning0303:MClearEditText:V1.1.3'
+    compile 'com.mylhyl:circleDialog:2.6.6'
+    compile 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+    compile 'lib.kingja.switchbutton:switchbutton:1.1.7'
+    compile files('libs/libDigiScale.jar')
+    compile 'com.sunmi:DS_Lib:1.0.11'
+    compile 'com.zzti.fengyongge:imagepicker:1.3.0'
+    compile 'com.lijunhuayc.upgrade:easyupgrade:1.0.4'
+    compile 'com.github.maning0303:MNUpdateAPK:V2.0.1'
+    compile 'com.github.lecho:hellocharts-android:v1.5.8'//图表
+    compile 'com.github.czy1121:badgebutton:1.1.0'//徽标
+    compile ('com.king.zxing:zxing-lite:1.0.2') {exclude group: 'com.google.zxing'}
+
+    compile 'me.jessyan:autosize:1.1.1'
 }

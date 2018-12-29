@@ -23,7 +23,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.google.zxing.Result;
-import com.pospi.pai.pospiflat.util.CaptureActivity;
+import com.pospi.pai.yunpos.util.CaptureActivity;
 
 
 /**

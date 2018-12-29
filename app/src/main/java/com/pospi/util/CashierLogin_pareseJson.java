@@ -29,28 +29,28 @@ public class CashierLogin_pareseJson {
 
         try {
             JSONObject object = new JSONObject(response);
-            Log.i("Cashier", "Value: " +object.getString("Value"));
-            if (object.getString("Value") == null) {
-                Log.i("CashierMsgDto", "msg: " + object.getString("Message"));
+            Log.i("Cashier", "Value: " +object.getString("data"));
+            if (object.getString("data") == null) {
+                Log.i("CashierMsgDto", "msg: " + object.getString("msg"));
                 Toast.makeText(App.getContext(), "获取收银员失败！，请检查网络。", Toast.LENGTH_SHORT).show();
             }
-            returnDto.setResult(object.getInt("Result"));
-            returnDto.setMessage(object.getString("Message"));
-            JSONArray array = object.getJSONArray("Value");
+//            returnDto.setResult(object.getInt("code"));
+//            returnDto.setMessage(object.getString("msg"));
+            JSONArray array = object.getJSONArray("data");
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object1 = (JSONObject) array.opt(i);
 
                 cashierMsgDto = new CashierMsgDto();
-                cashierMsgDto.setSid(object1.getString("Sid"));
-                cashierMsgDto.setUid(object1.getString("UId"));
-                cashierMsgDto.setNumber(object1.getString("Number"));
-                cashierMsgDto.setName(object1.getString("Name"));
-                cashierMsgDto.setPwd(object1.getString("PassWord"));
-                cashierMsgDto.setPhone(object1.getString("Phone"));
-                cashierMsgDto.setIsAdmin(object1.getInt("IsAdmin"));
+//                cashierMsgDto.setSid(object1.getString("Sid"));
+                cashierMsgDto.setUid(object1.getString("id"));
+                cashierMsgDto.setNumber(object1.getString("num"));
+                cashierMsgDto.setName(object1.getString("ca_name"));
+                cashierMsgDto.setPwd(object1.getString("password"));
+//                cashierMsgDto.setPhone(object1.getString("Phone"));
+//                cashierMsgDto.setIsAdmin(object1.getInt("IsAdmin"));
 //                cashierMsgDto.setIsdel(object1.getBoolean("IsDel"));
 //                cashierMsgDto.setShopId(object1.getString("ShopId"));
-                cashierMsgDto.setIsAdmin_bool(object1.getBoolean("IsAdmin_bool"));
+//                cashierMsgDto.setIsAdmin_bool(object1.getBoolean("IsAdmin_bool"));
 //                cashierMsgDto.setConfirm(object1.getString("Confirm"));
                 cashierMsgDtos.add(cashierMsgDto);
             }

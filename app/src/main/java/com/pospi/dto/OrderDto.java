@@ -32,10 +32,29 @@ public class OrderDto implements Serializable {
     private int upLoadServer;
     private int upLoadERP;
     private String orderNo;
+    private String vipNumber;
+    private String mode;//模式
+
+    public String getVipNumber() {
+        return vipNumber;
+    }
+
+    public void setVipNumber(String vipNumber) {
+        this.vipNumber = vipNumber;
+    }
+
     //桌号id
     private String tableId;
     //订单sid
     private String orderSid;
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
 
     public String getTableId() {
         return tableId;

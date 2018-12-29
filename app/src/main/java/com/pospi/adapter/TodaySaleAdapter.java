@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pospi.dto.GoodsDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.DoubleSave;
 
 import java.util.List;
@@ -64,7 +64,7 @@ public class TodaySaleAdapter extends BaseAdapter {
         double price = goodsDtos.get(position).getPrice();
 
         viewHolder.name.setText(goodsDtos.get(position).getName());
-        int num = goodsDtos.get(position).getNum();
+        double num = goodsDtos.get(position).getNum();
         viewHolder.num.setText(String.valueOf(num));
         if(goodsDtos.get(position).isSetFlag()){
             viewHolder.sale.setText(String.valueOf(DoubleSave.doubleSaveTwo(price * num*card_discount)));

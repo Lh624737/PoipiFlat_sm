@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.pospi.dao.TableDao;
 import com.pospi.dto.Tabledto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.List;
 

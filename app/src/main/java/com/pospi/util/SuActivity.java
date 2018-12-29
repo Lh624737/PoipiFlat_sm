@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.ArrayList;
 

@@ -31,8 +31,8 @@ import com.android.print.sdk.PrinterConstants;
 import com.android.print.sdk.PrinterInstance;
 import com.android.print.sdk.bluetooth.BluetoothPort;
 import com.android.print.sdk.wifi.WifiAdmin;
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.base.BaseActivity;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.base.BaseActivity;
 import com.pospi.util.App;
 
 /**

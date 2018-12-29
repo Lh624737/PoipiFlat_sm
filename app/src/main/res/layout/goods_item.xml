@@ -2,39 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
-    android:background="#eaeaea"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="141dp"
+        android:background="@drawable/yj_deep_gray"
+        android:layout_height="124dp">
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <!--<ImageView-->
-    <!--android:background="@drawable/griditem"-->
-        <!--android:id="@+id/img_good"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="160dp"-->
-        <!--android:background="@color/gray"-->
-        <!--android:scaleType="fitXY" />-->
-    <!---->
+            android:text="回款速度很快是可见当时看到都看"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="19sp"/>
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_center"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:orientation="vertical"-->
+    <!--android:padding="5dp"-->
+    <!--android:visibility="gone">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/goodName"-->
+    <!--style="@style/tv_20sp_white" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/goodPrice"-->
+    <!--style="@style/tv_20sp_white" />-->
+    <!--</LinearLayout>-->
 
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="25dp"
         android:paddingLeft="5dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
+        <com.pospi.util.MyTextview
             android:id="@+id/tv_goodName"
-            style="@style/tv_16sp_white"
-            android:layout_weight="1"
-            android:textSize="21sp"
-            android:paddingLeft="2dp"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:textColor="#ff333333"
+            android:textSize="16sp"
+            android:singleLine="true"
             android:gravity="center|left" />
-
         <TextView
-            android:id="@+id/tv_goodPrice"
-            style="@style/tv_16sp_white"
-            android:paddingLeft="2dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:gravity="center|left" />
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1202"
+            android:gravity="center"
+            android:textColor="#ff333333"
+            android:textSize="12sp"
+            android:singleLine="true"
+            />
+
     </LinearLayout>
+    <com.pospi.util.NumTextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/tv_goodPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:text="5.00/250g"
+        android:textColor="#ff999999"
+        android:textSize="18sp"
+        android:gravity="center|right" />
 </LinearLayout>

@@ -2,22 +2,175 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_sale"
-    android:orientation="vertical"
+    android:background="@color/white"
     android:padding="2dp">
-
     <LinearLayout
-        android:id="@+id/return_good"
-        style="@style/menu_layout">
+        android:layout_width="match_parent"
+        android:background="@drawable/zf_white"
+        android:layout_height="249dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_bb"
+                android:background="@drawable/bb_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="28dp"
+                android:text="报表"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
 
-        <ImageView
-            style="@style/menu_img"
-            android:src="@drawable/icon_tuihuo" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_yw"
+                android:background="@drawable/yw_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
 
-        <TextView
-            style="@style/menu_text"
-            android:text="退货" />
+                android:layout_width="42dp"
+                android:layout_height="28dp"
+                android:text="业务"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/return_good"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_th"
+                android:background="@drawable/th_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+
+                android:layout_width="42dp"
+                android:layout_height="28dp"
+                android:text="退货"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_hygl"
+                android:background="@drawable/hygl_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="会员管理"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_splk"
+                android:background="@drawable/splk_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="锁屏离开"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_kqx"
+                android:background="@drawable/kqx_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:text="切换账号"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/cd_sz"
+                android:background="@drawable/sz_selector"
+                android:layout_width="93dp"
+                android:layout_height="93dp" />
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="28dp"
+                android:text="设置"
+                android:textColor="#ff666666"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/return_good"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="10dp">-->
+
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_cgtc" />-->
+
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="退货" />-->
+    <!--</LinearLayout>-->
 
     <!--<include layout="@layout/view_line2" />-->
 
@@ -34,79 +187,106 @@
     <!--android:text="缴款单" />-->
     <!--</LinearLayout>-->
 
-    <include layout="@layout/view_line2" />
-
-    <LinearLayout
-        android:id="@+id/money_box"
-        style="@style/menu_layout">
-
-        <ImageView
-            style="@style/menu_img"
-            android:src="@drawable/icon_qx" />
-
-        <TextView
-            style="@style/menu_text"
-            android:text="开钱箱" />
-    </LinearLayout>
-
-    <include layout="@layout/view_line2" />
+    <!--<include layout="@layout/view_line2" />-->
 
     <!--<LinearLayout-->
-    <!--android:id="@+id/update_pwd"-->
-    <!--style="@style/menu_layout">-->
+        <!--android:id="@+id/money_box"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1">-->
 
-    <!--<ImageView-->
-    <!--style="@style/menu_img"-->
-    <!--android:src="@drawable/passwrrd" />-->
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_hy_m" />-->
 
-    <!--<TextView-->
-    <!--style="@style/menu_text"-->
-    <!--android:text="修改密码" />-->
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="会员管理" />-->
     <!--</LinearLayout>-->
 
     <!--<include layout="@layout/view_line2" />-->
 
-    <LinearLayout
-        android:id="@+id/screen_lock"
-        style="@style/menu_layout">
+    <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/update_pwd"&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_layout">&ndash;&gt;-->
 
-        <ImageView
-            style="@style/menu_img"
-            android:src="@drawable/icon_sp" />
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_img"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:src="@drawable/passwrrd" />&ndash;&gt;-->
 
-        <TextView
-            style="@style/menu_text"
-            android:text="锁屏离开" />
-    </LinearLayout>
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_text"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="修改密码" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
 
-    <include layout="@layout/view_line2" />
+    <!--&lt;!&ndash;<include layout="@layout/view_line2" />&ndash;&gt;-->
 
     <!--<LinearLayout-->
-    <!--android:id="@+id/sign_in"-->
-    <!--style="@style/menu_layout">-->
+        <!--android:id="@+id/screen_lock"-->
+        <!--style="@style/menu_layout">-->
 
-    <!--<ImageView-->
-    <!--style="@style/menu_img"-->
-    <!--android:src="@drawable/sign_in" />-->
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_sspd" />-->
 
-    <!--<TextView-->
-    <!--style="@style/menu_text"-->
-    <!--android:text="签到" />-->
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="店铺业务" />-->
     <!--</LinearLayout>-->
 
     <!--<include layout="@layout/view_line2" />-->
 
-    <LinearLayout
-        android:id="@+id/back_menu"
-        style="@style/menu_layout">
+    <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/sign_in"&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_layout">&ndash;&gt;-->
 
-        <ImageView
-            style="@style/menu_img"
-            android:src="@drawable/icon_zjm" />
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_img"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:src="@drawable/sign_in" />&ndash;&gt;-->
 
-        <TextView
-            style="@style/menu_text"
-            android:text="返回主菜单" />
-    </LinearLayout>
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/menu_text"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="签到" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
 
+    <!--&lt;!&ndash;<include layout="@layout/view_line2" />&ndash;&gt;-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/back_menu"-->
+        <!--style="@style/menu_layout">-->
+
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_cgdd" />-->
+
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="店铺报表" />-->
+    <!--</LinearLayout>-->
+    <!--<include layout="@layout/view_line2" />-->
+    <!--<LinearLayout-->
+        <!--android:id="@+id/sale_menu"-->
+        <!--style="@style/menu_layout">-->
+
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_xsdd" />-->
+
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="销售清单" />-->
+    <!--</LinearLayout>-->
+    <!--<include layout="@layout/view_line2" />-->
+    <!--<LinearLayout-->
+        <!--android:id="@+id/out_menu"-->
+        <!--style="@style/menu_layout">-->
+
+        <!--<ImageView-->
+            <!--style="@style/menu_img"-->
+            <!--android:src="@drawable/icon_xsck" />-->
+
+        <!--<TextView-->
+            <!--style="@style/menu_text"-->
+            <!--android:text="退出登陆" />-->
+    <!--</LinearLayout>-->
 </LinearLayout>

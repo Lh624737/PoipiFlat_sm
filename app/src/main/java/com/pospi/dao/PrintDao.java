@@ -27,7 +27,7 @@ public class PrintDao {
     private ContentValues values;
 
     public PrintDao(Context context) {
-        DB = new DB(context);//实例化数据库
+        DB = DB.getInstance(context);
         this.context = context;
         shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
 

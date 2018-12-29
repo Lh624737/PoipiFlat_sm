@@ -21,7 +21,7 @@ import android.os.Looper;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
-import com.pospi.pai.pospiflat.util.CaptureActivity;
+import com.pospi.pai.yunpos.util.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pospi.dto.CashierCashDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.math.BigDecimal;
 import java.util.List;

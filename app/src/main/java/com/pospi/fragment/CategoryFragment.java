@@ -12,8 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pospi.dto.MenuDto;
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.wifi_printer.PrintActivity;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.wifi_printer.PrintActivity;
 import com.pospi.util.SaveMenuInfo;
 
 import java.util.ArrayList;

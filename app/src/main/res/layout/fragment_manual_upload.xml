@@ -28,15 +28,15 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/btn_manual_erp"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/shape_blue"
-            android:text="手动上传ERP"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+        <!--<Button-->
+            <!--android:id="@+id/btn_manual_erp"-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_margin="20dp"-->
+            <!--android:background="@drawable/shape_blue"-->
+            <!--android:text="手动上传ERP"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp" />-->
     </LinearLayout>
 
     <RelativeLayout

@@ -6,7 +6,7 @@
     android:background="@drawable/icon_wk"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context="com.pospi.pai.pospiflat.pay.ScanPayActivity">
+    tools:context="com.pospi.pai.yunpos.pay.ScanPayActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

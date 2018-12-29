@@ -23,7 +23,7 @@ public class MemberDao {
 
     public MemberDao(Context context) {
         this.context = context;
-        memberDb = new DB(context);
+        memberDb = DB.getInstance(context);
     }
 
     //添加会员的信息

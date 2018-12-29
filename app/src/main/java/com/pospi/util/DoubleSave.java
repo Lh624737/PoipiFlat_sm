@@ -11,4 +11,9 @@ public class DoubleSave {
         double f1 = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         return f1;
     }
+    public static double doubleSaveThree(double q) {
+        BigDecimal b = new BigDecimal(q);
+        double f1 = b.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return f1;
+    }
 }

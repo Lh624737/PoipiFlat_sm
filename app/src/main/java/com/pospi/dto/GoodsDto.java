@@ -1,5 +1,7 @@
 package com.pospi.dto;
 
+import com.pospi.util.DoubleSave;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;
@@ -12,37 +14,11 @@ import org.greenrobot.greendao.annotation.Generated;
  */
 @Entity
 public class GoodsDto implements Serializable {
-    /**
-     * Sid : 04e1da31a4784c938942f9195cc72e40
-     * UId : f17851cbccb84ce0b55ac6f464d9e13f
-     * category_sid : 81d7a171f123412e8aef109cdb76ba9a
-     * colorCode : 0xFF646464
-     * group_sid : null
-     * image : null
-     * name : test
-     * price : 0.0
-     * CostPrice : 0.0
-     * unit : 个
-     * mainPrinterSid : null
-     * backPrinterSid : null
-     * Code : null
-     * createTime : 2015-08-31T15:08:02
-     * orderBy : 9
-     * isHide : false
-     * IsDel : false
-     * Code_bm :
-     * specification : null
-     * valuationType : 0
-     * genre : 0
-     * setFlag : false
-     * setPids : null
-     * setOldPrice : null
-     * colorCodeShow : #646464
-     */
+
     @Id(autoincrement = true)
     private Long id;
     @Transient
-    private int num;//添加商品的数量
+    private double num;//添加商品的数量
     @Transient
     private double discount;
 
@@ -62,6 +38,188 @@ public class GoodsDto implements Serializable {
     private String createTime;
     private int orderBy;
     private boolean isHide;
+    private double proPrice;//促销价
+    private String proType;//促销类型
+    private double proDiscout;//促销折扣
+    private double oldPrice;//
+    private int singnum;
+    private int muchnum;
+    private String logic;
+    private String dzc;//0称重1几份
+    private double hyzk;
+    private double lszk;
+    private double cxzk;
+    private String bzts;//保质期
+
+    private double hyj;
+    private double hyj1;
+    private double hyj2;
+    private double hyj3;
+    private double minzkl;//限制单个商品最小折扣率0.5
+    private String usejf; //1会员可以积分
+    private String usezk;//1会员可以折扣
+    private String plu;
+
+    public String getBzts() {
+        return bzts;
+    }
+
+    public void setBzts(String bzts) {
+        this.bzts = bzts;
+    }
+
+    public String getPlu() {
+        return plu;
+    }
+
+    public void setPlu(String plu) {
+        this.plu = plu;
+    }
+
+    public double getHyj() {
+        return hyj;
+    }
+
+    public void setHyj(double hyj) {
+        this.hyj = hyj;
+    }
+
+    public double getHyj1() {
+        return hyj1;
+    }
+
+    public void setHyj1(double hyj1) {
+        this.hyj1 = hyj1;
+    }
+
+    public double getHyj2() {
+        return hyj2;
+    }
+
+    public void setHyj2(double hyj2) {
+        this.hyj2 = hyj2;
+    }
+
+    public double getHyj3() {
+        return hyj3;
+    }
+
+    public void setHyj3(double hyj3) {
+        this.hyj3 = hyj3;
+    }
+
+    public double getMinzkl() {
+        return minzkl;
+    }
+
+    public void setMinzkl(double minzkl) {
+        this.minzkl = minzkl;
+    }
+
+    public String getUsejf() {
+        return usejf;
+    }
+
+    public void setUsejf(String usejf) {
+        this.usejf = usejf;
+    }
+
+    public String getUsezk() {
+        return usezk;
+    }
+
+    public void setUsezk(String usezk) {
+        this.usezk = usezk;
+    }
+
+    public double getHyzk() {
+        return hyzk;
+    }
+
+    public void setHyzk(double hyzk) {
+        this.hyzk = hyzk;
+    }
+
+    public double getLszk() {
+        return lszk;
+    }
+
+    public void setLszk(double lszk) {
+        this.lszk = lszk;
+    }
+
+    public double getCxzk() {
+        return cxzk;
+    }
+
+    public void setCxzk(double cxzk) {
+        this.cxzk = cxzk;
+    }
+
+    public String getDzc() {
+        return dzc;
+    }
+
+    public void setDzc(String dzc) {
+        this.dzc = dzc;
+    }
+
+    public double getProPrice() {
+        return proPrice;
+    }
+
+    public void setProPrice(double proPrice) {
+        this.proPrice = proPrice;
+    }
+
+    public String getProType() {
+        return proType;
+    }
+
+    public void setProType(String proType) {
+        this.proType = proType;
+    }
+
+    public double getProDiscout() {
+        return proDiscout;
+    }
+
+    public void setProDiscout(double proDiscout) {
+        this.proDiscout = proDiscout;
+    }
+
+    public double getOldPrice() {
+        return oldPrice;
+    }
+
+    public void setOldPrice(double oldPrice) {
+        this.oldPrice = oldPrice;
+    }
+
+    public int getSingnum() {
+        return singnum;
+    }
+
+    public void setSingnum(int singnum) {
+        this.singnum = singnum;
+    }
+
+    public int getMuchnum() {
+        return muchnum;
+    }
+
+    public void setMuchnum(int muchnum) {
+        this.muchnum = muchnum;
+    }
+
+    public String getLogic() {
+        return logic;
+    }
+
+    public void setLogic(String logic) {
+        this.logic = logic;
+    }
+
     @Transient
     private boolean IsDel;
     @Transient
@@ -194,12 +352,16 @@ public class GoodsDto implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 11315792)
+    @Generated(hash = 1565335578)
     public GoodsDto(Long id, String Sid, String UId, String category_sid,
             String colorCode, String group_sid, String image, String name,
             double price, double CostPrice, String unit, String mainPrinterSid,
             String backPrinterSid, String Code, String createTime, int orderBy,
-            boolean isHide, String colorCodeShow) {
+            boolean isHide, double proPrice, String proType, double proDiscout,
+            double oldPrice, int singnum, int muchnum, String logic, String dzc,
+            double hyzk, double lszk, double cxzk, String bzts, double hyj,
+            double hyj1, double hyj2, double hyj3, double minzkl, String usejf,
+            String usezk, String plu, String colorCodeShow) {
         this.id = id;
         this.Sid = Sid;
         this.UId = UId;
@@ -217,8 +379,29 @@ public class GoodsDto implements Serializable {
         this.createTime = createTime;
         this.orderBy = orderBy;
         this.isHide = isHide;
+        this.proPrice = proPrice;
+        this.proType = proType;
+        this.proDiscout = proDiscout;
+        this.oldPrice = oldPrice;
+        this.singnum = singnum;
+        this.muchnum = muchnum;
+        this.logic = logic;
+        this.dzc = dzc;
+        this.hyzk = hyzk;
+        this.lszk = lszk;
+        this.cxzk = cxzk;
+        this.bzts = bzts;
+        this.hyj = hyj;
+        this.hyj1 = hyj1;
+        this.hyj2 = hyj2;
+        this.hyj3 = hyj3;
+        this.minzkl = minzkl;
+        this.usejf = usejf;
+        this.usezk = usezk;
+        this.plu = plu;
         this.colorCodeShow = colorCodeShow;
     }
+
     @Generated(hash = 323937848)
     public GoodsDto() {
     }
@@ -239,16 +422,16 @@ public class GoodsDto implements Serializable {
         this.modified = modified;
     }
 
-    public int getNum() {
+    public double getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(double num) {
         this.num = num;
     }
 
     public double getDiscount() {
-        return discount;
+        return DoubleSave.doubleSaveTwo(lszk + cxzk + hyzk);
     }
 
     public void setDiscount(double discount) {

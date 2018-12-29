@@ -26,7 +26,7 @@ public class ModifiedDao {
 
     public ModifiedDao(Context context) {
         this.context = context;
-        db = new DB(context);
+        db = DB.getInstance(context);
     }
 
     /**

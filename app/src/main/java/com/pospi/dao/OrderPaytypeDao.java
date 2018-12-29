@@ -20,7 +20,7 @@ public class OrderPaytypeDao {
 
     private Context context;
     public OrderPaytypeDao(Context context) {
-        db = new DB(context);//实例化数据库
+        db = DB.getInstance(context);
         this.context = context;
     }
 

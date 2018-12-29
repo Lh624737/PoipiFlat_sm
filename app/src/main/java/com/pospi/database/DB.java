@@ -37,7 +37,9 @@ public class DB extends SQLiteOpenHelper {
             + "isHide integer,IsDel integer,Code_bm text,specification text,"
             + "valuationType integer,genre integer,setFlag integer,setPids text,"
             + "setOldPrice text,colorCodeShow text,"
-            + "price double,discount double,CostPrice double)";
+            + "price double,discount double,CostPrice double,dzc text,oldPrice text,"
+            + "hyj double,hyj1 double,hyj2 double,hyj3 double,minzkl double,hyjf text,hyzk text,"
+            + "plu text,bzts text)";
 
     private String tableModifiedGroup = "modifiedgroup_info";
     private String tableModified = "modified_info";
@@ -59,7 +61,7 @@ public class DB extends SQLiteOpenHelper {
             + "CreateTime text,orderBy text,colorCodeShow text)";
 
     /**
-     * 创建订单表格,版本5,將maxNo interger改爲maxNo text
+     * 创建订单表格
      */
     public final String CREATE_Order_Table = "create table if not exists " + tableOrder + "("
             + "id integer primary key autoincrement,maxNo text,orderType integer,payway text,"
@@ -67,7 +69,7 @@ public class DB extends SQLiteOpenHelper {
             + "order_info text,cashiername text,detailTime text,checkoutTime text,"
             + "hasReturnGoods integer,out_trade_no text,payReturn text,ifFinishOrder integer,"
             + "serialNumber integer,tableNumber text,eatingNumber integer,orderId text,upLoadServer integer,upLoadERP integer"
-            + ",orderNo text,miYaNumber text,orderSid text,tableId text)";
+            + ",orderNo text,miYaNumber text,orderSid text,tableId text,vipNumber text)";
 
     /**
      * 创建会员表格
@@ -155,8 +157,16 @@ public class DB extends SQLiteOpenHelper {
             + "port integer,ip text,name text,printId text,shopId text)";
 
 
+    private static DB instance;
     public DB(Context context) {
         super(context, "orderinfo.db", null, 1);
+    }
+
+    public static DB getInstance(Context context) {
+        if (instance == null) {
+            instance = new DB(context);
+        }
+        return instance;
     }
 
 
@@ -184,34 +194,6 @@ public class DB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        switch (newVersion) {
-//            case 2:
-//                Log.i("db", "onUpgrade");
-//                db.execSQL(CREATE_TEMP_BOOK);
-//                db.execSQL(CREATE_Order_Table);
-//                db.execSQL(INSERT_DATA);
-//                db.execSQL(DROP_BOOK);
-//                break;
-//            case 3:
-//                db.execSQL(CREATE_TEMP_BOOK);
-//                db.execSQL(CREATE_Order_Table);
-//                db.execSQL(INSERT_DATA);
-//                db.execSQL(DROP_BOOK);
-////                db.execSQL(CREATE_Log_Table);
-//                break;
-//            case 4:
-//                db.execSQL(DROP_GOODS_BOOK);
-//                db.execSQL(CREATE_Goods_Table);
-//
-//                db.execSQL(CREATE_Modified_Table);
-//                db.execSQL(CREATE_ModifiedGroup_Table);
-//                break;
-//            case 5:
-//                db.execSQL("alter table "+tableOrder+" add orderSid text");
-//                db.execSQL(CREATE_Order_Menus);
-//                db.execSQL(CREATE_Order_PayType);
-//                break;
-//        }
     }
 
 }

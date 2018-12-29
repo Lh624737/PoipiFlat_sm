@@ -6,18 +6,21 @@
     <color name="orange">#ca622d</color>
     <color name="orange_light">#ed844f</color>
     <color name="white">#ffffff</color>
+    <color name="graybg">#E7EAEC</color>
     <color name="saletitle">#424344</color>
     <color name="gray">#f7f7f7</color>
     <color name="gray_transparent">#a5d7d7d7</color>
     <color name="gray_little">#9df9f9f9</color>
     <color name="black_transparent">#50000000</color>
     <color name="gray_light">#cacaca</color>
-    <color name="gray_light2">#bcbbb6</color>
+    <color name="gray_light2">#F1F3F5</color>
     <color name="grey_light">#78797b</color>
+    <color name="orange1">#c88a10</color>
+    <color name="orange2">#eeba1a</color>
     <color name="grey_light_bg">#dddddd</color>
     <color name="colorBackground">#ececec</color>
-    <color name="black">#000000</color>
-    <color name="black_light">#4e4e4e</color>
+    <color name="black">#333333</color>
+    <color name="black_light">#999999</color>
     <color name="red">#ff0303</color>
     <color name="white_light">#effeff</color>
     <color name="grey">#292929</color>
@@ -26,21 +29,21 @@
     <color name="dd">#555555</color>
     <color name="ccc">#ef8e30</color>
     <color name="list_bg">#fdab63</color>
-    <color name="blue_sale">#2058a5</color>
+    <color name="blue_sale">#FF4680FF</color>
     <color name="blue_theme">#2058a5</color>
     <color name="blue_lv_light">#4c76af</color>
     <color name="pay_sale">#fd5858</color>
     <color name="green">#75bc66</color>
     <color name="btntextcolor">#ff1E90FF</color><!--dialog中按钮字体颜色 -->
     <color name="blue">#1986e9</color>
-    <color name="blue_cannot_click">#bf5ba4e6</color>
+    <color name="blue_cannot_click">#ff4680ff</color>
     <color name="pay_bg">#ff5959</color>
     <color name="pay_title">#5a99ef</color>
     <color name="purple">#f179df</color>
     <color name="green_light">#59ce77</color>
     <color name="green_ugly">#6998d8</color>
-
-
+     <color name="grey_bg">#F8FCFE</color>
+    <color name="title">#ff4680ff</color>
     <color name="ivory">#FFFFF0</color><!--象牙色 -->
     <color name="lightyellow">#FFFFE0</color><!--亮黄色 -->
     <color name="yellow">#FFFF00</color><!--黄色 -->
@@ -179,8 +182,22 @@
     <color name="navy">#000080</color><!--海军色 -->
     <color name="black90">#383431</color><!--黑色 -->
     <color name="cuitgreen">#61bcbe</color>
+    <color name="yinshou">#0f62e0</color>
+    <color name="shishou">#6899e3</color>
+    <color name="zholing">#d3d5d8</color>
+    <color name="text_bg">#333333</color>
+    <color name="text_bg2">#999999</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="Gainsboro">#DCDCDC</color>
+    <color name="LightGrey">#D3D3D3</color>
+    <color name="Silver">#C0C0C0</color>
+    <color name="DarkGray">#A9A9A9</color>
+    <color name="Gray">#808080</color>
+    <color name="DimGray">#696969</color>
+    <color name="bule2">#ff4680ff</color>
+    <color name="text_nor">#ff666666</color>
 
-    <drawable name="blue_sale">#2058a5</drawable>
+    <drawable name="blue_sale">#FF4680FF</drawable>
     <drawable name="white">#ffffff</drawable>
     <drawable name="black">#000000</drawable>
     <drawable name="blue">#1986e9</drawable>
@@ -189,5 +206,17 @@
     <drawable name="scan_color">#333333</drawable>
     <drawable name="text_add_contact_normal">#00ffffff</drawable>
     <drawable name="text_add_contact_focused">#7cb5de</drawable>
+    
+
+    <drawable name="clr_normal">#d94747</drawable>
+    <drawable name="clr_pressed">#a44545</drawable>
+    <drawable name="ret_normal">#fc943f</drawable>
+    <drawable name="ret_pressed">#a46a3b</drawable>
+    <drawable name="sea_normal">#2058a5</drawable>
+    <drawable name="click_no">#434343</drawable>
+    <drawable name="blackgrey">#434343</drawable>
+    <drawable name="blue_theme">#2058a5</drawable>
+    <drawable name="calculator_white">#f0f4f7</drawable>
+    <drawable name="point_left_color">#d3d7da</drawable>
 
 </resources>

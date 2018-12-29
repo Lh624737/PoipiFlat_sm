@@ -12,7 +12,7 @@
         android:id="@+id/item_tv"
 
         android:textSize="22sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blue_cannot_click"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

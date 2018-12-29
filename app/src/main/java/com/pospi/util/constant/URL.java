@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.App;
 import com.pospi.util.SystemBarTintManager;
 
@@ -24,14 +24,14 @@ public class URL {
      * 服务器地址
      */
 //    public String HOST= "http://192.7.7.172";http://192.7.7.172:8889
-    private String HOST = "http://erp.101base.cn";
+    public static String HOST = "http://106.15.72.240:36666/sysapi/";
     private String PayHost;
 
     public String host() {
         try {
-            HOST = context.getSharedPreferences("url", Context.MODE_PRIVATE).getString("url", "http://erp.101base.cn");
+            HOST = context.getSharedPreferences("url", Context.MODE_PRIVATE).getString("url", "http://106.15.72.240:36666/sysapi/");
         } catch (NullPointerException e) {
-            HOST = "http://erp.101base.cn";//http://192.7.7.172:9999
+            HOST = "http://106.15.72.240:36666/sysapi/";//http://192.7.7.172:9999
         }
         return HOST;
     }
@@ -51,6 +51,8 @@ public class URL {
     public final static String MODEL_DT92 = "DT92II_printer";
     public final static String MODEL_IPOS100 = "IPOS100";
     public final static String MODEL_T1 = "t1host";
+    public final static String MODEL_T2 = "T2";
+    public final static String MODEL_D1 = "D1";
     public final static int ORDERTYPE_SALE = 1111;//正常销售模式
     public final static int ORDERTYPE_REFUND = 2222;//退货的模式
     public final static int hasReturnGoods_Yes = 112;//退过货
@@ -60,31 +62,32 @@ public class URL {
     public final static int NO = 251;//未完成的订单
     public final static int ZHUOTai = 252;//桌台的订单
     public final static int BAOLIU = 253;//保留的订单
+    private String key = "ce3e5f7eef24f699fae4902db18276c1";
 
     /**
      * 登陆
      */
-    public String LOGIN = host() + "/index.php/Api/Root/Login";
+    public String LOGIN = host() + "/api.php?m=opendkq&openkey="+key+"&a=login";
     /**
      * 商品
      */
-    public String SYNC_MENUS = host() + "/index.php/Api/Root/SyncMenus";
+    public String SYNC_MENUS = host() + "/api.php?m=opendkq&openkey="+key+"&a=goods";
     /**
      * 收银员
      */
-    public String SYNCCASHIER = host() + "/index.php/Api/Root/SyncCashier";
+    public String SYNCCASHIER = host() + "/api.php?m=opendkq&openkey="+key+"&a=cashier";
     /**
      * 分类
      */
     public String SYNCCATEGORY = host() + "/index.php/Api/Root/SyncCategory";
     /**
-     * 单据号
+     * 桌子
      */
-    public String GETNO = host() + "/index.php/Api/Root/GetNo";
+    public String TABLE = host() + "/api.php?m=opendkq&openkey="+key+"&a=desk";
     /**
      * 上传订单
      */
-    public String SYNCORDER = host() + "/index.php/Api/Root/SyncOrder";
+    public String SYNCORDER = host() + "/api.php?m=opendkq&openkey="+key+"&a=sell";
     /**
      * 店铺信息
      */
@@ -127,7 +130,7 @@ public class URL {
     /**
      * 下载做法组
      */
-    public String SyncModifiedGroup = host() + "/index.php/Api/Root/SyncModifiedGroup";
+    public String SyncModifiedGroup = host() + "/api.php?m=opendkq&openkey="+key+"&a=ys";
     /**
      * 添加或修改类别
      */

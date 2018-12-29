@@ -21,14 +21,28 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
+        GiveBeenDao.createTable(db, ifNotExists);
         GoodsDtoDao.createTable(db, ifNotExists);
+        ProGoodsBeenDao.createTable(db, ifNotExists);
+        PromotionbeenDao.createTable(db, ifNotExists);
+        ReduceProBeenDao.createTable(db, ifNotExists);
+        SingleProBeenDao.createTable(db, ifNotExists);
         TablebeenDao.createTable(db, ifNotExists);
+        LogBeenDao.createTable(db, ifNotExists);
+        ScalesBeenDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
+        GiveBeenDao.dropTable(db, ifExists);
         GoodsDtoDao.dropTable(db, ifExists);
+        ProGoodsBeenDao.dropTable(db, ifExists);
+        PromotionbeenDao.dropTable(db, ifExists);
+        ReduceProBeenDao.dropTable(db, ifExists);
+        SingleProBeenDao.dropTable(db, ifExists);
         TablebeenDao.dropTable(db, ifExists);
+        LogBeenDao.dropTable(db, ifExists);
+        ScalesBeenDao.dropTable(db, ifExists);
     }
 
     /**
@@ -47,8 +61,15 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
+        registerDaoClass(GiveBeenDao.class);
         registerDaoClass(GoodsDtoDao.class);
+        registerDaoClass(ProGoodsBeenDao.class);
+        registerDaoClass(PromotionbeenDao.class);
+        registerDaoClass(ReduceProBeenDao.class);
+        registerDaoClass(SingleProBeenDao.class);
         registerDaoClass(TablebeenDao.class);
+        registerDaoClass(LogBeenDao.class);
+        registerDaoClass(ScalesBeenDao.class);
     }
 
     public DaoSession newSession() {

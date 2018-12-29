@@ -14,8 +14,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.pospi.dto.MenuDto;
 import com.pospi.http.Server;
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.wifi_printer.PrintActivity;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.wifi_printer.PrintActivity;
 import com.pospi.util.SaveMenuInfo;
 import com.pospi.util.constant.URL;
 

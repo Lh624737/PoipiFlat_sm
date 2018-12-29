@@ -2,15 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context="com.pospi.fragment.BlankFragment">
 
     <GridView
-        android:layout_margin="@dimen/dp_10"
+        android:layout_marginTop="20dp"
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:cacheColorHint="#00000000"
         android:horizontalSpacing="15dp"
         android:numColumns="5"

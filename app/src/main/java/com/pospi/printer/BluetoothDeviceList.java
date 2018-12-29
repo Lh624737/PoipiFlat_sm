@@ -26,7 +26,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.Set;
 

@@ -4,31 +4,40 @@ package com.pospi.dto;
  * Created by Qiyan on 2016/4/8.
  */
 public class LoginReturnDto {
-    private int result;
-    private String value;
-    private String message;
+    private String flag;
+    private String errCode;
+    private String errMsg;
+    private String result;
 
-    public int getResult() {
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public String getErrCode() {
+        return errCode;
+    }
+
+    public void setErrCode(String errCode) {
+        this.errCode = errCode;
+    }
+
+    public String getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(String result) {
         this.result = result;
     }
 
-    public String getValue() {
-        return value;
+    public String getErrMsg() {
+        return errMsg;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setErrMsg(String errMsg) {
+        this.errMsg = errMsg;
     }
 }

@@ -1,6 +1,5 @@
 package com.pospi.fragment;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
@@ -23,8 +22,8 @@ import com.pospi.dao.PayWayDao;
 import com.pospi.dto.OrderDto;
 import com.pospi.dto.PayWayDto;
 import com.pospi.http.UpLoadToServel;
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.util.CreateFiles;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.util.CreateFiles;
 import com.pospi.util.App;
 import com.pospi.util.CommonUtil;
 import com.pospi.util.GetData;
@@ -61,6 +60,7 @@ public class UpLoadFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manual_upload, container, false);
         ftpUpload = (Button) view.findViewById(R.id.btn_ftp_upload);
+        ftpUpload.setVisibility(View.GONE);
         ftpUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,37 +132,29 @@ public class UpLoadFragment extends Fragment {
                 textUpload.setText("上传完成！");
                 layoutUpload.setVisibility(View.INVISIBLE);
                 break;
-            case R.id.btn_manual_erp://        Log.i(TAG, "onStartCommand()");
-                List<OrderDto> erp_orderDtos = new OrderDao(App.getContext()).findOrderERPNOUpLoad();
-                List<PayWayDto> erp_payWayDtos = new PayWayDao(App.getContext()).findAllPayWay();
-                PayWayDto erp_payWayDto = new PayWayDto();
-//        Log.i(TAG, "ERPService,大小为：" + orderDtos.size());
-
-                layoutUpload.setVisibility(View.VISIBLE);
-                int erp_size = erp_orderDtos.size();
-                for (int j = 0; j < erp_size; j++) {
-                    for (int i = 0; i < erp_payWayDtos.size(); i++) {
-                        if (erp_orderDtos.get(j).getStatus() == erp_payWayDtos.get(i).getPayType1()) {
-                            erp_payWayDto = erp_payWayDtos.get(i);
-                        }
-                    }
-                    try {
-                        if (erp_orderDtos.get(j).getOrderType() == URL.ORDERTYPE_REFUND) {
-                            new UpLoadToServel(App.getContext()).postWebServer(erp_orderDtos.get(j), erp_payWayDto.getName(), false);
-                        } else {
-                            new UpLoadToServel(App.getContext()).postWebServer(erp_orderDtos.get(j), erp_payWayDto.getName(), true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-//                int num1 = erp_size - new OrderDao(App.getContext()).findERPNOUpLoad().size();
-//                String str1 = "上传完成！一共上传" + erp_size + "笔订单，上传成功：" + num1 + "笔，上传失败：" + (erp_size - num1) + "笔.";
-//                show(str1);
-                Toast.makeText(getActivity(), "上传完成！", Toast.LENGTH_SHORT).show();
-                textUpload.setText("上传完成！");
-                layoutUpload.setVisibility(View.INVISIBLE);
-                break;
+//            case R.id.btn_manual_erp://        Log.i(TAG, "onStartCommand()");
+//                List<OrderDto> erp_orderDtos = new OrderDao(App.getContext()).findOrderERPNOUpLoad();
+//                List<PayWayDto> erp_payWayDtos = new PayWayDao(App.getContext()).findAllPayWay();
+//                PayWayDto erp_payWayDto = new PayWayDto();
+////        Log.i(TAG, "ERPService,大小为：" + orderDtos.size());
+//
+//                layoutUpload.setVisibility(View.VISIBLE);
+//                int erp_size = erp_orderDtos.size();
+//                for (int j = 0; j < erp_size; j++) {
+//                    for (int i = 0; i < erp_payWayDtos.size(); i++) {
+//                        if (erp_orderDtos.get(j).getStatus() == erp_payWayDtos.get(i).getPayType1()) {
+//                            erp_payWayDto = erp_payWayDtos.get(i);
+//                        }
+//                    }
+//
+//                }
+////                int num1 = erp_size - new OrderDao(App.getContext()).findERPNOUpLoad().size();
+////                String str1 = "上传完成！一共上传" + erp_size + "笔订单，上传成功：" + num1 + "笔，上传失败：" + (erp_size - num1) + "笔.";
+////                show(str1);
+//                Toast.makeText(getActivity(), "上传完成！", Toast.LENGTH_SHORT).show();
+//                textUpload.setText("上传完成！");
+//                layoutUpload.setVisibility(View.INVISIBLE);
+//                break;
         }
     }
 

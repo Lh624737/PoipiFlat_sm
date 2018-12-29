@@ -15,8 +15,8 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.wifi_printer.PrintTest;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.wifi_printer.PrintTest;
 import com.pospi.util.TurnSize;
 
 import butterknife.Bind;

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.pospi.dao.ModifiedDao;
 import com.pospi.dto.ModifiedDto;
 import com.pospi.dto.Remark;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.ArrayList;
 import java.util.List;

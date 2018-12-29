@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 /**
  * Created by Qiyan on 2016/5/11.

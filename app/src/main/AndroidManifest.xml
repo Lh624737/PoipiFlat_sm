@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.pospi.pai.pospiflat">
+    package="com.pospi.pai.yunpos">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -17,8 +17,10 @@
     <!-- 读写卡的权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
@@ -40,18 +42,36 @@
         android:icon="@drawable/icon_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
+        android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Main_Login"
+            android:name="com.pospi.pai.yunpos.Main_Login"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified|stateHidden">
         </activity>
+        <activity android:name="com.zzti.fengyongge.imagepicker.PhotoSelectorActivity"></activity>//选择图片
+        <activity android:name="com.zzti.fengyongge.imagepicker.PhotoPreviewActivity"></activity>//预览图片
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.pospi.pai.yunpos"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <receiver android:name="com.pospi.receiver.MyBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.sunmi.hcservice"/>
+                <action android:name="com.sunmi.hcservice.status"/>
+            </intent-filter>
+        </receiver>
         <activity
-            android:name=".login.SpalishActivity"
+            android:name="com.pospi.pai.yunpos.login.SpalishActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +79,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cash.QueryYeActivity"/>
+        <activity android:name="com.pospi.pai.yunpos.cash.QueryYeActivity"/>
         <!--<activity-->
         <!--android:name="cc.lotuscard.LotusCardDemoActivity"-->
         <!--android:screenOrientation="landscape">-->
@@ -78,48 +98,465 @@
         <!--</activity>-->
 
         <activity
-            android:name=".util.ModifiedDialogActivity"
+            android:name="com.pospi.pai.yunpos.util.ModifiedDialogActivity"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".util.DiscountDialogActivity"
+            android:name="com.pospi.pai.yunpos.util.DiscountDialogActivity"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".util.ChuZhiKaDialogActivity"
+            android:name="com.pospi.pai.yunpos.util.ChuZhiKaDialogActivity"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".util.PaySuccessDialogActivity"
+            android:name="com.pospi.pai.yunpos.util.PaySuccessDialogActivity"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".util.CaptureActivity"
+            android:name="com.pospi.pai.yunpos.util.CaptureActivity"
             android:screenOrientation="landscape"
             android:theme="@style/DialogTransparent" />
         <activity
-            android:name=".cash.SaleActivity"
+            android:name="com.pospi.pai.yunpos.cash.SaleActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
-            android:name=".login.MainPospiActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".cash.PoiSelectActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".cash.PointActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".login.UserLoginActivity"
+            android:name="com.pospi.pai.yunpos.vip.VipActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
-            android:name=".pay.PayActivity"
+            android:name="com.pospi.pai.yunpos.caigou.CgddActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.CgDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.CgshListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.PointActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.SupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.ReceiveBillListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.ReceiveDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.cash.MenuActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.SearchReceiveBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.RefundBillListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.RefundDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.SearchRefundBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.GoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.GoodsReportSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.InventorySearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.InventorySearchDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.KHBillListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.KHSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.KhReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SyySaleReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.KHDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SearchBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.StoreReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.StoreReportSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.YWReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.YWSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SaleCateDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.vip.VIPFavourActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.vip.VipReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.more.ScaleGoodsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.more.ScaleMangerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.vip.VipSalesSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SaleCateReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SaleCateSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.OverFlowListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.PdDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.PdListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.OverFlowDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.OverFlowSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.CountsDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.CountsListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.caigou.CountsSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboOutDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboOutListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboReceiveListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PointGoodsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.bh.SupBillSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.bh.SupDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.bh.SupAotoListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.bh.SupGoodsListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.CustSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.OutBillListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.OutDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.PointGoodsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.RefundBillListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.RefundDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.RefundSearchBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.SaleDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.SaleListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.SearchOutBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.xs.SearchXsBillActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.vip.VIPRegisterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.login.MainPospiActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-        <activity android:name=".more.RestOrderActivity" />
+        <activity
+            android:name="com.pospi.pai.yunpos.login.Main_Menu"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.pospi.pai.yunpos.cash.PoiSelectActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.pospi.pai.yunpos.cash.PointActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.pospi.pai.yunpos.login.UserLoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SyyPayReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SyyOrderReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.CgGoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.DbGoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.PdGoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.PsGoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.XsChartReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.XsPiReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.XsColumReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.JxcReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.DboChaYListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PsChaYListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PsOutDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PsOutListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PsReceiveDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.diaob.PsReceiveListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.report.SyyGoodsReportActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.pospi.pai.yunpos.pay.PayActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity android:name="com.pospi.pai.yunpos.more.RestOrderActivity" />
         <activity
             android:name="com.pospi.printer.PrintActivity"
             android:screenOrientation="landscape" />
@@ -136,18 +573,26 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".more.StatisticsActivity"
+            android:name="com.pospi.pai.yunpos.more.StatisticsActivity"
             android:screenOrientation="landscape"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".more.SettingActivity"
+            android:name="com.pospi.pai.yunpos.more.SettingActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".more.RefundsActivity"
+            android:name="com.pospi.pai.yunpos.more.RefundsActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".more.LockActivity"
+            android:name="com.pospi.pai.yunpos.more.LsjChangeActivity"
             android:screenOrientation="landscape" />
+        <activity
+            android:name="com.pospi.pai.yunpos.more.PopChangeActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.pospi.pai.yunpos.more.LockActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <!-- <activity -->
         <!-- android:name=".TableActivity" -->
         <!-- android:screenOrientation="landscape" /> -->
@@ -172,12 +617,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".cash.ScanActivity"
+            android:name="com.pospi.pai.yunpos.cash.ScanActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
-            android:name=".table.SetTableActivity"
+            android:name="com.pospi.pai.yunpos.table.SetTableActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
@@ -193,39 +638,39 @@
         </receiver>
 
         <activity
-            android:name=".pay.ScanPayActivity"
+            android:name="com.pospi.pai.yunpos.pay.ScanPayActivity"
             android:theme="@style/ScanDialogBg" />
         <activity
-            android:name=".util.PortConfigurationActivity"
+            android:name="com.pospi.pai.yunpos.util.PortConfigurationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/port_configuration"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".wifi_printer.PrintActivity" />
+        <activity android:name="com.pospi.pai.yunpos.wifi_printer.PrintActivity" />
 
         <!-- 蓝牙设备 -->
         <activity
-            android:name=".util.BluetoothDeviceList"
+            android:name="com.pospi.pai.yunpos.util.BluetoothDeviceList"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/bluetooth_device_list"
             android:theme="@android:style/Theme.Dialog" />
         <!-- USB设备 -->
         <activity
-            android:name=".util.UsbDeviceList"
+            android:name="com.pospi.pai.yunpos.util.UsbDeviceList"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/usb_devices_list"
             android:theme="@android:style/Theme.Dialog" />
 
-        <receiver android:name=".util.DeviceBootReceiver">
+        <receiver android:name="com.pospi.pai.yunpos.util.DeviceBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <!-- <activity android:name="com.pospi.util.SuActivity"></activity> -->
-        <activity android:name=".TestActivity" />
-        <activity android:name=".wifi_printer.PrintActivity" />
-        <activity android:name=".util.UrlSettingActivity" />
-        <activity android:name=".util.PrinterConnectDialog" />
+        <activity android:name="com.pospi.pai.yunpos.TestActivity" />
+        <activity android:name="com.pospi.pai.yunpos.wifi_printer.PrintActivity" />
+        <activity android:name="com.pospi.pai.yunpos.util.UrlSettingActivity" />
+        <activity android:name="com.pospi.pai.yunpos.util.PrinterConnectDialog" />
 
         <service android:name="com.pospi.service.UpLoadService" />
         <service android:name="com.pospi.service.ERPService" />
@@ -234,8 +679,16 @@
         <receiver android:name="com.pospi.service.UpLoadReceiver" />
 
         <activity
-            android:name=".cash.OrderDiscountActivity"
+            android:name="com.pospi.pai.yunpos.cash.OrderDiscountActivity"
             android:theme="@style/Transparent2" />
+
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="1500"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="1920"/>
     </application>
 
 </manifest>

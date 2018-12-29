@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.pospi.dto.GoodsDto;
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.DoubleSave;
 import com.pospi.util.Sava_list_To_Json;
 import com.pospi.util.UpLoadServer;
@@ -103,15 +103,15 @@ public class TradeListAdapter extends BaseAdapter {
 //        else {
 //            holder.erp.setText("--");
 //        }
-        if (!Build.MODEL.equals(URL.MODEL_D800)) {
-            if (dto.getUpLoadERP() == UploadERP.hasUpLoad) {
-                holder.erp.setText("已上传");
-            } else if (dto.getUpLoadERP() == UploadERP.noUpload) {
-                holder.erp.setText("未上传");
-            } else {
-                holder.erp.setText("--");
-            }
-        }
+//        if (!Build.MODEL.equals(URL.MODEL_D800)) {
+//            if (dto.getUpLoadERP() == UploadERP.hasUpLoad) {
+//                holder.erp.setText("已上传");
+//            } else if (dto.getUpLoadERP() == UploadERP.noUpload) {
+//                holder.erp.setText("未上传");
+//            } else {
+//                holder.erp.setText("--");
+//            }
+//        }
 
         return convertView;
     }

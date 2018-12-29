@@ -2,19 +2,27 @@ package com.pospi.http;
 
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.pospi.callbacklistener.HttpCallBackListener;
 import com.pospi.dto.LoginReturnDto;
+import com.pospi.util.App;
 import com.pospi.util.constant.URL;
+import com.tsy.sdk.myokhttp.response.RawResponseHandler;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -30,65 +38,106 @@ public class HttpConnection {
     private LoginReturnDto loginReturnDto;
 
     //向服务器发送数据，并且接收服务器返回来的json数据
-    public void SendDataToServer(final String Email, final String Password, final String Imei, final HttpCallBackListener listener, final Context context) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HttpURLConnection connection;
-                try {
-                    Log.i("URL", new URL().LOGIN);
-                    java.net.URL url = new java.net.URL(new URL().LOGIN);
-//                    Log.i("URL", new URL().LOGIN);
-                    connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("POST");//设置请求方式为post                    connection.setRequestProperty("Accept-Charset", "utf-8");
-//                    connection.setRequestProperty("contentType", "utf-8");
-                    DataOutputStream out = new DataOutputStream(connection.getOutputStream());
-                    //写入需要传给服务器的值
-
-                    String str = "Email=" + Email + "&Password=" + Password + "&Imei=" + Imei;//
-                    out.writeBytes(new String(str.getBytes(), "utf-8"));
-                    //设置连接时的参数
-                    connection.setConnectTimeout(5000);
-                    connection.setReadTimeout(5000);
-                    //建立连接获取流对象
-                    is = connection.getInputStream();
-                    Log.i("urlconnection","getResponseCode:"+connection.getResponseCode());
-                    if (connection.getResponseCode() == 200) {
-                        //写流对象
-                        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-                        StringBuilder response = new StringBuilder();
-                        String line;
-                        while ((line = br.readLine()) != null) {
-                            response.append(line);
-                        }
+    public void SendDataToServer(final String qyh, final String gh, final String pass, final HttpCallBackListener listener, final Context context,String sn) {
+        Map<String, String> map = new HashMap<>();
+        map.put("fun", "login");
+        map.put("model", "system.mlogin");
+        map.put("logid","0");
+        final JSONObject object = new JSONObject();
+        try {
+            object.put("code", qyh);
+            object.put("gh", gh);
+            object.put("pwd", pass);
+            object.put("logtype", "app");
+            object.put("clientid", sn);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        map.put("pds", object.toString());
+//            params.put("Imei", getPhoneMac());
+        Log.i("login", map.toString());
+        App.getInstance().getMyOkHttp().post()
+                .url(URL.HOST)
+                .params(map)
+                .enqueue(new RawResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, String response) {
+                        Log.i("login", response);
                         listener.CallBack(response.toString());
-                        br.close();
-                    } else {
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
                         listener.CallBack("error");
                     }
-                    is.close();
-                    connection.disconnect();
-                } catch (Exception e) {
-                    Log.i("建立连接获取流对象","捕捉到异常");
-                    e.printStackTrace();
-                    listener.CallBack("error");
-                }
-            }
-        }).start();
+                });
+
+
     }
 
-    //解析json数据
+    public void postNet(Map<String, String> map, final HttpCallBackListener listener) {
+        App.getInstance().getMyOkHttp().post()
+                .url(URL.HOST)
+                .params(map)
+                .enqueue(new RawResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, String response) {
+                        Log.i("login", response);
+                        listener.CallBack(response.toString());
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+                        listener.CallBack("error");
+                    }
+                });
+    }
+    public void Net(Map<String, String> map, final HttpCallBackListener listener) {
+        App.getInstance().getMyOkHttp().post()
+                .url("http://se.pospi.com/downloadapp.php")
+                .params(map)
+                .enqueue(new RawResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, String response) {
+                        Log.i("login", response);
+                        listener.CallBack(response.toString());
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, String error_msg) {
+                        listener.CallBack("error");
+                    }
+                });
+    }
+
+
+//    //解析json数据
     public LoginReturnDto parseJson(String response) {
         try {
             JSONObject jsonObject = new JSONObject(response);
             loginReturnDto = new LoginReturnDto();
-            loginReturnDto.setResult(Integer.parseInt(jsonObject.getString("Result")));
-            loginReturnDto.setValue(jsonObject.getString("Value"));
-            loginReturnDto.setMessage(jsonObject.getString("Message"));
+            loginReturnDto.setFlag(jsonObject.getString("flag"));
+            loginReturnDto.setErrMsg(jsonObject.getString("errMsg"));
+            loginReturnDto.setErrCode(jsonObject.getString("errCode"));
+            loginReturnDto.setResult(jsonObject.getJSONObject("result").toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
         return loginReturnDto;
     }
+    public LoginReturnDto parseJson2(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            loginReturnDto = new LoginReturnDto();
+            loginReturnDto.setFlag(jsonObject.getString("flag"));
+            loginReturnDto.setErrMsg(jsonObject.getString("errMsg"));
+            loginReturnDto.setErrCode(jsonObject.getString("errCode"));
+            loginReturnDto.setResult(jsonObject.getJSONArray("result").toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return loginReturnDto;
+    }
+
 
 }

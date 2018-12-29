@@ -1,6 +1,9 @@
 package com.pospi.fragment;
 
 import android.app.DatePickerDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -27,7 +30,9 @@ import com.pospi.dao.OrderPaytypeDao;
 import com.pospi.dto.GoodsDto;
 import com.pospi.dto.OrderDto;
 import com.pospi.dto.OrderPaytype;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.util.BluetoothUtil;
+import com.pospi.pai.yunpos.util.ESCUtil;
 import com.pospi.paxprinter.PaxPrint;
 import com.pospi.paxprinter.PrnTest;
 import com.pospi.util.App;
@@ -44,10 +49,15 @@ import com.zqprintersdk.ZQPrinterSDK;
 import org.apache.commons.lang.ArrayUtils;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 public class TodaySaleFragment extends android.app.Fragment {
@@ -108,10 +118,10 @@ public class TodaySaleFragment extends android.app.Fragment {
         today_print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE);//StoreMessage  存储的店铺的信息
-                String shop_name = preferences.getString("Name", "");//得到存储的店铺的名字
-                String shop_address = preferences.getString("Address", "");//得到店铺的地址
-                String shop_phone = preferences.getString("Phone", "");//得到店铺的联系电话
+                SharedPreferences preferences = context.getSharedPreferences("userMsg", Context.MODE_PRIVATE);//StoreMessage  存储的店铺的信息
+                String shop_name = preferences.getString("name", "");//得到存储的店铺的名字
+                String shop_address = preferences.getString("address", "");//得到店铺的地址
+                String shop_phone = preferences.getString("phone", "");//得到店铺的联系电话
                 if (Build.MODEL.equalsIgnoreCase(URL.MODEL_T8)) {
                     try {
                         ZQPrinterSDK prn = new ZQPrinterSDK();// 实例化SDk
@@ -123,9 +133,9 @@ public class TodaySaleFragment extends android.app.Fragment {
                                 PrinterConst.HeightSize.SIZE0);
                         prn.Prn_PrintText(
                                 "日结" +
-                                        "总销售额:           " + DoubleSave.doubleSaveTwo(saleTotal - discount + refund) + "\r\n" +
+                                        "总销售额:           " + DoubleSave.doubleSaveTwo(saleTotal ) + "\r\n" +
                                         "打折销售:           " + DoubleSave.doubleSaveTwo(discount) + "\r\n" +
-                                        "净销售额:           " + DoubleSave.doubleSaveTwo(saleTotal - discount) + "\r\n" +
+                                        "净销售额:           " + DoubleSave.doubleSaveTwo(saleTotal  + refund) + "\r\n" +
                                         "退货:               " + DoubleSave.doubleSaveTwo(refund) + "\r\n" +
                                         "订单数量:           " + num_order + "\r\n" +
                                         orderDtos.get(0).getPayway() + ":           " +
@@ -320,6 +330,45 @@ public class TodaySaleFragment extends android.app.Fragment {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                } else if (Build.MODEL.equals(URL.MODEL_T1)) {
+                    // 1: Get BluetoothAdapter
+                    BluetoothAdapter btAdapter = BluetoothUtil.getBTAdapter();
+                    if (btAdapter == null) {
+                        Log.i("test", "蓝牙未打开");
+//			Toast.makeText(context, "Please Open Bluetooth!", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    // 2: Get Sunmi's InnerPrinter BluetoothDevice
+                    BluetoothDevice device = BluetoothUtil.getDevice(btAdapter);
+                    if (device == null) {
+                        Log.i("test", "未找到打印设备");
+//			Toast.makeText(context, "Please Make Sure Bluetooth have InnterPrinter!",
+//					Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    // 3: Generate a order data
+//				byte[] data = ESCUtil.generateMockData();
+
+                    byte[] body = printDayMsgTop();
+                    byte[] pays = printPayWay();
+                    byte[] foot = printFoot();
+                    byte[] data1 = ESCUtil.byteMerger(body, pays);
+                    byte[] result = ESCUtil.byteMerger(data1, foot);
+                    // 4: Using InnerPrinter print data
+                    BluetoothSocket socket = null;
+                    try {
+                        socket = BluetoothUtil.getSocket(device);
+
+                        BluetoothUtil.sendData(result, socket);
+                    } catch (IOException e) {
+                        if (socket != null) {
+                            try {
+                                socket.close();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
+                    }
                 }
             }
         });
@@ -344,7 +393,78 @@ public class TodaySaleFragment extends android.app.Fragment {
 
         return todaySale;
     }
+    public byte[] printDayMsgTop() {
 
+        try {
+            byte[] underoff = ESCUtil.underlineOff();
+            byte[] next2Line = ESCUtil.nextLine(2);
+//			byte[] title = "The menu（launch）**wanda plaza".getBytes("gb2312");
+            byte[] nextLine = ESCUtil.nextLine(1);
+            byte[] boldOn = ESCUtil.boldOn();
+            byte[] fontSize2Big = ESCUtil.fontSizeSetBig(2);
+            byte[] center = ESCUtil.alignCenter();
+            byte[] Focus = "日结".getBytes("gb2312");
+            byte[] date = ("日结日期："+date_time).getBytes("gb2312");
+            byte[] dateTime = ("单据时间："+ GetData.getDataTime()).getBytes("gb2312");
+            byte[] totalSale = "销售统计".getBytes("gb2312");
+            byte[] pay = "支付方式统计".getBytes("gb2312");
+
+            byte[] boldOff = ESCUtil.boldOff();
+            byte[] fontSizeNormal = ESCUtil.fontSizeSetBig(1);
+            byte[] line = "-----------------------------------------".getBytes("gb2312");
+            byte[] left = ESCUtil.alignLeft();
+            byte[] totalSaleMoney = ("总销售额："+ DoubleSave.doubleSaveTwo(saleTotal+refund )).getBytes("gb2312");
+            byte[] discountSale = ("总折扣额："+ DoubleSave.doubleSaveTwo(discount)).getBytes("gb2312");
+            byte[] sales = ("净销售额："+ DoubleSave.doubleSaveTwo(saleTotal )).getBytes("gb2312");
+            byte[] refunds = ("退货："+  DoubleSave.doubleSaveTwo(refund)).getBytes("gb2312");
+            byte[] underline = ESCUtil.underlineWithOneDotWidthOn();
+            byte[] ordeNum = ("订单数量："+num_order).getBytes("gb2312");
+            byte[] refundsNum = ("退货订单数量："+ num_refund).getBytes("gb2312");
+            byte[] fontSize1Small = ESCUtil.fontSizeSetSmall(2);
+            byte[] next4Line = ESCUtil.nextLine(4);
+
+            byte[] breakPartial = ESCUtil.feedPaperCutPartial();
+
+            byte[][] cmdBytes = { underoff ,center, boldOn, fontSize2Big, Focus, boldOff, nextLine,
+                    fontSizeNormal, left,nextLine, date, nextLine, dateTime,nextLine,line ,nextLine ,totalSale,
+                    nextLine,line, nextLine ,totalSaleMoney ,nextLine,sales ,nextLine ,refunds ,nextLine ,ordeNum ,nextLine,
+                    refundsNum ,nextLine ,line,nextLine,pay,nextLine,line,nextLine
+            };
+
+
+            return ESCUtil.byteMerger(cmdBytes);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //打印支付方式统计
+    private byte[] printPayWay(){
+        List<OrderDto> dtos = new OrderDao(getActivity().getApplicationContext()).selectGoods(date_time);
+        List<OrderPaytype> orderPaytypes = getPays(dtos);
+        byte[][] b = new byte[orderPaytypes.size()*2][];
+        for (int i = 0,j =0 ;i<orderPaytypes.size()*2;i+=2) {
+
+            try {
+                b[i] = (orderPaytypes.get(j).getPayName()+"    "+orderPaytypes.get(j).getYs() ).getBytes("gb2312");
+                b[i+1] = ESCUtil.nextLine(1);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            j++;
+
+        }
+
+        return ESCUtil.byteMerger(b);
+    }
+    private byte[] printFoot(){
+        byte[] next4Line = ESCUtil.nextLine(4);
+        byte[] underline = ESCUtil.underlineWithOneDotWidthOn();
+        byte[] breakPartial = ESCUtil.feedPaperCutPartial();
+        byte[][] cmdBytes = {next4Line, breakPartial};
+        return ESCUtil.byteMerger(cmdBytes);
+    }
 
     int num_order;//订单数量
     int num_refund;//退货订单数量
@@ -394,18 +514,18 @@ public class TodaySaleFragment extends android.app.Fragment {
             String orderInfo = dtos.get(i).getOrder_info();
 
             List<GoodsDto> goodsDtos = Sava_list_To_Json.changeToList(orderInfo);
-            if (dtos.get(i).getPayway().equals(PayWay.CZK)) {
-                saleTotal += Double.parseDouble(dtos.get(i).getYs_money()) * card_discount;
-                discount += Double.parseDouble(dtos.get(i).getYs_money()) * (1 - card_discount);
-                for (GoodsDto goodsDto : goodsDtos) {
-                    goodsDto.setSetFlag(true);
-                }
-            } else {
+//            if (dtos.get(i).getPayway().equals(PayWay.CZK)) {
+//                saleTotal += Double.parseDouble(dtos.get(i).getYs_money()) * card_discount;
+//                discount += Double.parseDouble(dtos.get(i).getYs_money()) * (1 - card_discount);
+//                for (GoodsDto goodsDto : goodsDtos) {
+//                    goodsDto.setSetFlag(true);
+//                }
+//            } else {
                 saleTotal += Double.parseDouble(dtos.get(i).getYs_money());
                 for (GoodsDto goodsDto : goodsDtos) {
                     discount += goodsDto.getDiscount();
                 }
-            }
+//            }
             goodsDtoList.addAll(goodsDtos);
         }
         //把每次提交的订单累加在一起
@@ -421,7 +541,8 @@ public class TodaySaleFragment extends android.app.Fragment {
 //            }
 //        }
 
-        adapter = new TodaySaleAdapter(getActivity().getApplicationContext(), goodsDtoList);
+
+        adapter = new TodaySaleAdapter(getActivity().getApplicationContext(), setGoods(goodsDtoList));
 
         lv.setAdapter(adapter);
 /********************************************************************************/
@@ -434,6 +555,50 @@ public class TodaySaleFragment extends android.app.Fragment {
         totalDiscount.setText(String.valueOf(DoubleSave.doubleSaveTwo(discount)));
         totalShouru.setText(String.valueOf(DoubleSave.doubleSaveTwo(saleTotal)));
     }
+
+    //合并相同商品
+    public List<GoodsDto> setGoods(List<GoodsDto> dtos) {
+        GoodsDto tempDto = null;
+        Map<String, GoodsDto> dtoMap = new HashMap<>();//合并后的数据
+        for (GoodsDto gd : dtos) {
+            tempDto = dtoMap.get(gd.getSid());
+            if (tempDto != null) {
+                tempDto.setNum(tempDto.getNum() + gd.getNum());
+                tempDto.setDiscount(DoubleSave.doubleSaveTwo(tempDto.getDiscount()+gd.getDiscount()));
+            } else {
+                dtoMap.put(gd.getSid(), gd);
+            }
+        }
+        List<GoodsDto> dtos1 = new ArrayList<>();
+        for (Map.Entry<String, GoodsDto> entry : dtoMap.entrySet()) {
+            dtos1.add(entry.getValue());
+        }
+        Collections.sort(dtos1, new Comparator<GoodsDto>() {
+            @Override
+            public int compare(GoodsDto o1, GoodsDto o2) {
+                return (int)(o2.getNum() - o1.getNum());
+            }
+        });
+        return dtos1;
+    }
+    //合并相同支付方式的金额
+//    public List<OrderDto> getPriceDetail(List<OrderDto> dtos) {
+//        OrderDto tempDto = null;
+//        Map<String, OrderDto> dtoMap = new HashMap<>();//合并后的数据
+//        for (OrderDto gd : dtos) {
+//            tempDto = dtoMap.get(gd.getPayway());
+//            if (tempDto != null) {
+//                tempDto.setSs_money(DoubleSave.doubleSaveTwo(Double.parseDouble(tempDto.getSs_money()) + Double.parseDouble(gd.getSs_money()))+"");
+//            } else {
+//                dtoMap.put(gd.getPayway(), gd);
+//            }
+//        }
+//        List<OrderDto> dtos1 = new ArrayList<>();
+//        for (Map.Entry<String, OrderDto> entry : dtoMap.entrySet()) {
+//            dtos1.add(entry.getValue());
+//        }
+//        return dtos1;
+//    }
 
     /**
      * 信息提示
@@ -448,4 +613,37 @@ public class TodaySaleFragment extends android.app.Fragment {
             }
         });
     }
+    //获取所有支付方式的金额
+    private List<OrderPaytype> getPays(List<OrderDto> dtos) {
+        List<OrderPaytype> list = new ArrayList<>();
+        for (OrderDto dto : dtos) {
+            List<OrderPaytype> orderPaytypes = new OrderPaytypeDao(App.getContext()).query(dto.getOrderId());
+            for (OrderPaytype op : orderPaytypes) {
+                list.add(op);
+            }
+        }
+
+        return setPays(list);
+    }
+    //合并相同支付方式
+    public List<OrderPaytype> setPays(List<OrderPaytype> dtos) {
+        OrderPaytype tempDto = null;
+        Map<String, OrderPaytype> dtoMap = new HashMap<>();//合并后的数据
+        for (OrderPaytype gd : dtos) {
+            tempDto = dtoMap.get(gd.getPayName());
+            if (tempDto != null) {
+                tempDto.setYs(String.valueOf(DoubleSave.doubleSaveTwo(Double.parseDouble(tempDto.getYs()) + Double.parseDouble(gd.getYs()))));
+                tempDto.setSs(String.valueOf(DoubleSave.doubleSaveTwo(Double.parseDouble(tempDto.getSs()) + Double.parseDouble(gd.getSs()))));
+                tempDto.setZl(String.valueOf(DoubleSave.doubleSaveTwo(Double.parseDouble(tempDto.getZl()) + Double.parseDouble(gd.getZl()))));
+            } else {
+                dtoMap.put(gd.getPayName(), gd);
+            }
+        }
+        List<OrderPaytype> dtos1 = new ArrayList<>();
+        for (Map.Entry<String, OrderPaytype> entry : dtoMap.entrySet()) {
+            dtos1.add(entry.getValue());
+        }
+        return dtos1;
+    }
+
 }

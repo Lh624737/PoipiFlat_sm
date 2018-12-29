@@ -15,6 +15,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Environment;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -39,6 +40,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.List;
@@ -276,7 +278,7 @@ public class Utils {
             double discounts = 0.00;
             for (GoodsDto goodsDto : goodsDtos) {
                 double price = goodsDto.getPrice();//单价
-                int num = goodsDto.getNum();
+                double num = goodsDto.getNum();
                 double discount = goodsDto.getDiscount();
                 discounts += discount;
                 nums += num;
@@ -412,7 +414,7 @@ public class Utils {
             double discounts = 0.00;
             for (GoodsDto goodsDto : goodsDtos) {
                 double price = goodsDto.getPrice();//单价
-                int num = goodsDto.getNum();
+                double num = goodsDto.getNum();
                 double discount = goodsDto.getDiscount();
                 discounts += discount;
                 nums += num;
@@ -485,7 +487,7 @@ public class Utils {
             double discounts = 0.00;
             for (GoodsDto goodsDto : goodsDtos) {
                 double price = goodsDto.getPrice();//单价
-                int num = goodsDto.getNum();
+                double num = goodsDto.getNum();
                 double discount = goodsDto.getDiscount();
                 discounts += discount;
                 nums += num;
@@ -599,6 +601,8 @@ public class Utils {
             }
         }
     }
+
+
 
 
 

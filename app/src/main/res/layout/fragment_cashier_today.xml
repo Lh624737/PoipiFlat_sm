@@ -7,6 +7,7 @@
 
 
     <LinearLayout
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -80,6 +81,27 @@
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="合计金额："
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cashier_today_ss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -89,6 +111,7 @@
         android:background="@color/gray" />
 
     <LinearLayout
+        android:id="@+id/ll_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -164,13 +187,19 @@
 
 
         <LinearLayout
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                style="@style/cashier_today_style_title"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:background="@color/blue_sale"
+                android:textSize="20sp"
+                android:gravity="center"
                 android:text="@string/collection_total" />
 
             <View
@@ -187,7 +216,7 @@
 
                 <TextView
                     style="@style/today_sale_lv_title"
-                    android:text="@string/payment" />
+                    android:text="交易时间" />
 
                 <TextView
                     style="@style/today_sale_lv_title"
@@ -213,43 +242,43 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="vertical">-->
 
-            <TextView
-                style="@style/cashier_today_style_title"
-                android:text="@string/jiaokuan_total" />
+            <!--<TextView-->
+                <!--style="@style/cashier_today_style_title"-->
+                <!--android:text="@string/jiaokuan_total" />-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/blue_sale" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:background="@color/blue_sale" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
 
-                <TextView
-                    style="@style/today_sale_lv_title"
-                    android:text="@string/payment" />
+                <!--<TextView-->
+                    <!--style="@style/today_sale_lv_title"-->
+                    <!--android:text="@string/payment" />-->
 
-                <TextView
-                    style="@style/today_sale_lv_title"
-                    android:text="@string/pay_money" />
+                <!--<TextView-->
+                    <!--style="@style/today_sale_lv_title"-->
+                    <!--android:text="@string/pay_money" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="6" />
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="6" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
     </LinearLayout>
 </LinearLayout>

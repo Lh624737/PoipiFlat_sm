@@ -29,6 +29,6 @@
         android:id="@+id/luodan"
         style="@style/menu_more_text"
         android:background="@color/ccc"
-        android:text="发送订单" />
+        android:text="取单" />
 
 </LinearLayout>

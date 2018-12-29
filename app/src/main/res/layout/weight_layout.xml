@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bolder"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue_theme"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_gravity="left|center_vertical"
+            android:src="@drawable/icon_gwc"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/scan_name"
+            android:layout_toStartOf="@+id/scan_name"
+            android:layout_marginRight="41dp"
+            android:layout_marginEnd="41dp" />
+
+        <TextView
+            android:id="@+id/scan_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="请称重"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/clear_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="清空"
+            android:textSize="25sp"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/choose_type"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:text="手动输入"
+            android:textSize="25sp"
+            android:textColor="@drawable/grey_text_color_click"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_light" />
+
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:layout_marginBottom="10dp"
+         android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"
+         android:layout_marginTop="10dp"
+         android:gravity="center_vertical"
+         android:orientation="horizontal">
+
+         <TextView
+             style="@style/pay_title_text"
+             android:gravity="center_vertical"
+             android:text="数量"
+             android:textSize="24sp" />
+
+         <ImageView
+             android:id="@+id/jian"
+             android:layout_width="35dp"
+             android:layout_height="35dp"
+             android:src="@drawable/icon_jhh_num" />
+
+         <TextView
+             android:id="@+id/text_num"
+             style="@style/pay_title_text"
+             android:gravity="center"
+             android:text="1"
+             android:textSize="22sp" />
+
+         <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:gravity="center_vertical">
+
+             <ImageView
+                 android:id="@+id/jia"
+                 android:layout_width="35dp"
+                 android:layout_height="35dp"
+                 android:src="@drawable/icon_jh_num" />
+         </LinearLayout>
+
+     </LinearLayout>-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_light" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal">
+
+        <!--<TextView-->
+        <!--style="@style/scan_calu"-->
+        <!--android:onClick="zpopupWindowNumberClick"-->
+        <!--android:text="7" />-->
+
+        <!--<View-->
+        <!--android:layout_width="0.5dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/gray_light" />-->
+
+        <!--<TextView-->
+        <!--style="@style/scan_calu"-->
+        <!--android:onClick="zpopupWindowNumberClick"-->
+        <!--android:text="8" />-->
+
+        <!--<View-->
+        <!--android:layout_width="0.5dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/gray_light" />-->
+
+        <!--<TextView-->
+        <!--style="@style/scan_calu"-->
+
+        <!--android:onClick="zpopupWindowNumberClick"-->
+        <!--android:text="9" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_transparent"
+            android:paddingLeft="30dp"
+            android:text="当前重量(斤)"
+            android:textSize="28sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/scan_tv_weight"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/corn"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:cursorVisible="false"
+                android:textColor="@color/black_light"
+
+                android:textSize="45sp" />
+
+            <!-- <TextView
+                 android:layout_width="0dp"
+                 android:layout_height="40dp"
+                 android:layout_weight="1"
+                 android:textSize="30sp"
+                 android:textColor="@color/black"
+                 android:gravity="center_vertical"
+                 android:text="斤"/>-->
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/scan_calu"
+                android:textSize="26sp"
+                android:text="品名：" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_light" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/scan_tv_name"
+                android:textColor="@color/colorAccent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="26sp"
+                android:text="0.0元" />
+
+            <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/gray_light" />-->
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="3" />-->
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/scan_calu"
+                android:textSize="26sp"
+                android:text="单价：" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_light" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/scan_tv_price"
+                android:textColor="@color/colorAccent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="26sp"
+                android:text="0.0元" />
+
+            <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/gray_light" />-->
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="3" />-->
+        </LinearLayout>
+        <!--<include layout="@layout/view_line" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/scan_calu"
+                android:textSize="26sp"
+                android:text="价格：" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray_light" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/scan_tv_weight_price"
+                android:textColor="@color/colorAccent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textSize="26sp" />
+
+            <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/gray_light" />-->
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="3" />-->
+        </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;style="@style/scan_calu"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:onClick="zpopupWindowNumberClick"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="4" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<View&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0.5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="@color/gray_light" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;style="@style/scan_calu"&ndash;&gt;-->
+
+        <!--&lt;!&ndash;android:onClick="zpopupWindowNumberClick"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="5" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<View&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0.5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="@color/gray_light" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;style="@style/scan_calu"&ndash;&gt;-->
+
+        <!--&lt;!&ndash;android:onClick="zpopupWindowNumberClick"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="6" />&ndash;&gt;-->
+        <!--</LinearLayout>-->
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="7" />-->
+
+            <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/gray_light" />-->
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="8" />-->
+
+            <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/gray_light" />-->
+
+            <!--<TextView-->
+            <!--style="@style/scan_calu"-->
+
+            <!--android:onClick="zpopupWindowNumberClick"-->
+            <!--android:text="9" />-->
+
+        </LinearLayout>
+
+        <include layout="@layout/view_line" />
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="85dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/zdiscount_dian"&ndash;&gt;-->
+        <!--&lt;!&ndash;style="@style/scan_calu"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:onClick="zpopupWindowNumberClick"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="."&ndash;&gt;-->
+        <!--&lt;!&ndash;android:clickable="false"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="36sp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<View&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="0.5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="@color/gray_light" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/zd_zero"&ndash;&gt;-->
+        <!--&lt;!&ndash;style="@style/scan_calu"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:onClick="zpopupWindowNumberClick"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:clickable="false"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="0" />&ndash;&gt;-->
+
+        <!--<View-->
+        <!--android:layout_width="0.5dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/gray_light" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/sure2"-->
+        <!--style="@style/scan_calu"-->
+        <!--android:text="确认"-->
+        <!--android:textSize="36sp" />-->
+
+        <!--</LinearLayout>-->
+    </LinearLayout>
+        <!--<view-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent">-->
+
+        <!--</view>-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="1" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="2" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="3" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="5" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="6" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="7" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="8" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    style="@style/scan_calu"
+
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="9" />
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    android:id="@+id/d_zero"
+                    style="@style/scan_calu"
+                    android:onClick="popupWindowNumberClick2"
+                    android:text="0" />
+                <TextView
+                android:id="@+id/discount_dian"
+                style="@style/scan_calu"
+                android:onClick="popupWindowNumberClick2"
+                android:text="."
+                    android:textStyle="bold"
+                android:textSize="40sp" />
+
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    android:id="@+id/scan_sure2"
+                    style="@style/scan_calu"
+                    android:text="确认"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

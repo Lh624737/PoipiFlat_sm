@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pospi.dto.PayWayDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.constant.PayWay;
 
 import java.util.List;
@@ -75,9 +75,6 @@ public class PaymentAdapter extends BaseAdapter {
             holder.tv_payment.setText(payWayDto.getName());
         } else if (payType==(PayWay.CASH_GIFT)) {//礼券
             holder.iv_payment.setImageResource(R.drawable.icon_other);
-            holder.tv_payment.setText(payWayDto.getName());
-        } else if (payType==(PayWay.E_COUPON)) {//电子券
-            holder.iv_payment.setImageResource(R.drawable.icon_chuzhika);
             holder.tv_payment.setText(payWayDto.getName());
         } else if (payType==(PayWay.ZYMPOSPAY)) {//中银mPOS
             holder.iv_payment.setImageResource(R.drawable.icon_mpos);

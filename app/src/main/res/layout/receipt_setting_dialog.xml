@@ -109,156 +109,157 @@
                 android:checked="true" />
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="设置D800扫码枪:"
-            android:textColor="@color/black_light"
-            android:textSize="20sp" />
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="设置D800扫码枪:"-->
+            <!--android:textColor="@color/black_light"-->
+            <!--android:textSize="20sp" />-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center">
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center">-->
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/scanner_box"
-                android:text="RS232"
-                android:textSize="25sp"
-                android:checked="false"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-    </LinearLayout>
+            <!--<CheckBox-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/scanner_box"-->
+                <!--android:text="RS232"-->
+                <!--android:textSize="25sp"-->
+                <!--android:checked="false"-->
+                <!--android:textColor="@color/black"/>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="门店编码:"
-            android:textColor="@color/black_light"
-            android:textSize="20sp" />
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="门店编码:"-->
+            <!--android:textColor="@color/black_light"-->
+            <!--android:textSize="20sp" />-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="center|left">
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:focusable="true"-->
+            <!--android:focusableInTouchMode="true"-->
+            <!--android:gravity="center|left">-->
 
-            <EditText
-                android:id="@+id/pay_shopId"
-                android:layout_width="220dp"
-                android:layout_height="40dp"
-                android:background="@drawable/et_shape_gray"
-                android:gravity="center"
-                android:inputType="number"
-                android:text="001"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="机具编码:"
-            android:textColor="@color/black_light"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="center|left">
-
-            <EditText
-                android:id="@+id/pay_jiju"
-                android:layout_width="220dp"
-                android:layout_height="40dp"
-                android:background="@drawable/et_shape_gray"
-                android:gravity="center"
-                android:inputType="number"
-                android:text="19"
-                android:textColor="@color/black" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/pay_shopId"-->
+                <!--android:layout_width="220dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@drawable/et_shape_gray"-->
+                <!--android:gravity="center"-->
+                <!--android:inputType="number"-->
+                <!--android:text="001"-->
+                <!--android:textColor="@color/black" />-->
+        <!--</LinearLayout>-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="操作员ID:"
-            android:textColor="@color/black_light"
-            android:textSize="20sp" />
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="机具编码:"-->
+            <!--android:textColor="@color/black_light"-->
+            <!--android:textSize="20sp" />-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:gravity="center|left">
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:focusable="true"-->
+            <!--android:focusableInTouchMode="true"-->
+            <!--android:gravity="center|left">-->
 
-            <EditText
-                android:id="@+id/pay_opid"
-                android:layout_width="220dp"
-                android:layout_height="40dp"
-                android:background="@drawable/et_shape_gray"
-                android:gravity="center"
-                android:inputType="number"
-                android:text="001"
-                android:textColor="@color/black" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/pay_jiju"-->
+                <!--android:layout_width="220dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@drawable/et_shape_gray"-->
+                <!--android:gravity="center"-->
+                <!--android:inputType="number"-->
+                <!--android:text="19"-->
+                <!--android:textColor="@color/black" />-->
+        <!--</LinearLayout>-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="操作员ID:"-->
+            <!--android:textColor="@color/black_light"-->
+            <!--android:textSize="20sp"-->
+            <!--android:id="@+id/textView10" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:focusable="true"-->
+            <!--android:focusableInTouchMode="true"-->
+            <!--android:gravity="center|left">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/pay_opid"-->
+                <!--android:layout_width="220dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:background="@drawable/et_shape_gray"-->
+                <!--android:gravity="center"-->
+                <!--android:inputType="number"-->
+                <!--android:text="001"-->
+                <!--android:textColor="@color/black" />-->
+        <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
 
    <!-- <LinearLayout
         android:layout_width="match_parent"

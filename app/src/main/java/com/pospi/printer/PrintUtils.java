@@ -12,7 +12,7 @@ import com.pospi.dto.CashierMsgDto;
 import com.pospi.dto.GoodsDto;
 import com.pospi.dto.OrderDto;
 import com.pospi.dto.ValueCardDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.paxprinter.PrnTest;
 import com.pospi.util.CashierLogin_pareseJson;
 import com.pospi.util.GetData;

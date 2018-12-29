@@ -32,27 +32,27 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/printer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/printer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@color/white"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="8dp">-->
 
-        <TextView
-            android:id="@+id/printer_text"
-            style="@style/setting_detail"
-            android:layout_weight="1"
-            android:text="打印机连接" />
+        <!--<TextView-->
+            <!--android:id="@+id/printer_text"-->
+            <!--style="@style/setting_detail"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="打印机连接" />-->
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_weight="10"
-            android:src="@drawable/setting_iv_in" />
-    </LinearLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:src="@drawable/setting_iv_in" />-->
+    <!--</LinearLayout>-->
 
     <include layout="@layout/view_line_leftmargin" />
 
@@ -126,26 +126,26 @@
 
     <include layout="@layout/view_line_leftmargin" />
 
-    <LinearLayout
-        android:id="@+id/setting_check"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/setting_check"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@color/white"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="8dp">-->
 
-        <TextView
-            style="@style/setting_detail"
-            android:layout_weight="1"
-            android:text="@string/ping" />
+        <!--<TextView-->
+            <!--style="@style/setting_detail"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/ping" />-->
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_weight="10"
-            android:src="@drawable/setting_iv_in" />
-    </LinearLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:src="@drawable/setting_iv_in" />-->
+    <!--</LinearLayout>-->
 
     <include layout="@layout/view_line_leftmargin" />
 
@@ -197,26 +197,26 @@
 
     <include layout="@layout/view_line_leftmargin" />
 
-    <LinearLayout
-        android:id="@+id/erp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/erp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@color/white"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="8dp">-->
 
-        <TextView
-            style="@style/setting_detail"
-            android:layout_weight="1"
-            android:text="第三方ERP系统数据上传设置" />
+        <!--<TextView-->
+            <!--style="@style/setting_detail"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="第三方ERP系统数据上传设置" />-->
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_weight="10"
-            android:src="@drawable/setting_iv_in" />
-    </LinearLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:src="@drawable/setting_iv_in" />-->
+    <!--</LinearLayout>-->
 
     <include layout="@layout/view_line" />
 

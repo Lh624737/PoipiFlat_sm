@@ -106,7 +106,7 @@ public class ZQPrint {
             //打印商品详情
             List<GoodsDto> goodsDtos = Sava_list_To_Json.changeToList(goods);
             int nums = 0;
-            int goodsNum = 0;
+            double goodsNum = 0;
             double moneys = 0.00;
             double discount = 0.0;
             double goodsDiscount = 0.0;

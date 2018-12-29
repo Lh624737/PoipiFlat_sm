@@ -8,7 +8,7 @@ public class OrderMenu {
     private String sid;
     private String name;
     private double price;
-    private int number;
+    private double number;
     private double totalPrice;
     private double discount;
     private String orderSid;
@@ -45,11 +45,11 @@ public class OrderMenu {
         this.price = price;
     }
 
-    public int getNumber() {
+    public double getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(double number) {
         this.number = number;
     }
 

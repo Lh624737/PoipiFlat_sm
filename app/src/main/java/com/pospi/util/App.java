@@ -8,19 +8,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 
 import com.android.print.sdk.PrinterInstance;
 import com.gprinter.aidl.GpService;
+import com.lany.sp.BuildConfig;
+import com.lany.sp.SPHelper;
 import com.newland.jsums.paylib.model.OrderInfo;
 import com.pax.dal.IDAL;
 import com.pax.neptunelite.api.NeptuneLiteUser;
 import com.pospi.dao.OrderDao;
 import com.pospi.greendao.DaoMaster;
 import com.pospi.greendao.DaoSession;
-import com.pospi.pai.pospiflat.util.DeletFile;
+import com.pospi.pai.yunpos.util.DeletFile;
 import com.pospi.service.ERPService;
 import com.pospi.service.UpLoadService;
 import com.pospi.util.constant.URL;
@@ -36,11 +39,14 @@ import okhttp3.OkHttpClient;
  * Created by huangqi on 2016/7/24.
  */
 public class App extends Application {
+    public static boolean isAidl;
     public static GpService mGpService = null;
     private static boolean state = false;
     private static Context context;
     private static App app;
     private static boolean isUpLoad = true;
+    private Typeface typeface;
+    private Typeface numTypeface;
 
     public static boolean isHasNoUpLoad() {
         return hasNoUpLoad;
@@ -62,6 +68,14 @@ public class App extends Application {
     private DaoMaster daoMaster;
     private DaoSession daoSession;
 
+    public Typeface getNumTypeface() {
+        return numTypeface;
+    }
+
+    public Typeface getTypeface() {
+        return typeface;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -73,8 +87,12 @@ public class App extends Application {
                 .connectTimeout(15000L, TimeUnit.MILLISECONDS)
                 .readTimeout(15000L, TimeUnit.MILLISECONDS).build();
         myOkHttp = new MyOkHttp(okHttpClient);
-
-
+        //初始化sharedprefece
+        SPHelper.getInstance().init(this, BuildConfig.DEBUG);
+        initDataBase();
+        //初始化字体库
+        typeface = Typeface.createFromAsset(getAssets(), "fonts/PingFang.ttf");
+        numTypeface = Typeface.createFromAsset(getAssets(), "fonts/Dosis-Regular.ttf");
 
         if (!(new OrderDao(App.getContext()).findOrderERPNOUpLoad().size() > 0) || !(new OrderDao(App.getContext()).findOrderNOUpLoad().size() > 0)) {
             App.hasNoUpLoad = false;
@@ -84,15 +102,16 @@ public class App extends Application {
 
         isUpLoad = PreferencesUtils.getBoolean(App.getContext(), "IsUpLoad", true);
         if (isUpLoad) {//如果打开上传订单开关。则开启上传服务
-            Intent i = new Intent(getApplicationContext(), UpLoadService.class);
-            startService(i);
+//            Intent i = new Intent();
+//            i.setClass(this, UpLoadService.class);
+//            startService(i);
             SharedPreferences preferences = this.getSharedPreferences("ERP", Context.MODE_PRIVATE);
             String url = preferences.getString("url", "");//地址
             //检测机器是否为佳博，若是就开启erp服务
-            if (!TextUtils.isEmpty(url) && Build.MODEL.equals(URL.MODEL_DT92)) {
-                Intent erp = new Intent(context, ERPService.class);
-                startService(erp);
-            }
+//            if (!TextUtils.isEmpty(url) && Build.MODEL.equals(URL.MODEL_DT92)) {
+//                Intent erp = new Intent(context, ERPService.class);
+//                startService(erp);
+//            }
 
         }
         //检测机器是否为d800，若是则初始化米雅支付配置文件
@@ -107,7 +126,13 @@ public class App extends Application {
             }
         }
 
+        isAidl = true;
+        AidlUtil.getInstance().connectPrinterService(this);
 
+
+    }
+    public void setAidl(boolean aidl) {
+        isAidl = aidl;
     }
     //初始化greendao
     private void initDataBase() {

@@ -130,7 +130,7 @@ public class GPprint implements MyPrinter{
             for (GoodsDto goodsDto : goodsDtos) {
                 esc.addSelectJustification(EscCommand.JUSTIFICATION.LEFT);// 设置打印左对齐
                 double price = goodsDto.getPrice();//单价
-                int num = goodsDto.getNum();
+                double num = goodsDto.getNum();
                 double discount = goodsDto.getDiscount();
                 discounts += discount;
                 nums += num;
@@ -325,7 +325,8 @@ public class GPprint implements MyPrinter{
     }
 
     @Override
-    public void starPrint(String goods, String payMoney, Bitmap qrCode, boolean isSale ,ValueCardDto valueCardDto,String sid ,String tableId) {
-        print(goods ,payMoney ,qrCode ,isSale ,sid);
+    public void starPrint() {
+//        print(goods ,payMoney ,qrCode ,isSale ,sid);
     }
+
 }

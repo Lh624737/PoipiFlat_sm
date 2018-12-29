@@ -16,13 +16,14 @@ public class PayWay {
 
     public final static String XJ = "现金";
     public final static String YHK = "银行卡";
-    public final static String WX = "微信支付";
+    public final static String WX = "微信";
     public final static String ZFB = "支付宝";
-    public final static String YHQ = "电子券";
+    public final static String YHQ = "优惠券";
     public final static String LQ = "礼券";
-    public final static String CZK = "储值卡";
+    public final static String CZK = "会员卡";
     public final static String OTH = "其他";
     public final static String SZ = "赊账";
+    public final static String JF = "积分抵扣";
 
     //现金
     public final static int CASH = 1;
@@ -32,12 +33,12 @@ public class PayWay {
     public final static int CASH_GIFT = 3;
     //银行卡
     public final static int BANK_CARD = 4;
-    //赊销
-    public final static int SELL_ON_CREDIT = 5;
+    //积分
+    public final static int JF_CODE = 5;
     //面值卡
     public final static int MIANZHI_CARD = 6;
-    //电子券
-    public final static int E_COUPON = 7;
+    //优惠券
+    public final static int YHQ_CODE = 7;
     ////支付宝
 //public final static String ALIPAY 8
 //团够

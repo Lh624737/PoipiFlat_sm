@@ -61,15 +61,7 @@ public class ERPService extends IntentService {
                     payWayDto = payWayDtos.get(i);
                 }
             }
-            try {
-                if (orderDto.getOrderType() == URL.ORDERTYPE_REFUND) {
-                    new UpLoadToServel(App.getContext()).postWebServer(orderDto, payWayDto.getName(), false);
-                } else {
-                    new UpLoadToServel(App.getContext()).postWebServer(orderDto, payWayDto.getName(), true);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
         }
         AlarmManager manager = (AlarmManager) App.getContext().getSystemService(ALARM_SERVICE);
         int anHour = 300 * 1000; // 这是5min的毫秒数

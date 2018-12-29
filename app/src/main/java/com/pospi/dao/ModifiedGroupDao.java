@@ -24,7 +24,7 @@ public class ModifiedGroupDao {
 
     public ModifiedGroupDao(Context context) {
         this.context = context;
-        db = new DB(context);
+        db = DB.getInstance(context);
     }
 
     /***

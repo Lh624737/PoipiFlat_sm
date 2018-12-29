@@ -12,5 +12,4 @@ public class TableArea {
     public static final int Area_Other=6;//其他
 
 
-
 }

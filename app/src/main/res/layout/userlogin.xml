@@ -3,99 +3,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aa"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".login.UserLoginActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:gravity="center">
 
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/pospiLogo"
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="126dp"
+            android:gravity="center">
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:src="@drawable/icon_login"/>
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@drawable/fuji" />-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="400dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@drawable/icon_logo2" />-->
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="86dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="130dp"
+            android:layout_marginRight="130dp"
+            android:layout_height="60dp"
+            android:background="@drawable/yj_big_gray">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/icon_login_qy_nor"/>
+
+            <EditText
+                android:id="@+id/userlogin_qyh"
+                style="@style/AppTheme."
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@null"
+                android:imeOptions="actionNext"
+                android:textColor="#ff4680ff"
+                android:textColorHint="#8F8F8F"
+                android:imeActionLabel="@string/next"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:singleLine="true"
+
+                android:hint="企业号"
+                android:lines="1"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="19dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="130dp"
+            android:layout_marginRight="130dp"
+            android:background="@drawable/yj_big_gray"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20sp"
+                android:src="@drawable/icon_login_gh_nor"/>
+            <EditText
+                android:id="@+id/userlogin_uesr"
+                style="@style/AppTheme."
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:imeOptions="actionNext"
+                android:imeActionLabel="@string/next"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="#ff4680ff"
+                android:textColorHint="#8F8F8F"
+                android:background="@null"
+                android:singleLine="true"
+                android:hint="工号"
+                android:lines="1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@drawable/yj_big_gray"
+            android:layout_marginTop="19dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="130dp"
+            android:layout_marginRight="130dp"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20sp"
+                android:src="@drawable/icon_login_mm_nor"/>
+            <EditText
+                android:id="@+id/userlogin_pwd"
+                style="@style/AppTheme."
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ff4680ff"
+                android:textColorHint="#8F8F8F"
+                android:imeOptions="actionGo"
+                android:background="@null"
+                android:imeActionLabel="@string/login"
+                android:digits="0123456789abcdefghijgklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.!@#$?+-*/%"
+                android:gravity="center"
+                android:hint="密码"
+                android:singleLine="true"
+                android:inputType="textPassword"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="59dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_marginLeft="130dp"
+                android:layout_marginRight="130dp"
+                android:id="@+id/userlogin_btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bt_press_select"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/userlogin_pro"
+            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:visibility="gone" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:gravity="center" />
-        <!--<ImageView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:src="@drawable/fuji" />-->
+            android:scaleType="fitXY"
+            android:src="@drawable/image_login"/>
 
-        <!--<ImageView-->
-        <!--android:layout_width="400dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:src="@drawable/icon_logo2" />-->
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <EditText
-            android:id="@+id/userlogin_uesr"
-            style="@style/AppTheme."
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:imeOptions="actionNext"
-            android:imeActionLabel="@string/next"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/userpw"
-            android:gravity="center"
-            android:text="llllll"
-            android:hint="@string/hint_account"
-            android:lines="1"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <EditText
-            android:id="@+id/userlogin_pwd"
-            style="@style/AppTheme."
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:imeOptions="actionGo"
-            android:imeActionLabel="@string/login"
-            android:text="asdf1234"
-            android:background="@drawable/userpw"
-            android:digits="0123456789abcdefghijgklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.!@#$?+-*/%"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:inputType="textPassword"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5">
-
-        <Button
-            android:id="@+id/userlogin_btn_login"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/btnclick"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/login"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-    </RelativeLayout>
-
-    <ProgressBar
-        android:id="@+id/userlogin_pro"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="false"
-        android:visibility="gone" />
 
 </LinearLayout>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.pospi.dto.OrderDto;
 import com.pospi.dto.Tabledto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.TurnSize;
 import com.pospi.util.constant.tableinfo.TableStatusConstance;
 

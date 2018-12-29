@@ -31,7 +31,7 @@ public class TableDao {
     private String Uid;
 
     public TableDao(Context context) {
-        DB = new DB(context);//实例化数据库
+        DB = DB.getInstance(context);
         this.context = context;
         shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
 

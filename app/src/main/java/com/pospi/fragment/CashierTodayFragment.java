@@ -9,13 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.lany.sp.SPHelper;
 import com.pospi.adapter.Cashier_Today_sale_Adapter;
 import com.pospi.dao.OrderDao;
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.login.Constant;
 import com.pospi.util.CashierLogin_pareseJson;
 import com.pospi.util.DoubleSave;
 import com.pospi.util.GetData;
@@ -44,6 +47,11 @@ public class CashierTodayFragment extends Fragment {
     TextView Gap;
     @Bind(R.id.cashier_lv)
     ListView cashierLv;
+    @Bind(R.id.ll_detail)
+    LinearLayout ll_detail;
+    @Bind(R.id.cashier_today_ss)
+    TextView cashier_today_ss;
+
     private Context context;
     private String cashier_name;
 
@@ -62,6 +70,7 @@ public class CashierTodayFragment extends Fragment {
 
         layoutView = inflater.inflate(R.layout.fragment_cashier_today, container, false);
         ButterKnife.bind(this, layoutView);
+        ll_detail.setVisibility(View.GONE);
         getShareperformancedata();
         Data.setText(GetData.getYYMMDDTime());//进入界面的时候就会把日期定位在当天
 
@@ -75,10 +84,7 @@ public class CashierTodayFragment extends Fragment {
      */
     public void getShareperformancedata() {
         int whichOne = context.getSharedPreferences("islogin", context.MODE_PRIVATE).getInt("which", 0);
-        cashier_name = new CashierLogin_pareseJson().parese(
-                context.getSharedPreferences("cashierMsgDtos", context.MODE_PRIVATE)
-                        .getString("cashierMsgDtos", ""))
-                .get(whichOne).getName();
+        cashier_name = SPHelper.getInstance().getString(Constant.CUSTOMER_name);
 
         cashierName.setText(cashier_name);
     }
@@ -102,6 +108,7 @@ public class CashierTodayFragment extends Fragment {
             }
         }
         Num.setText(String.valueOf(nowCashierOrderList.size()));
+
 
 
         //把每次提交的订单累加在一起
@@ -131,13 +138,14 @@ public class CashierTodayFragment extends Fragment {
         double payShould = 0;
 
         for (int i = 0; i < nowCashierOrderList.size(); i++) {
-            if (nowCashierOrderList.get(i).getPayway().equals(PayWay.XJ)) {
-                xjPay.add(dtos.get(i));
+//            if (nowCashierOrderList.get(i).getPayway().equals(PayWay.XJ)) {
+//                xjPay.add(dtos.get(i));
                 payShould += Double.parseDouble(dtos.get(i).getYs_money());
-            }
+//            }
         }
-        Payable.setText(String.valueOf(DoubleSave.doubleSaveTwo(payShould)));
-        Gap.setText(String.valueOf(DoubleSave.doubleSaveTwo(payShould)));
+        cashier_today_ss.setText(String.valueOf(DoubleSave.doubleSaveTwo(payShould)));
+//        Payable.setText(String.valueOf(DoubleSave.doubleSaveTwo(payShould)));
+//        Gap.setText(String.valueOf(DoubleSave.doubleSaveTwo(payShould)));
 
     }
 

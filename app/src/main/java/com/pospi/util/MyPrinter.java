@@ -12,5 +12,5 @@ import com.pospi.dto.ValueCardDto;
  */
 
 public interface MyPrinter {
-    void starPrint(String goods, String payMoney, Bitmap qrCode, boolean isSale,ValueCardDto valueCardDto ,String sid,String tableId);
+    void starPrint();
 }

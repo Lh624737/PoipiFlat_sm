@@ -23,8 +23,8 @@ import android.widget.Toast;
 import com.pospi.adapter.TradeListAdapter;
 import com.pospi.dao.OrderDao;
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
-import com.pospi.pai.pospiflat.more.RefundsActivity;
+import com.pospi.pai.yunpos.R;
+import com.pospi.pai.yunpos.more.RefundsActivity;
 import com.pospi.util.GetData;
 
 import java.util.Calendar;
@@ -158,6 +158,6 @@ public class TradeListFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        getActivity().finish();
+//        getActivity().finish();
     }
 }

@@ -17,27 +17,34 @@
         <ImageView
             android:id="@+id/tuikuan"
             android:layout_width="60dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
             android:layout_alignTop="@+id/detail_print"
-            android:layout_marginEnd="49dp"
             android:layout_marginRight="49dp"
-            android:layout_marginTop="-10dp"
-            android:layout_toLeftOf="@+id/detail_print"
-            android:layout_toStartOf="@+id/detail_print"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:src="@drawable/icon_tk" />
-
-        <ImageView
-            android:id="@+id/detail_print"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
-            android:src="@drawable/icon_dyj" />
+            android:src="@drawable/icon_refund" />
+
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:id="@+id/detail_print"
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="3dp"
+                android:src="@drawable/icon_dyj" />
+            <TextView
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="打印小票"/>
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 
@@ -238,18 +245,10 @@
                         style="@style/today_sale_lv_title"
                         android:text="@string/payment" />
 
-
-                    <TextView
-                        style="@style/today_sale_lv_title"
-                        android:text="@string/yingshou_money" />
-
                     <TextView
                         style="@style/today_sale_lv_title"
                         android:text="实收金额" />
 
-                    <TextView
-                        style="@style/today_sale_lv_title"
-                        android:text="找零金额" />
 
                 </LinearLayout>
 

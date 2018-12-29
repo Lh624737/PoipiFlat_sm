@@ -132,11 +132,12 @@
                     android:orientation="horizontal"
                     android:padding="5dp">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/vip_icon"
                         android:layout_width="30dp"
+                        style="@style/pay_title_text"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/sale_main_hy" />
+                        android:text="会员"/>
 
                     <TextView
                         android:id="@+id/vip_name"
@@ -149,29 +150,6 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/gray_light" />
-
-                <LinearLayout
-                    android:id="@+id/ll_table"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/table_iv"
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_table" />
-
-                    <TextView
-                        android:id="@+id/table_name"
-                        style="@style/pay_title_text"
-                        android:layout_weight="1"
-                        android:gravity="center" />
-                </LinearLayout>
-
 
                 <View
                     android:layout_width="1dp"

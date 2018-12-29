@@ -2,7 +2,7 @@ package com.pospi.util;
 
 import android.util.Log;
 
-import com.pospi.pai.pospiflat.util.CreateFiles;
+import com.pospi.pai.yunpos.util.CreateFiles;
 import com.pospi.util.constant.Config;
 
 import org.apache.commons.net.ftp.FTP;

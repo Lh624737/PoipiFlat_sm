@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 /**
  * Created by Qiyan on 2016/5/20.
@@ -64,17 +64,16 @@ public class CustomDialog extends Dialog {
             // set the confirm button
 
             final EditText et=(EditText)layout.findViewById(R.id.message);
-            Button sure=(Button)layout.findViewById(R.id.positiveButton);
-            Button cancle=(Button)layout.findViewById(R.id.negativeButton);
-
-            sure.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!(et.getText().toString().trim()==null)){
-
-                    }
-                }
-            });
+//            Button sure=(Button)layout.findViewById(R.id.positiveButton);
+//
+//            sure.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (!(et.getText().toString().trim()==null)){
+//
+//                    }
+//                }
+//            });
 
 
 

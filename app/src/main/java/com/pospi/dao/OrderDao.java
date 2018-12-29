@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.lany.sp.SPHelper;
 import com.pospi.database.DB;
 import com.pospi.dto.OrderDto;
+import com.pospi.pai.yunpos.login.Constant;
 import com.pospi.util.GetData;
 import com.pospi.util.UpLoadServer;
 import com.pospi.util.UploadERP;
@@ -29,7 +31,7 @@ public class OrderDao {
     private Context context;
 
     public OrderDao(Context context) {
-        DB = new DB(context);//实例化数据库
+        DB = DB.getInstance(context);
         this.context = context;
     }
 
@@ -40,14 +42,22 @@ public class OrderDao {
         SQLiteDatabase db = DB.getWritableDatabase();
         Log.i("addOrder()", "orderDto.getMiYaNumber(): "+orderDto.getMiYaNumber());
        // String sid = orderDto.getOrderSid();
-        db.execSQL("insert into orderinfo(maxNo,orderType,payway,shop_id,time,ss_money,ys_money,zl_money,order_info," +
-                        "cashiername,detailTime,checkoutTime,hasReturnGoods,out_trade_no,payReturn,ifFinishOrder," +
-                        "serialNumber,tableNumber,eatingNumber,orderId,upLoadServer,upLoadERP,orderNo,miYaNumber,orderSid,tableId)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                new Object[]{orderDto.getMaxNo(), orderDto.getOrderType(), orderDto.getPayway(), orderDto.getShop_id(), orderDto.getTime(), orderDto.getSs_money(), orderDto.getYs_money(), orderDto.getZl_money(), orderDto.getOrder_info(),
+        db.execSQL("insert into orderinfo(" +
+                "maxNo,orderType,payway,shop_id,time,ss_money,ys_money,zl_money,order_info," +
+                "cashiername,detailTime,checkoutTime,hasReturnGoods,out_trade_no,payReturn,ifFinishOrder," +
+                "serialNumber,tableNumber,eatingNumber,orderId,upLoadServer,upLoadERP,orderNo,miYaNumber,orderSid,tableId,vipNumber)" +
+                "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                new Object[]{
+                        orderDto.getMaxNo(), orderDto.getOrderType(), orderDto.getPayway(),
+                        orderDto.getShop_id(), orderDto.getTime(), orderDto.getSs_money(),
+                        orderDto.getYs_money(), orderDto.getZl_money(), orderDto.getOrder_info(),
                         orderDto.getCashiername(), orderDto.getDetailTime(), orderDto.getCheckoutTime(),
                         orderDto.getHasReturnGoods(), orderDto.getOut_trade_no(), orderDto.getPayReturn(),
                         orderDto.getIfFinishOrder(), orderDto.getSerialNumber(), orderDto.getTableNumber(),
-                        orderDto.getStatus(), orderDto.getOrderId(), orderDto.getUpLoadServer(), orderDto.getUpLoadERP(),orderDto.getOrderNo(),orderDto.getMiYaNumber(),orderDto.getOrderSid(),orderDto.getTableId()});
+                        orderDto.getStatus(), orderDto.getOrderId(), orderDto.getUpLoadServer(),
+                        orderDto.getUpLoadERP(), orderDto.getOrderNo(),orderDto.getMiYaNumber(),
+                        orderDto.getOrderSid(),orderDto.getTableId(),orderDto.getVipNumber()
+                });
         db.close();
 //        Log.i("addOrder",""+orderDto.getUpLoadERP());
     }
@@ -71,7 +81,7 @@ public class OrderDao {
      */
     public boolean deleteRestOrderInfo(String maxNo) {
         SQLiteDatabase db = DB.getWritableDatabase();
-        if (db.delete(tablename, "maxNo=?", new String[]{maxNo}) > 0) {
+        if (db.delete(tablename, "maxNo=? and ifFinishOrder=?", new String[]{maxNo,String.valueOf(URL.ZHUOTai)}) > 0) {
             return true;
         }
         db.close();
@@ -85,7 +95,7 @@ public class OrderDao {
      * @return 返回一个当天的所有信息的列表
      */
     public List<OrderDto> selectGoods(String time) {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
 
         SQLiteDatabase db = DB.getReadableDatabase();
 
@@ -112,7 +122,8 @@ public class OrderDao {
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setStatus(cursor.getInt(cursor.getColumnIndex("eatingNumber")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
         }
         cursor.close();
@@ -121,7 +132,7 @@ public class OrderDao {
     }
 
     public OrderDto selectOrderByNo(String maxNo) {
-        String shopId = context.getSharedPreferences("StoreMessage", context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
 
         SQLiteDatabase db = DB.getReadableDatabase();
 
@@ -148,7 +159,8 @@ public class OrderDao {
             dto.setStatus(cursor.getInt(cursor.getColumnIndex("eatingNumber")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
         }
         cursor.close();
         db.close();
@@ -163,7 +175,7 @@ public class OrderDao {
      * @return 返回一个当天的所有信息的列表
      */
     public List<OrderDto> findMaxNO(String time) {
-        String shopId = context.getSharedPreferences("StoreMessage", context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
 
         List<OrderDto> dtosss = new ArrayList<>();
@@ -189,7 +201,8 @@ public class OrderDao {
             dto.setStatus(cursor.getInt(cursor.getColumnIndex("eatingNumber")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
         }
         cursor.close();
@@ -201,12 +214,13 @@ public class OrderDao {
      * 查询当前的所有的挂单的信息
      */
     public List<OrderDto> selectRestOrder() {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
-        String time = GetData.getYYMMDDTime();
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
+//        String time = GetData.getYYMMDDTime();
         SQLiteDatabase db = DB.getReadableDatabase();
 
         List<OrderDto> dtosss = new ArrayList<>();
-        Cursor cursor = db.query(tablename, null, "time=? and shop_id=? and ifFinishOrder=?", new String[]{time, shopId, String.valueOf(URL.ZHUOTai)}, null, null, null);
+        Cursor cursor = db.query(tablename, null, " shop_id=? and ifFinishOrder=?", new String[]{ shopId, String.valueOf(URL.ZHUOTai)}, null, null, null);
+//        Cursor cursor = db.query(tablename, null, "time=? and shop_id=? and ifFinishOrder=?", new String[]{time, shopId, String.valueOf(URL.ZHUOTai)}, null, null, null);
         while (cursor.moveToNext()) {
             dto = new OrderDto();
             //遍历Cursor对象，取出数据并打印
@@ -231,7 +245,8 @@ public class OrderDao {
             dto.setTableNumber(cursor.getString(cursor.getColumnIndex("tableNumber")));
             dto.setTableId(cursor.getString(cursor.getColumnIndex("tableId")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
         }
         cursor.close();
@@ -243,7 +258,7 @@ public class OrderDao {
      * 查询当前的所有的挂单的信息
      */
     public List<OrderDto> selectTableOrder() {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         List<OrderDto> dtosss = new ArrayList<>();
         Cursor cursor = db.query(tablename, null, "shop_id=? and ifFinishOrder=?", new String[]{shopId, String.valueOf(URL.ZHUOTai)}, null, null, null);
@@ -270,7 +285,8 @@ public class OrderDao {
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
         }
         cursor.close();
@@ -279,7 +295,7 @@ public class OrderDao {
     }
 
     public OrderDto selectTableHasOrder(String tableId) {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
 
         Cursor cursor = db.query(tablename, null, "shop_id=? and ifFinishOrder=? and tableNumber=?", new String[]{shopId, String.valueOf(URL.ZHUOTai), tableId}, null, null, null);
@@ -304,7 +320,8 @@ public class OrderDao {
             dto.setStatus(cursor.getInt(cursor.getColumnIndex("eatingNumber")));
             dto.setOrderId(cursor.getString(cursor.getColumnIndex("orderId")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
         }
         cursor.close();
         db.close();
@@ -328,7 +345,7 @@ public class OrderDao {
      * 查询当前的所有没有上传的前10订单
      */
     public List<OrderDto> findOrderNOUpLoad() {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         List<OrderDto> dtosss = new ArrayList<>();
         Cursor cursor = db.query(tablename, null, "shop_id=? and upLoadServer=?", new String[]{shopId, String.valueOf(UpLoadServer.noUpload)}, null, null, "id desc");
@@ -355,7 +372,8 @@ public class OrderDao {
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
             if (dtosss.size() > 10) {
                 break;
@@ -370,7 +388,7 @@ public class OrderDao {
      * 查询所有没有上传本服务器的订单
      */
     public List<OrderDto> findNOUpLoad() {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         List<OrderDto> dtosss = new ArrayList<>();
         Cursor cursor = db.query(tablename, null, "shop_id=? and upLoadServer=?", new String[]{shopId, String.valueOf(UpLoadServer.noUpload)}, null, null, "id desc");
@@ -398,7 +416,8 @@ public class OrderDao {
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             //获取数据库订单信息中付款方式的sid
             dto.setOrderSid(cursor.getString(cursor.getColumnIndex("orderSid")));
             Log.i("sid", "OrderSid-------------->"+cursor.getString(cursor.getColumnIndex("orderSid")));
@@ -426,7 +445,7 @@ public class OrderDao {
      */
     public List<OrderDto> findOrderERPNOUpLoad() {
 //        Log.i("addOrder","findOrderERPNOUpLoad  开始查询");
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         List<OrderDto> dtosss = new ArrayList<>();
         Cursor cursor = db.query(tablename, null, "shop_id=? and upLoadERP=?", new String[]{shopId, String.valueOf(UploadERP.noUpload)}, null, null, "id desc");
@@ -454,7 +473,8 @@ public class OrderDao {
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
 //            if (dtosss.size() > 10) {
 //                break;
@@ -471,7 +491,7 @@ public class OrderDao {
      */
     public List<OrderDto> findERPNOUpLoad() {
 //        Log.i("addOrder","findOrderERPNOUpLoad  开始查询");
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         List<OrderDto> dtosss = new ArrayList<>();
         Cursor cursor = db.query(tablename, null, "shop_id=? and upLoadERP=? and time=?", new String[]{shopId, String.valueOf(UploadERP.noUpload), GetData.getYYMMDDTime()}, null, null, "id desc");
@@ -499,7 +519,8 @@ public class OrderDao {
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
             dtosss.add(dto);
         }
         cursor.close();
@@ -512,7 +533,7 @@ public class OrderDao {
      * 根据订单号查询某一条订单的信息
      */
     public OrderDto findOrderDetailMessage(String orderNO) {
-        String shopId = context.getSharedPreferences("StoreMessage", Context.MODE_PRIVATE).getString("Id", "");
+        String shopId = SPHelper.getInstance().getString(Constant.STORE_ID);
         SQLiteDatabase db = DB.getReadableDatabase();
         Cursor cursor = db.query(tablename, null, "shop_id=? and maxNo=?", new String[]{shopId, String.valueOf(orderNO)}, null, null, null);
         while (cursor.moveToNext()) {
@@ -532,12 +553,14 @@ public class OrderDao {
             dto.setOut_trade_no(cursor.getString(cursor.getColumnIndex("out_trade_no")));
             dto.setPayReturn(cursor.getString(cursor.getColumnIndex("payReturn")));
             dto.setTableNumber(cursor.getString(cursor.getColumnIndex("tableNumber")));
+            dto.setTableId(cursor.getString(cursor.getColumnIndex("tableId")));
             dto.setStatus(cursor.getInt(cursor.getColumnIndex("eatingNumber")));
             dto.setOrderId(cursor.getString(cursor.getColumnIndex("orderId")));
             dto.setUpLoadServer(cursor.getInt(cursor.getColumnIndex("upLoadServer")));
             dto.setUpLoadERP(cursor.getInt(cursor.getColumnIndex("upLoadERP")));
             dto.setOrderNo(cursor.getString(cursor.getColumnIndex("orderNo")));
-//            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
+            dto.setVipNumber(cursor.getString(cursor.getColumnIndex("vipNumber")));
+            dto.setMiYaNumber(cursor.getString(cursor.getColumnIndex("miYaNumber")));
         }
         cursor.close();
         db.close();

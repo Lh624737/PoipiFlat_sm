@@ -7,6 +7,7 @@ import android.os.RemoteException;
 import android.widget.Toast;
 
 import com.gprinter.aidl.GpService;
+import com.pospi.dto.OrderDto;
 import com.pospi.dto.ValueCardDto;
 import com.pospi.paxprinter.PrnTest;
 import com.pospi.util.constant.URL;
@@ -23,13 +24,13 @@ import static android.content.Context.MODE_PRIVATE;
 public class Printer {
     private MyPrinter myPrinter;
     private GpService mGpService = null;
-    public void print(Context context, final String shishou , String payway , String maxNo, final ValueCardDto valueCardDto , final String sid ) {
+    public void print(Context context, OrderDto orderDto) {
         final String goods = context.getSharedPreferences("goodsdto_json", MODE_PRIVATE).getString("json", null);
         switch (Build.MODEL) {
             case URL.MODEL_D800:
                 byte status = PrnTest.prnStatus();
                 if (status == 0x00) {
-                    myPrinter = PrinterFactory.dPrinter(context, maxNo, payway);
+                    myPrinter = PrinterFactory.dPrinter(context, orderDto.getMaxNo(), orderDto.getPayway());
                 } else if (status == 0x02) {
                     Toast.makeText(context, "打印机缺纸", Toast.LENGTH_SHORT).show();
                     return;
@@ -57,10 +58,10 @@ public class Printer {
                         return;
                     }
                 }
-                myPrinter = PrinterFactory.jbPrinter(mGpService, context, maxNo, payway);
+                myPrinter = PrinterFactory.jbPrinter(mGpService, context, orderDto.getMaxNo(), orderDto.getPayway());
                 break;
             case URL.MODEL_T1:
-                myPrinter = PrinterFactory.getSuMiPrinter(context, maxNo, payway);
+                myPrinter = PrinterFactory.getSuMiPrinter(context,orderDto);
                 break;
             case URL.MODEL_E500:
                 myPrinter = PrinterFactory.getEPrinter(context, "", "");
@@ -80,7 +81,10 @@ public class Printer {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    myPrinter.starPrint(goods, shishou, null, true, valueCardDto ,sid ,"");
+                    if (myPrinter != null) {
+                        myPrinter.starPrint();
+                    }
+
                 }
             }).start();
         }

@@ -2,34 +2,80 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/zf_white"
     android:orientation="vertical"
     android:baselineAligned="false">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="150dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="0.8"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="100dp"
-            android:src="@drawable/icon_xiaolian" />
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:src="@drawable/icon_pay_ok" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="结账成功"
-            android:textColor="@color/blue_theme"
-            android:textSize="22sp" />
+            android:layout_marginTop="20dp"
+            android:layout_width="129dp"
+            android:layout_height="39dp"
+            android:text="支付成功"
+            android:textColor="#ff333333"
+            android:textSize="28sp"
+            />
     </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:layout_marginLeft="53dp"
+            android:layout_width="38dp"
+            android:layout_height="25dp"
+            android:text="实收"
+            android:textColor="#ff666666"
+            android:textSize="17sp"
+            />
+        <TextView
+            android:id="@+id/tv_ss"
+            android:layout_marginRight="53dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="￥69.50"
+            android:textColor="#ff666666"
+            android:textSize="17sp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:layout_marginLeft="53dp"
+            android:layout_width="38dp"
+            android:layout_height="25dp"
+            android:text="找零"
+            android:textColor="#ff666666"
+            android:textSize="17sp"
+            />
+        <TextView
+            android:id="@+id/tv_change"
+            android:layout_marginRight="53dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="￥69.50"
+            android:textColor="#ff666666"
+            android:textSize="17sp"
+            />
+    </RelativeLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="20dp"
@@ -54,12 +100,12 @@
         <LinearLayout style="@style/pay_success_layout">
 
             <TextView
-                android:id="@+id/order_type"
+
                 style="@style/pay_success_left"
                 android:text="实收" />
 
             <TextView
-                android:id="@+id/tv_ss"
+
                 style="@style/pay_success_right" />
         </LinearLayout>
 
@@ -74,7 +120,7 @@
                 android:text="找零" />
 
             <TextView
-                android:id="@+id/tv_change"
+
                 style="@style/pay_success_right" />
         </LinearLayout>
 
@@ -158,28 +204,36 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
         <Button
             android:id="@+id/btn_back"
-            style="@style/btn_back_style"
-            android:layout_weight="3"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            android:text="返回收银台" />
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            style="@style/btn_back_style"
-            android:layout_marginTop="5dp"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
-            android:text="重打小票"
-            android:background="@drawable/blue_btn_check"
-            android:onClick="printPaper"
-            android:id="@+id/btn_print"/>
+            android:layout_height="67dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="53dp"
+            android:layout_marginLeft="53dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bt_press_select"
+            android:text="返回收银台"
+            android:textColor="#ffffffff"
+            android:textSize="28sp"
+            android:layout_weight="3" />
+        <!--<Button-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--style="@style/btn_back_style"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:text="重打小票"-->
+            <!--android:background="@drawable/blue_btn_check"-->
+            <!--android:onClick="printPaper"-->
+            <!--android:id="@+id/btn_print"/>-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
     </LinearLayout>
 
 

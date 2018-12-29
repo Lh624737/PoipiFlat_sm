@@ -22,7 +22,7 @@ public class OrderMenuDao {
 
     private Context context;
     public OrderMenuDao(Context context) {
-        db = new DB(context);//实例化数据库
+        db = DB.getInstance(context);
         this.context = context;
     }
 

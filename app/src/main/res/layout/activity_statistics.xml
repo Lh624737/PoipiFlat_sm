@@ -4,16 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout style="@style/title">
+    <!--<RelativeLayout style="@style/title">-->
 
-        <TextView
-            style="@style/sale_big_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+        <!--<TextView-->
+         <!---->
+            <!--style="@style/sale_big_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="@string/statistics" />-->
+    <!--</RelativeLayout>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/zf_white"
+        android:layout_height="79dp">
+        <ImageView
+            android:id="@+id/back"
             android:layout_centerVertical="true"
-            android:text="@string/statistics" />
+            android:layout_marginLeft="47dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:onClick="onBack"
+            android:src="@drawable/icon_button_zfpt_return"/>
+        <TextView
+            android:id="@+id/static_name"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:text="收银"
+            android:textColor="#ff666666"
+            android:textSize="28sp"
+            />
+
     </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

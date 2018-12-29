@@ -11,15 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/blue_sale"
+        android:background="@color/white"
         android:gravity="center_horizontal|bottom">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="333dp"
+            android:layout_height="221dp"
             android:layout_marginBottom="10dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/lock" />
+            android:src="@drawable/img_lock" />
     </LinearLayout>
 
     <LinearLayout
@@ -27,17 +26,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/blue_sale"
-        android:gravity="center_horizontal|top"
+        android:background="@color/white"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_marginTop="10dp"
-            android:text="00:00:00"
+            android:layout_width="399dp"
+            android:layout_height="67dp"
+            android:background="@drawable/yj_white_2"
+            android:layout_gravity="center_horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_pwd"/>
+            <EditText
+                android:id="@+id/et_pwd"
+                android:padding="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="请输入收银员密码"
+                android:textColor="@color/blue_cannot_click"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:textColorHint="#ff999999"
+                android:textSize="25sp"
+
+                />
+
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_unlock"
+            android:layout_width="399dp"
+            android:layout_height="67dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bt_press_select"
+            android:focusable="true"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="解锁屏幕"
             android:textColor="@color/white"
-            android:textSize="60sp" />
+            android:textSize="25sp" />
+
     </LinearLayout>
 </LinearLayout>

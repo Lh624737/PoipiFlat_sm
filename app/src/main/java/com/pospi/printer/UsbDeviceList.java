@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.print.sdk.usb.USBPort;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

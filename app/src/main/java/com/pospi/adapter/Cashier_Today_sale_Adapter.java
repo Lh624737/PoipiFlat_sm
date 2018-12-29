@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pospi.dto.OrderDto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 import com.pospi.util.constant.PayWay;
 
 import java.math.BigDecimal;
@@ -59,7 +59,7 @@ public class Cashier_Today_sale_Adapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.way.setText(orderDtos.get(position).getPayway());
+        holder.way.setText(orderDtos.get(position).getCheckoutTime());
         if (orderDtos.get(position).getPayway().equals(PayWay.CZK)) {
             holder.should.setText(String.valueOf(translateDouble(Double.parseDouble(orderDtos.get(position).getYs_money()) * card_discount)));
             holder.shishou.setText(String.valueOf(translateDouble(Double.parseDouble(orderDtos.get(position).getSs_money()) * card_discount)));

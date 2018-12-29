@@ -2,16 +2,16 @@ package com.pospi.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.pospi.dto.Tablebeen;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.List;
 
@@ -50,9 +50,8 @@ public class TableAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.table_item, null);
-            holder.ll = (LinearLayout) view.findViewById(R.id.table_ll);
-            holder.no = (TextView) view.findViewById(R.id.item_status);
-            holder.name = (TextView) view.findViewById(R.id.item_name);
+            holder.ll =  view.findViewById(R.id.table_ll);
+            holder.name = view.findViewById(R.id.item_name);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -62,13 +61,11 @@ public class TableAdapter extends BaseAdapter {
         Tablebeen tb = tablebeens.get(i);
         holder.name.setText(tb.getNumber()+"号桌");
         if (tb.getStatus() == 0) {
-            holder.no.setText("空桌");
-            holder.no.setTextColor(Color.GREEN);
+            holder.name.setText(tb.getNumber() + "号桌");
         } else {
-            holder.no.setText("就餐中");
-            holder.no.setTextColor(Color.RED);
-            holder.ll.setBackgroundColor(Color.GRAY);
             holder.ll.setClickable(false);
+            holder.ll.setBackground(context.getResources().getDrawable(R.drawable.bg_table));
+            holder.name.setText("就餐中");
         }
         return view;
     }
@@ -76,7 +73,7 @@ public class TableAdapter extends BaseAdapter {
     class ViewHolder {
         TextView no;
         TextView name;
-        LinearLayout ll;
+        RelativeLayout ll;
 
     }
 

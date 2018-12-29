@@ -41,7 +41,27 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
         public final static Property CreateTime = new Property(14, String.class, "createTime", false, "CREATE_TIME");
         public final static Property OrderBy = new Property(15, int.class, "orderBy", false, "ORDER_BY");
         public final static Property IsHide = new Property(16, boolean.class, "isHide", false, "IS_HIDE");
-        public final static Property ColorCodeShow = new Property(17, String.class, "colorCodeShow", false, "COLOR_CODE_SHOW");
+        public final static Property ProPrice = new Property(17, double.class, "proPrice", false, "PRO_PRICE");
+        public final static Property ProType = new Property(18, String.class, "proType", false, "PRO_TYPE");
+        public final static Property ProDiscout = new Property(19, double.class, "proDiscout", false, "PRO_DISCOUT");
+        public final static Property OldPrice = new Property(20, double.class, "oldPrice", false, "OLD_PRICE");
+        public final static Property Singnum = new Property(21, int.class, "singnum", false, "SINGNUM");
+        public final static Property Muchnum = new Property(22, int.class, "muchnum", false, "MUCHNUM");
+        public final static Property Logic = new Property(23, String.class, "logic", false, "LOGIC");
+        public final static Property Dzc = new Property(24, String.class, "dzc", false, "DZC");
+        public final static Property Hyzk = new Property(25, double.class, "hyzk", false, "HYZK");
+        public final static Property Lszk = new Property(26, double.class, "lszk", false, "LSZK");
+        public final static Property Cxzk = new Property(27, double.class, "cxzk", false, "CXZK");
+        public final static Property Bzts = new Property(28, String.class, "bzts", false, "BZTS");
+        public final static Property Hyj = new Property(29, double.class, "hyj", false, "HYJ");
+        public final static Property Hyj1 = new Property(30, double.class, "hyj1", false, "HYJ1");
+        public final static Property Hyj2 = new Property(31, double.class, "hyj2", false, "HYJ2");
+        public final static Property Hyj3 = new Property(32, double.class, "hyj3", false, "HYJ3");
+        public final static Property Minzkl = new Property(33, double.class, "minzkl", false, "MINZKL");
+        public final static Property Usejf = new Property(34, String.class, "usejf", false, "USEJF");
+        public final static Property Usezk = new Property(35, String.class, "usezk", false, "USEZK");
+        public final static Property Plu = new Property(36, String.class, "plu", false, "PLU");
+        public final static Property ColorCodeShow = new Property(37, String.class, "colorCodeShow", false, "COLOR_CODE_SHOW");
     }
 
 
@@ -74,7 +94,27 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
                 "\"CREATE_TIME\" TEXT," + // 14: createTime
                 "\"ORDER_BY\" INTEGER NOT NULL ," + // 15: orderBy
                 "\"IS_HIDE\" INTEGER NOT NULL ," + // 16: isHide
-                "\"COLOR_CODE_SHOW\" TEXT);"); // 17: colorCodeShow
+                "\"PRO_PRICE\" REAL NOT NULL ," + // 17: proPrice
+                "\"PRO_TYPE\" TEXT," + // 18: proType
+                "\"PRO_DISCOUT\" REAL NOT NULL ," + // 19: proDiscout
+                "\"OLD_PRICE\" REAL NOT NULL ," + // 20: oldPrice
+                "\"SINGNUM\" INTEGER NOT NULL ," + // 21: singnum
+                "\"MUCHNUM\" INTEGER NOT NULL ," + // 22: muchnum
+                "\"LOGIC\" TEXT," + // 23: logic
+                "\"DZC\" TEXT," + // 24: dzc
+                "\"HYZK\" REAL NOT NULL ," + // 25: hyzk
+                "\"LSZK\" REAL NOT NULL ," + // 26: lszk
+                "\"CXZK\" REAL NOT NULL ," + // 27: cxzk
+                "\"BZTS\" TEXT," + // 28: bzts
+                "\"HYJ\" REAL NOT NULL ," + // 29: hyj
+                "\"HYJ1\" REAL NOT NULL ," + // 30: hyj1
+                "\"HYJ2\" REAL NOT NULL ," + // 31: hyj2
+                "\"HYJ3\" REAL NOT NULL ," + // 32: hyj3
+                "\"MINZKL\" REAL NOT NULL ," + // 33: minzkl
+                "\"USEJF\" TEXT," + // 34: usejf
+                "\"USEZK\" TEXT," + // 35: usezk
+                "\"PLU\" TEXT," + // 36: plu
+                "\"COLOR_CODE_SHOW\" TEXT);"); // 37: colorCodeShow
     }
 
     /** Drops the underlying database table. */
@@ -155,10 +195,58 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
         }
         stmt.bindLong(16, entity.getOrderBy());
         stmt.bindLong(17, entity.getIsHide() ? 1L: 0L);
+        stmt.bindDouble(18, entity.getProPrice());
+ 
+        String proType = entity.getProType();
+        if (proType != null) {
+            stmt.bindString(19, proType);
+        }
+        stmt.bindDouble(20, entity.getProDiscout());
+        stmt.bindDouble(21, entity.getOldPrice());
+        stmt.bindLong(22, entity.getSingnum());
+        stmt.bindLong(23, entity.getMuchnum());
+ 
+        String logic = entity.getLogic();
+        if (logic != null) {
+            stmt.bindString(24, logic);
+        }
+ 
+        String dzc = entity.getDzc();
+        if (dzc != null) {
+            stmt.bindString(25, dzc);
+        }
+        stmt.bindDouble(26, entity.getHyzk());
+        stmt.bindDouble(27, entity.getLszk());
+        stmt.bindDouble(28, entity.getCxzk());
+ 
+        String bzts = entity.getBzts();
+        if (bzts != null) {
+            stmt.bindString(29, bzts);
+        }
+        stmt.bindDouble(30, entity.getHyj());
+        stmt.bindDouble(31, entity.getHyj1());
+        stmt.bindDouble(32, entity.getHyj2());
+        stmt.bindDouble(33, entity.getHyj3());
+        stmt.bindDouble(34, entity.getMinzkl());
+ 
+        String usejf = entity.getUsejf();
+        if (usejf != null) {
+            stmt.bindString(35, usejf);
+        }
+ 
+        String usezk = entity.getUsezk();
+        if (usezk != null) {
+            stmt.bindString(36, usezk);
+        }
+ 
+        String plu = entity.getPlu();
+        if (plu != null) {
+            stmt.bindString(37, plu);
+        }
  
         String colorCodeShow = entity.getColorCodeShow();
         if (colorCodeShow != null) {
-            stmt.bindString(18, colorCodeShow);
+            stmt.bindString(38, colorCodeShow);
         }
     }
 
@@ -234,10 +322,58 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
         }
         stmt.bindLong(16, entity.getOrderBy());
         stmt.bindLong(17, entity.getIsHide() ? 1L: 0L);
+        stmt.bindDouble(18, entity.getProPrice());
+ 
+        String proType = entity.getProType();
+        if (proType != null) {
+            stmt.bindString(19, proType);
+        }
+        stmt.bindDouble(20, entity.getProDiscout());
+        stmt.bindDouble(21, entity.getOldPrice());
+        stmt.bindLong(22, entity.getSingnum());
+        stmt.bindLong(23, entity.getMuchnum());
+ 
+        String logic = entity.getLogic();
+        if (logic != null) {
+            stmt.bindString(24, logic);
+        }
+ 
+        String dzc = entity.getDzc();
+        if (dzc != null) {
+            stmt.bindString(25, dzc);
+        }
+        stmt.bindDouble(26, entity.getHyzk());
+        stmt.bindDouble(27, entity.getLszk());
+        stmt.bindDouble(28, entity.getCxzk());
+ 
+        String bzts = entity.getBzts();
+        if (bzts != null) {
+            stmt.bindString(29, bzts);
+        }
+        stmt.bindDouble(30, entity.getHyj());
+        stmt.bindDouble(31, entity.getHyj1());
+        stmt.bindDouble(32, entity.getHyj2());
+        stmt.bindDouble(33, entity.getHyj3());
+        stmt.bindDouble(34, entity.getMinzkl());
+ 
+        String usejf = entity.getUsejf();
+        if (usejf != null) {
+            stmt.bindString(35, usejf);
+        }
+ 
+        String usezk = entity.getUsezk();
+        if (usezk != null) {
+            stmt.bindString(36, usezk);
+        }
+ 
+        String plu = entity.getPlu();
+        if (plu != null) {
+            stmt.bindString(37, plu);
+        }
  
         String colorCodeShow = entity.getColorCodeShow();
         if (colorCodeShow != null) {
-            stmt.bindString(18, colorCodeShow);
+            stmt.bindString(38, colorCodeShow);
         }
     }
 
@@ -266,7 +402,27 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
             cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // createTime
             cursor.getInt(offset + 15), // orderBy
             cursor.getShort(offset + 16) != 0, // isHide
-            cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17) // colorCodeShow
+            cursor.getDouble(offset + 17), // proPrice
+            cursor.isNull(offset + 18) ? null : cursor.getString(offset + 18), // proType
+            cursor.getDouble(offset + 19), // proDiscout
+            cursor.getDouble(offset + 20), // oldPrice
+            cursor.getInt(offset + 21), // singnum
+            cursor.getInt(offset + 22), // muchnum
+            cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // logic
+            cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24), // dzc
+            cursor.getDouble(offset + 25), // hyzk
+            cursor.getDouble(offset + 26), // lszk
+            cursor.getDouble(offset + 27), // cxzk
+            cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // bzts
+            cursor.getDouble(offset + 29), // hyj
+            cursor.getDouble(offset + 30), // hyj1
+            cursor.getDouble(offset + 31), // hyj2
+            cursor.getDouble(offset + 32), // hyj3
+            cursor.getDouble(offset + 33), // minzkl
+            cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34), // usejf
+            cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35), // usezk
+            cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36), // plu
+            cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37) // colorCodeShow
         );
         return entity;
     }
@@ -290,7 +446,27 @@ public class GoodsDtoDao extends AbstractDao<GoodsDto, Long> {
         entity.setCreateTime(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));
         entity.setOrderBy(cursor.getInt(offset + 15));
         entity.setIsHide(cursor.getShort(offset + 16) != 0);
-        entity.setColorCodeShow(cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17));
+        entity.setProPrice(cursor.getDouble(offset + 17));
+        entity.setProType(cursor.isNull(offset + 18) ? null : cursor.getString(offset + 18));
+        entity.setProDiscout(cursor.getDouble(offset + 19));
+        entity.setOldPrice(cursor.getDouble(offset + 20));
+        entity.setSingnum(cursor.getInt(offset + 21));
+        entity.setMuchnum(cursor.getInt(offset + 22));
+        entity.setLogic(cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23));
+        entity.setDzc(cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24));
+        entity.setHyzk(cursor.getDouble(offset + 25));
+        entity.setLszk(cursor.getDouble(offset + 26));
+        entity.setCxzk(cursor.getDouble(offset + 27));
+        entity.setBzts(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
+        entity.setHyj(cursor.getDouble(offset + 29));
+        entity.setHyj1(cursor.getDouble(offset + 30));
+        entity.setHyj2(cursor.getDouble(offset + 31));
+        entity.setHyj3(cursor.getDouble(offset + 32));
+        entity.setMinzkl(cursor.getDouble(offset + 33));
+        entity.setUsejf(cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34));
+        entity.setUsezk(cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35));
+        entity.setPlu(cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36));
+        entity.setColorCodeShow(cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37));
      }
     
     @Override

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.pospi.dto.Tabledto;
-import com.pospi.pai.pospiflat.R;
+import com.pospi.pai.yunpos.R;
 
 import java.util.ArrayList;
 import java.util.List;

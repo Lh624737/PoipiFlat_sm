@@ -11,5 +11,5 @@ public class TableStatusConstance {
     public static final int Status_Dining = 1;//用餐中
     public static final int Status_Free = 0;//空闲中
     public static final int Status_Paid = 2;//已付款
-
+    public static  String TABLE_MAXNO= "";//
 }
